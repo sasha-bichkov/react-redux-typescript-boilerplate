@@ -6,6 +6,7 @@
   "scripts": {
     "test": "yarn jest ./app --verbose --coverage",
     "lint": "yarn eslint .",
+    "csslint": "yarn stylelint ./app/**/*.scss",
     "analyze": "..."
   },
   "devDependencies": {
@@ -14,14 +15,16 @@
     "eslint": "^8.3.0",
     "eslint-plugin-react": "^7.27.1",
     "jest": "^27.3.1",
+    "stylelint": "^14.1.0",
+    "stylelint-config-standard-scss": "^3.0.0",
     "typescript": "^4.5.2",
     "webpack": "^5.64.4",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
-    "@types/react": "^17.0.37",
     "@reduxjs/toolkit": "^1.6.2",
+    "@types/react": "^17.0.37",
     "axios": "^0.24.0",
     "classnames": "^2.3.1",
     "immer": "^9.0.7",
