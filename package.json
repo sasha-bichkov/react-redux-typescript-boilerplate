@@ -1,26 +1,37 @@
 {
   "name": "frontend_boilerplate",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
     "test": "yarn jest ./app --verbose --coverage",
     "lint": "yarn eslint .",
     "csslint": "yarn stylelint ./app/**/*.scss",
-    "analyze": "..."
+    "analyze": "...",
+    "start": "yarn webpack --config webpack/development.js",
+    "build": "yarn webpack --config webpack/production.js"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "critical-css-webpack-plugin": "^3.0.0",
+    "css-loader": "^6.5.1",
     "eslint": "^8.3.0",
     "eslint-plugin-react": "^7.27.1",
+    "html-webpack-plugin": "^5.5.0",
     "jest": "^27.3.1",
+    "mini-css-extract-plugin": "^2.4.5",
+    "sass": "^1.44.0",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
     "stylelint": "^14.1.0",
     "stylelint-config-standard-scss": "^3.0.0",
+    "ts-loader": "^9.2.6",
     "typescript": "^4.5.2",
     "webpack": "^5.64.4",
     "webpack-bundle-analyzer": "^4.5.0",
-    "webpack-cli": "^4.9.1"
+    "webpack-cli": "^4.9.1",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",

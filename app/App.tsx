@@ -8,6 +8,8 @@ interface AppProps {
 interface AppState {
 }
 
+import './App.scss'
+
 class App extends React.Component<AppProps, AppState> {
   render() {
     return(
