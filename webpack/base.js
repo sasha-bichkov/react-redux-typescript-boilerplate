@@ -1,18 +1,15 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CriticalCssPlugin = require('critical-css-webpack-plugin')
 
 const path = require('path')
 
 module.exports = {
-  context: path.resolve(__dirname, '..'),
-  mode: 'development',
   entry: {
     app: path.resolve('app', 'App.tsx'),
   },
   output: {
     path: path.resolve('build'),
     filename: '[name].bundle.js',
+    clean: true,
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -30,7 +27,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve('public', 'index.html'),
     }),
-    new CriticalCssPlugin(),
-    new CleanWebpackPlugin(),
   ]
 }

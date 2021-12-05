@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge')
 const baseConfig = require('./base.js')
 const TerserPlugin = require('terser-webpack-plugin')
+const CriticalCssPlugin = require('critical-css-webpack-plugin')
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
@@ -15,7 +16,8 @@ const prodConfig = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+    new CriticalCssPlugin(),
   ],
   optimization: {
     minimize: true,

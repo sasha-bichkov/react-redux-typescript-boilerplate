@@ -7,14 +7,15 @@
     "lint": "yarn eslint .",
     "csslint": "yarn stylelint ./app/**/*.scss",
     "analyze": "...",
-    "dev": "yarn webpack --config webpack/development.js",
-    "build": "yarn webpack --config webpack/production.js"
+    "dev": "NODE_ENV=development yarn webpack serve --config webpack/development.js",
+    "build": "NODE_ENV=production yarn webpack --config webpack/production.js"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "autoprefixer": "^10.4.0",
     "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^10.0.0",
     "critical-css-webpack-plugin": "^3.0.0",
     "css-loader": "^6.5.1",
     "eslint": "^8.3.0",
@@ -33,6 +34,7 @@
     "webpack": "^5.64.4",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0",
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
