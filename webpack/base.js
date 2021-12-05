@@ -1,3 +1,4 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CriticalCssPlugin = require('critical-css-webpack-plugin')
 
@@ -29,6 +30,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve('public', 'index.html'),
     }),
-    new CriticalCssPlugin()
+    new CriticalCssPlugin(),
+    new CleanWebpackPlugin(),
   ]
 }

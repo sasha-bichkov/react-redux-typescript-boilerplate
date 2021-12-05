@@ -1,14 +1,15 @@
-Set up webpack
-Install enzyme
-Install web-vitals
-Install autoprefixer
-Install browserlint
+Hot-reloading...
+
+Set up redux
 
 Install react-router
-
 Install redux-tools
 Install redux-logger (actions)
+
+Install enzyme
+Install web-vitals
+
 Install Rollbar
 Install HOC for notifying about uncaught erros (Error Boundary)
 
-Load only needed JS files (https://reactjs.org/docs/code-splitting.html)
+Load only needed JS files (https://reactjs.org/docs/code-splitting.html) -- CHUNKS
