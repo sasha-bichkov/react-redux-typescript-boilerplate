@@ -1,27 +1,34 @@
 import React from 'react'
+import { compose } from 'redux'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { Route, Switch } from 'react-router'
+import { ConnectedRouter } from 'connected-react-router'
+import { createBrowserHistory } from 'history'
 
-import { IAction } from '@Root/types'
+import Home from '@Pages/Home'
+import configureStore from '@Root/configureStore'
 
-interface AppProps {
-}
+import '@Root/App.scss'
 
-interface AppState {
-}
-
-import './App.scss'
-
-class App extends React.Component<AppProps, AppState> {
-  render() {
-    return(
-      <div>Hello world!</div>
-    )
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
   }
 }
 
 const rootElement = document.getElementById('main') as HTMLElement
 
+const history = createBrowserHistory()
+const store = configureStore(history)
+
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <Switch>
+        <Route path="/" component={Home} />
+      </Switch>
+    </ConnectedRouter>
+  </Provider>,
   rootElement
 )

@@ -33,6 +33,8 @@ rules:
     - error
     - single
 
+  '@typescript-eslint/no-explicit-any': error
+
   semi:
     - error
     - never

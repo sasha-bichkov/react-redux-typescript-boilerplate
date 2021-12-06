@@ -1,4 +1,4 @@
-export interface IAction<T = {}> {
+export interface IAction<T = Record<string, unknown>> {
   type: string,
   payload?: T,
 }

@@ -1,12 +1,7 @@
 import React from 'react'
 
-import { IAction } from '@Root/types'
-
-interface HomeProps {
-}
-
-interface HomeState {
-}
+interface HomeProps {} // eslint-disable-line @typescript-eslint/no-empty-interface
+interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interface
 
 import './Home.scss'
 
@@ -17,3 +12,5 @@ class Home extends React.Component<HomeProps, HomeState> {
     )
   }
 }
+
+export default Home

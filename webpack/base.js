@@ -15,6 +15,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
       '@Root': path.resolve('app'),
+      '@Pages': path.resolve('app', 'pages'),
       '@Modules': path.resolve('app', 'modules'),
     }
   },

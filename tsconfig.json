@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "declaration": false,
+    "noImplicitAny": true,
     "emitDecoratorMetadata": false,
     "experimentalDecorators": false,
     "allowSyntheticDefaultImports": true,
@@ -26,6 +27,7 @@
     "paths": {
       "*": ["./@types/*"],
       "@Root/*": ["./*"],
+      "@Pages/*": ["./pages/*"],
       "@Modules/*": ["./modules/*"],
       "@Containers/*": ["./containers/*"],
       "@Components/*": ["./components/*"],
@@ -36,6 +38,7 @@
   ],
   "exclude": [
     "public",
+    "build",
     "node_modules",
     "./app/**/*.spec.ts",
     "./app/**/*.spec.tsx",
