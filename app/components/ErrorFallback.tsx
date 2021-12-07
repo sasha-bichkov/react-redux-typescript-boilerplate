@@ -1,5 +1,7 @@
 import React from 'react'
-import { FallbackProps } from "react-error-boundary";
+
+import { FallbackProps } from 'react-error-boundary'
+
 
 function ErrorFallback({error, resetErrorBoundary}:FallbackProps) {
   return (
@@ -10,3 +12,5 @@ function ErrorFallback({error, resetErrorBoundary}:FallbackProps) {
     </div>
   )
 }
+
+export default ErrorFallback
