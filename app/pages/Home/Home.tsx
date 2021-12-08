@@ -4,11 +4,8 @@ interface HomeProps {} // eslint-disable-line @typescript-eslint/no-empty-interf
 interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interface
 
 import './Home.scss'
-import {ErrorBoundary} from 'react-error-boundary'
-import ErrorFallback from '@Root/components/ErrorFallback'
 
-
-function Bomb():any {
+function Bomb():never {
   throw new Error('💥 CABOOM 💥')
 }
 
@@ -17,9 +14,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     return(
       <div>
         Home page
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <Bomb/>
-        </ErrorBoundary>
+        <Bomb/>
       </div>
     )
   }

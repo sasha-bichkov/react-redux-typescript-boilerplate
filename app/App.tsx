@@ -10,6 +10,8 @@ import Home from '@Pages/Home'
 import configureStore from '@Root/configureStore'
 
 import '@Root/App.scss'
+import { ErrorBoundary } from 'react-error-boundary'
+import ErrorFallback from '@Root/components/ErrorFallback'
 
 declare global {
   interface Window {
@@ -25,9 +27,11 @@ const store = configureStore(history)
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Switch>
-        <Route path="/" component={Home} />
-      </Switch>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Switch>
+          <Route path="/" component={Home} />
+        </Switch>
+      </ErrorBoundary>
     </ConnectedRouter>
   </Provider>,
   rootElement
