@@ -5,13 +5,13 @@ import { Provider } from 'react-redux'
 import { Route, Switch } from 'react-router'
 import { ConnectedRouter } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
+import { ErrorBoundary } from 'react-error-boundary'
 
 import Home from '@Pages/Home'
 import configureStore from '@Root/configureStore'
 
 import '@Root/App.scss'
-import { ErrorBoundary } from 'react-error-boundary'
-import ErrorFallback from '@Root/components/ErrorFallback'
+import ErrorFallback from '@Components/ErrorFallback'
 
 declare global {
   interface Window {
