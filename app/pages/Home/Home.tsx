@@ -5,10 +5,17 @@ interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interf
 
 import './Home.scss'
 
+function Bomb():never {
+  throw new Error('💥 CABOOM 💥')
+}
+
 class Home extends React.Component<HomeProps, HomeState> {
   render() {
     return(
-      <div>Home page!</div>
+      <div>
+        Home page
+        <Bomb/>
+      </div>
     )
   }
 }

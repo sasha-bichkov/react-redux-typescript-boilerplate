@@ -5,9 +5,11 @@ import { Provider } from 'react-redux'
 import { Route, Switch } from 'react-router'
 import { ConnectedRouter } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
+import { ErrorBoundary } from 'react-error-boundary'
 
 import Home from '@Pages/Home'
 import configureStore from '@Root/configureStore'
+import ErrorFallback from '@Components/ErrorFallback'
 
 import '@Root/App.scss'
 
@@ -25,9 +27,11 @@ const store = configureStore(history)
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Switch>
-        <Route path="/" component={Home} />
-      </Switch>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Switch>
+          <Route path="/" component={Home} />
+        </Switch>
+      </ErrorBoundary>
     </ConnectedRouter>
   </Provider>,
   rootElement
