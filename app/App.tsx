@@ -9,9 +9,9 @@ import { ErrorBoundary } from 'react-error-boundary'
 
 import Home from '@Pages/Home'
 import configureStore from '@Root/configureStore'
+import ErrorFallback from '@Components/ErrorFallback'
 
 import '@Root/App.scss'
-import ErrorFallback from '@Components/ErrorFallback'
 
 declare global {
   interface Window {

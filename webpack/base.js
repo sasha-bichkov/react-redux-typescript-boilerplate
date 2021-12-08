@@ -17,6 +17,7 @@ module.exports = {
       '@Root': path.resolve('app'),
       '@Pages': path.resolve('app', 'pages'),
       '@Modules': path.resolve('app', 'modules'),
+      '@Components': path.resolve('app', 'components'),
     }
   },
   module: {

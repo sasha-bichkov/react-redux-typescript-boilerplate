@@ -1,7 +1,16 @@
 import React from 'react'
-import { FallbackProps } from 'react-error-boundary'
 
-function ErrorFallback({ error, resetErrorBoundary }:FallbackProps) {
+interface FallbackProps {
+  readonly error: Error,
+  resetErrorBoundary(...args: Array<unknown>): void
+}
+
+const ErrorFallback: React.FC<FallbackProps> = props => {
+  const {
+    error,
+    resetErrorBoundary
+  } = props
+
   return (
     <div>
       <p>Something went wrong:</p>
