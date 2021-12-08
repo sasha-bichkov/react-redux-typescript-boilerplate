@@ -1,9 +1,5 @@
 import React from 'react'
-
-interface FallbackProps {
-  readonly error: Error,
-  resetErrorBoundary(...args: Array<unknown>): void
-}
+import { FallbackProps } from 'react-error-boundary'
 
 const ErrorFallback: React.FC<FallbackProps> = props => {
   const {
