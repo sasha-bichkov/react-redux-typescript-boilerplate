@@ -14,7 +14,6 @@ class Home extends React.Component<HomeProps, HomeState> {
     return(
       <div>
         Home page
-        <Bomb/>
       </div>
     )
   }
