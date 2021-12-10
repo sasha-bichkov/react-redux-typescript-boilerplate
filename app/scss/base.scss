@@ -1,0 +1,28 @@
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 980px;
+}
+
+.container-center {
+  margin: 30% auto;
+  max-width: 980px;
+}
+
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 980px;
+}
