@@ -4,7 +4,7 @@ body {
   margin: 0;
   list-style: none;
   outline: none;
-  font-family: 'Proxima Nova', Roboto, system-ui, Tahoma, sans-serif;
+  font-family: "Proxima Nova", Roboto, system-ui, Tahoma, sans-serif;
   box-sizing: border-box;
 }
 
@@ -14,5 +14,12 @@ img {
 }
 
 a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
   text-decoration: none;
 }

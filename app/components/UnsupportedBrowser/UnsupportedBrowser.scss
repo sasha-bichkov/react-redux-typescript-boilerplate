@@ -1,13 +1,70 @@
+@import '~sass-mq';
 
 .up {
   min-height: 300px;
 }
+
 .up__title {
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: center;
+  margin: 10px 0;
+  @include mq($from: desktop) {
+    font-size: 3rem;
+    margin: 15px 0;
+  }
 }
 
 .up__text {
   font-size: 1.5rem;
   text-align: center;
+  margin: 10px 0;
+  max-width: 540px;
+  @include mq($from: desktop) {
+    font-size: 2rem;
+    max-width: 740px;
+  }
 }
+
+.up__browserImage {
+  margin: auto;
+  width: 250px;
+  @include mq($from: desktop) {
+    width: 350px;
+  }
+}
+
+.up__list {
+  display: block;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.up__listItem {
+  display: inline-block;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.up__listemItemLink {
+  text-align: center;
+  text-decoration: underline;
+  div {
+    font-size: 0.6rem;
+    @include mq($from:desktop) {
+      font-size: 1rem;
+    }
+  }
+
+}
+
+.up__logo {
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  @include mq($from:desktop) {
+    width: 130px;
+    height: 130px;
+  }
+}
+
