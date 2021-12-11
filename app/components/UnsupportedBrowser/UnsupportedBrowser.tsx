@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import './UnsupportedBrowser.scss'
-import browser from '@Root/assets/browser.png'
+import browser from '@Root/assets/png/browser.png'
 import google from '@Root/assets/svg/Chrome_logo.svg'
 import firefox from '@Root/assets/svg/Firefox_logo.svg'
 import opera from '@Root/assets/svg/Opera_logo.svg'

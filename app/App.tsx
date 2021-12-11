@@ -10,7 +10,7 @@ import { ErrorBoundary } from 'react-error-boundary'
 import Home from '@Pages/Home'
 import configureStore from '@Root/configureStore'
 import ErrorFallback from '@Components/ErrorFallback'
-import reportWebVitals from '../reportWebVitals'
+import reportWebVitals from './reportWebVitals'
 
 import '@Root/App.scss'
 

@@ -4,7 +4,7 @@ interface HomeProps {} // eslint-disable-line @typescript-eslint/no-empty-interf
 interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interface
 
 import './Home.scss'
-import UnsupportedBrowser from '@Components/UnsupportedBrowser/UnsupportedBrowser'
+import UnsupportedBrowser from '@Components/UnsupportedBrowser'
 
 function Bomb():never {
   throw new Error('💥 CABOOM 💥')
@@ -15,7 +15,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     return(
       <div>
         Home page
-        <UnsupportedBrowser/>
+        <UnsupportedBrowser />
       </div>
     )
   }
