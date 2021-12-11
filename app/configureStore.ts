@@ -11,7 +11,8 @@ export default function configureStore(history: BrowserHistory): Store<IApplicat
   const sagaMiddleware = createSagaMiddleware()
 
   if (process.env.NODE_ENV === 'development') {
-    const { logger } = require('redux-logger') // eslint-disable-line @typescript-eslint/no-var-requires
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const { logger } = require('redux-logger')
     middlewares.push(logger)
   }
 

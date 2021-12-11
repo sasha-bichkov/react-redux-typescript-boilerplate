@@ -9,7 +9,15 @@
     "dev": "NODE_ENV=development yarn webpack serve --config webpack/development.js",
     "build": "NODE_ENV=production yarn webpack --config webpack/production.js"
   },
+  "size-limit": [
+    {
+      "path": "build/*.js",
+      "limit": "500 kB",
+      "gzip": true
+    }
+  ],
   "devDependencies": {
+    "@size-limit/preset-app": "^7.0.4",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "autoprefixer": "^10.4.0",
@@ -19,6 +27,7 @@
     "css-loader": "^6.5.1",
     "eslint": "^8.3.0",
     "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.3.1",
     "mini-css-extract-plugin": "^2.4.5",
@@ -26,6 +35,7 @@
     "redux-logger": "^3.0.6",
     "sass": "^1.44.0",
     "sass-loader": "^12.3.0",
+    "size-limit": "^7.0.4",
     "style-loader": "^3.3.1",
     "stylelint": "^14.1.0",
     "stylelint-config-standard-scss": "^3.0.0",
