@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 interface HomeProps {} // eslint-disable-line @typescript-eslint/no-empty-interface
 interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interface
