@@ -13,7 +13,7 @@ import './UnsupportedBrowser.scss'
 
 const UnsupportedBrowser: React.FC = () => {
   return (
-    <div className="container-center up">
+    <div className="UnsupportedBrowser container-center">
       <div className="content-center">
         <img className="UnsupportedBrowser__browserImage" src={BrowserIcon} alt="browser image" width="500px" />
         <h1 className="UnsupportedBrowser__title">Unsupported browser</h1>

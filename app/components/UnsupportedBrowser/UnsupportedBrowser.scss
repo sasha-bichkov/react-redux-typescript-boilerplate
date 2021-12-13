@@ -1,5 +1,36 @@
 @import '~sass-mq';
 
+.container-center {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 0;
+
+    &::before {
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+      content: "";
+    }
+}
+
+.content-center {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: middle;
+  text-align: left;
+
+    img {
+      display: block;
+      border: none;
+    }
+}
+
 .UnsupportedBrowser {
   min-height: 300px;
 }
@@ -8,10 +39,10 @@
   font-size: 2rem;
   text-align: center;
   margin: 10px 0;
-  @include mq($from: desktop) {
-    font-size: 3rem;
-    margin: 15px 0;
-  }
+    @include mq($from: desktop) {
+      font-size: 3rem;
+      margin: 15px 0;
+    }
 }
 
 .UnsupportedBrowser__text {
@@ -19,18 +50,18 @@
   text-align: center;
   margin: 10px 0;
   max-width: 540px;
-  @include mq($from: desktop) {
-    font-size: 2rem;
-    max-width: 740px;
-  }
+    @include mq($from: desktop) {
+      font-size: 2rem;
+      max-width: 740px;
+    }
 }
 
 .UnsupportedBrowser__browserImage {
   margin: auto;
   width: 250px;
-  @include mq($from: desktop) {
-    width: 350px;
-  }
+    @include mq($from: desktop) {
+      width: 350px;
+    }
 }
 
 .UnsupportedBrowser__list {
@@ -39,32 +70,31 @@
   text-align: center;
 }
 
-.UnsupportedBrowser__item {
+.UnsupportedBrowser__list .item {
   display: inline-block;
-  &:hover {
-    opacity: 0.8;
-  }
+    &:hover {
+      opacity: 0.8;
+    }
 }
 
 .UnsupportedBrowser__itemLink {
   text-align: center;
   text-decoration: underline;
-  div {
-    font-size: 0.6rem;
-    @include mq($from:desktop) {
-      font-size: 1rem;
-    }
-  }
-
 }
 
 .UnsupportedBrowser__logo {
   padding: 10px;
   width: 80px;
   height: 80px;
-  @include mq($from:desktop) {
-    width: 130px;
-    height: 130px;
-  }
+    @include mq($from: desktop) {
+      width: 130px;
+      height: 130px;
+    }
 }
 
+.UnsupportedBrowser__logoName {
+  font-size: 0.6rem;
+    @include mq($from: desktop) {
+      font-size: 1rem;
+    }
+}

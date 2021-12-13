@@ -9,10 +9,10 @@ const BrowserIcon: React.FC<BrowserIconProps> = props => {
   const { title, Icon } = props
 
   return (
-    <li className="UnsupportedBrowser__item">
-      <a href="#" className="UnsupportedBrowser__itemLink">
-        <Icon className="UnsupportedBrowser__logo" />
-        <div>{title}</div>
+    <li className="item">
+      <a href="#" className="UnsupportedBrowser__link">
+        <Icon className="UnsupportedBrowser__logo" width="80" height="80" />
+        <div className="UnsupportedBrowser__logoName">{title}</div>
       </a>
     </li>
   )
