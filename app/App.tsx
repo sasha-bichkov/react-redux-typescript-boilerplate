@@ -8,15 +8,16 @@ import { createBrowserHistory } from 'history'
 import { ErrorBoundary } from 'react-error-boundary'
 
 import Home from '@Pages/Home'
-import configureStore from '@Root/configureStore'
 import ErrorFallback from '@Components/ErrorFallback'
-import reportWebVitals from './reportWebVitals'
+
+import configureStore from '@Root/configureStore'
+import reportWebVitals from '@Root/reportWebVitals'
 
 import '@Root/App.scss'
 
 declare global {
   interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
   }
 }
 
