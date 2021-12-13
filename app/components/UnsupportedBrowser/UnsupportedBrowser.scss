@@ -1,10 +1,10 @@
 @import '~sass-mq';
 
-.up {
+.UnsupportedBrowser {
   min-height: 300px;
 }
 
-.up__title {
+.UnsupportedBrowser__title {
   font-size: 2rem;
   text-align: center;
   margin: 10px 0;
@@ -14,7 +14,7 @@
   }
 }
 
-.up__text {
+.UnsupportedBrowser__text {
   font-size: 1.5rem;
   text-align: center;
   margin: 10px 0;
@@ -25,7 +25,7 @@
   }
 }
 
-.up__browserImage {
+.UnsupportedBrowser__browserImage {
   margin: auto;
   width: 250px;
   @include mq($from: desktop) {
@@ -33,20 +33,20 @@
   }
 }
 
-.up__list {
+.UnsupportedBrowser__list {
   display: block;
   flex-wrap: wrap;
   text-align: center;
 }
 
-.up__listItem {
+.UnsupportedBrowser__item {
   display: inline-block;
   &:hover {
     opacity: 0.8;
   }
 }
 
-.up__listemItemLink {
+.UnsupportedBrowser__itemLink {
   text-align: center;
   text-decoration: underline;
   div {
@@ -58,7 +58,7 @@
 
 }
 
-.up__logo {
+.UnsupportedBrowser__logo {
   padding: 10px;
   width: 80px;
   height: 80px;
