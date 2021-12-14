@@ -14,5 +14,3 @@ yarn-error.log*
 .npm/
 stats.json
 jest-coverage
-!/app/components/test.tsx
-!/.gitignore

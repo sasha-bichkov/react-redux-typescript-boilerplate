@@ -11,12 +11,12 @@
   text-align: center;
   font-size: 0;
 
-    &::before {
-      height: 100%;
-      display: inline-block;
-      vertical-align: middle;
-      content: "";
-    }
+  &::before {
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+  }
 }
 
 .content-center {
@@ -25,10 +25,10 @@
   vertical-align: middle;
   text-align: left;
 
-    img {
-      display: block;
-      border: none;
-    }
+  img {
+    display: block;
+    border: none;
+  }
 }
 
 .UnsupportedBrowser {
@@ -39,10 +39,11 @@
   font-size: 2rem;
   text-align: center;
   margin: 10px 0;
-    @include mq($from: desktop) {
-      font-size: 3rem;
-      margin: 15px 0;
-    }
+
+  @include mq($from: desktop) {
+    font-size: 3rem;
+    margin: 15px 0;
+  }
 }
 
 .UnsupportedBrowser__text {
@@ -50,18 +51,20 @@
   text-align: center;
   margin: 10px 0;
   max-width: 540px;
-    @include mq($from: desktop) {
-      font-size: 2rem;
-      max-width: 740px;
-    }
+
+  @include mq($from: desktop) {
+    font-size: 2rem;
+    max-width: 740px;
+  }
 }
 
 .UnsupportedBrowser__browserImage {
   margin: auto;
   width: 250px;
-    @include mq($from: desktop) {
-      width: 350px;
-    }
+
+  @include mq($from: desktop) {
+    width: 350px;
+  }
 }
 
 .UnsupportedBrowser__list {
@@ -72,9 +75,10 @@
 
 .UnsupportedBrowser__list .item {
   display: inline-block;
-    &:hover {
-      opacity: 0.8;
-    }
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .UnsupportedBrowser__itemLink {
@@ -86,15 +90,17 @@
   padding: 10px;
   width: 80px;
   height: 80px;
-    @include mq($from: desktop) {
-      width: 130px;
-      height: 130px;
-    }
+
+  @include mq($from: desktop) {
+    width: 130px;
+    height: 130px;
+  }
 }
 
 .UnsupportedBrowser__logoName {
   font-size: 0.6rem;
-    @include mq($from: desktop) {
-      font-size: 1rem;
-    }
+
+  @include mq($from: desktop) {
+    font-size: 1rem;
+  }
 }
