@@ -2,7 +2,7 @@ import React from 'react'
 
 import BrowserItem from './BrowserItem'
 
-import BrowserIcon from '@Images/UnsupportedBrowser/browser.png'
+import BrowserIcon from '@Images/UnsupportedBrowser/Browser.png'
 import GoogleBrowserIcon from '@Images/UnsupportedBrowser/ChromeLogo.svg'
 import FirefoxBrowserIcon from '@Images/UnsupportedBrowser/FirefoxLogo.svg'
 import OperaBrowserIcon from '@Images/UnsupportedBrowser/OperaLogo.svg'
