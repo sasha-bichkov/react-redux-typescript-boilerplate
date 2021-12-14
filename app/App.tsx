@@ -17,7 +17,7 @@ import '@Root/App.scss'
 
 declare global {
   interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
+    readonly __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
   }
 }
 

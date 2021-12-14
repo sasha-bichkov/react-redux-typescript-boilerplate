@@ -6,10 +6,6 @@ interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interf
 import './Home.scss'
 import UnsupportedBrowser from '@Components/UnsupportedBrowser'
 
-function Bomb():never {
-  throw new Error('💥 CABOOM 💥')
-}
-
 class Home extends React.Component<HomeProps, HomeState> {
   render() {
     return(

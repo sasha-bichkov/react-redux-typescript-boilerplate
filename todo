@@ -1,6 +1,5 @@
-Install HOC for notifying about uncaught erros (Error Boundary)
 Load only needed JS files (https://reactjs.org/docs/code-splitting.html) -- CHUNKS
 
 Install enzyme
-Install web-vitals
 Install Rollbar
+Develop a preventer for old browsers
