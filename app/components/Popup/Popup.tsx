@@ -5,10 +5,9 @@ import './Popup.scss'
 export type PropTypes = {
   overlay: boolean
   className: string
-  close?(): void
+  close(): void
   children?: ReactNode
 }
-
 
 const Popup: FunctionComponent<PropTypes> = ({
   overlay,
