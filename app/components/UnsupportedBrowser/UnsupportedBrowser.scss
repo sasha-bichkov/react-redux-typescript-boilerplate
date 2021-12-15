@@ -1,34 +1,12 @@
 @import '~sass-mq';
+@import '../../scss/abstracts/mixsins';
 
 .container-center {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: auto;
-  white-space: nowrap;
-  text-align: center;
-  font-size: 0;
-
-  &::before {
-    height: 100%;
-    display: inline-block;
-    vertical-align: middle;
-    content: "";
-  }
+  @include container-center;
 }
 
 .content-center {
-  display: inline-block;
-  white-space: normal;
-  vertical-align: middle;
-  text-align: left;
-
-  img {
-    display: block;
-    border: none;
-  }
+  @include content-center;
 }
 
 .UnsupportedBrowser {

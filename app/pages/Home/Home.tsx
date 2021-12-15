@@ -10,7 +10,7 @@ class Home extends React.Component<HomeProps, HomeState> {
   render() {
     return(
       <div>
-        Home page
+        <h1>Home page</h1>
         <UnsupportedBrowser />
       </div>
     )
