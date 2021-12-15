@@ -1,0 +1,50 @@
+@import '~sass-mq';
+.overlay {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+
+.Popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+}
+
+.Popup__content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 250px;
+  min-height: 200px;
+}
+
+.Popup__content-decoration {
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 50%) 0px 16px 70px;
+}
+
+.Popup__contentHeader {
+  align-self: flex-end;
+}
+
+.Popup__closeBtn {
+  padding: 10px;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
