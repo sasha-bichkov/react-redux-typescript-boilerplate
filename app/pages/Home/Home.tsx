@@ -4,14 +4,17 @@ interface HomeProps {} // eslint-disable-line @typescript-eslint/no-empty-interf
 interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interface
 
 import './Home.scss'
-import UnsupportedBrowser from '@Components/UnsupportedBrowser'
+import Popup from '@Components/Popup'
 
 class Home extends React.Component<HomeProps, HomeState> {
   render() {
     return(
       <div>
-        <h1>Home page</h1>
-        <UnsupportedBrowser />
+        Home page
+        <Popup overlay={true} close={()=> console.log('click')}>
+          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </div>
+        </Popup>
       </div>
     )
   }

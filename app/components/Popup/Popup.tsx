@@ -4,19 +4,17 @@ import './Popup.scss'
 
 export type PropTypes = {
   overlay: boolean
-  className: string
   close(): void
   children?: ReactNode
 }
 
 const Popup: FunctionComponent<PropTypes> = ({
   overlay,
-  className,
   close,
   children
 }) => {
   return (
-    <div className={`${className} Popup-decoration`}>
+    <div className="Popup Popup-decoration">
       <div className={'Popup__content Popup__content-decoration'}>
         <div className="Popup__contentHeader">
           <button className="Popup__closeBtn" onClick={close}>X</button>
@@ -25,7 +23,7 @@ const Popup: FunctionComponent<PropTypes> = ({
           {children}
         </div>
       </div>
-      <div className="overlay"></div>
+      {overlay && <div className="overlay"></div>}
     </div>
   )
 }
