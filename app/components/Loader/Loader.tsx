@@ -1,11 +1,13 @@
 import React from 'react'
-import  PreLoader  from '../../../public/images/Loader/Spinner-1s-200px.svg'
-
+import './Loader.scss'
 
 const Loader: React.FunctionComponent = () => {
   return (
-    <div>
-      <PreLoader />
+    <div className="Loader">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   )
 }
