@@ -3,7 +3,7 @@
 .overlay {
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
   top: 0;
   left: 0;
@@ -52,6 +52,7 @@
   background-color: transparent;
   cursor: pointer;
   transition-duration: 0.4s;
+
   &:hover {
     background-color: black;
     color: white;
@@ -59,13 +60,11 @@
 }
 
 .fadeIn {
-  animation-duration: 0.5s;
-  animation-name: fadeIn;
+  animation: 0.5s fadeIn;
 }
 
 .backInDown {
-  animation-duration: 0.5s;
-  animation-name: backInDown;
+  animation: 0.5s backInDown;
 }
 
 @keyframes backInDown {
