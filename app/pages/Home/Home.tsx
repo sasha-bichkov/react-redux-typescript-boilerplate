@@ -5,13 +5,14 @@ interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interf
 
 import './Home.scss'
 import UnsupportedBrowser from '@Components/UnsupportedBrowser'
+import Loader from '@Components/Loader'
 
 class Home extends React.Component<HomeProps, HomeState> {
   render() {
     return(
       <div>
         <h1>Home page</h1>
-        <UnsupportedBrowser />
+        <Loader />
       </div>
     )
   }
