@@ -15,11 +15,11 @@ const Popup: FunctionComponent<PropTypes> = ({
 }) => {
   return (
     <div className="Popup Popup-decoration">
-      <div className={'Popup__content Popup__content-decoration'}>
+      <div className={'Popup__content Popup__content-decoration backInDown'}>
         <div className="Popup__contentHeader">
           <button className="Popup__closeBtn" onClick={close}>X</button>
         </div>
-        <div>
+        <div className="Popup__contentBody">
           {children}
         </div>
       </div>

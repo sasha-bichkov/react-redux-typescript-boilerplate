@@ -1,6 +1,10 @@
 @import 'scss/breakpoints';
 @import 'scss/base/typography';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;

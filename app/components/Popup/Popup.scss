@@ -24,7 +24,7 @@
   padding: 20px;
   border-radius: 12px;
   max-width: 260px;
-  min-height: 100px;
+  min-height: 150px;
 
   @include mq($from: tablet) {
     max-width: 700px;
@@ -40,6 +40,10 @@
   align-self: flex-end;
 }
 
+.Popup__contentBody {
+  padding: 15px 0;
+}
+
 .Popup__closeBtn {
   padding: 10px;
   border: none;
@@ -47,8 +51,46 @@
   color: inherit;
   background-color: transparent;
   cursor: pointer;
+  transition-duration: 0.4s;
   &:hover {
     background-color: black;
     color: white;
+  }
+}
+
+.fadeIn {
+  animation-duration: 0.5s;
+  animation-name: fadeIn;
+}
+
+.backInDown {
+  animation-duration: 0.5s;
+  animation-name: backInDown;
+}
+
+@keyframes backInDown {
+  0% {
+    transform: translateY(-1200px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  80% {
+    transform: translateY(0px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
