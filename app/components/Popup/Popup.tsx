@@ -1,4 +1,5 @@
 import React, { FunctionComponent, ReactNode } from 'react'
+import FocusLock from 'react-focus-lock'
 
 import './Popup.scss'
 
@@ -15,14 +16,18 @@ const Popup: FunctionComponent<PropTypes> = ({
 }) => {
   return (
     <div className="Popup Popup-decoration">
-      <div className={'Popup__content Popup__content-decoration backInDown'}>
-        <div className="Popup__contentHeader">
-          <button className="Popup__closeBtn" onClick={close}>X</button>
+      <FocusLock>
+        <div className={'Popup__content Popup__content-decoration backInDown'}>
+          <div className="Popup__contentHeader">
+            <button className="Popup__closeBtn clearBtn" onClick={close}>
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div className="Popup__contentBody">
+            {children}
+          </div>
         </div>
-        <div className="Popup__contentBody">
-          {children}
-        </div>
-      </div>
+      </FocusLock>
       {overlay && <div className="overlay"></div>}
     </div>
   )

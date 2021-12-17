@@ -28,3 +28,11 @@
     border: none;
   }
 }
+
+@mixin clearBtn($p: 10px) {
+  padding: $p;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+}

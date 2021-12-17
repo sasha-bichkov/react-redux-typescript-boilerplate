@@ -1,4 +1,5 @@
 @import '~sass-mq';
+@import '../../scss/abstracts/mixsins';
 
 .overlay {
   height: 100vh;
@@ -44,20 +45,34 @@
   padding: 15px 0;
 }
 
+.clearBtn {
+  @include clearBtn;
+}
+
 .Popup__closeBtn {
-  padding: 10px;
-  border: none;
-  font: inherit;
-  color: inherit;
-  background-color: transparent;
   cursor: pointer;
   transition-duration: 0.4s;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
 
-  &:hover {
-    background-color: black;
-    color: white;
+  &:hover, &:active {
+    color: #000;
+    text-decoration: none;
+    opacity: .75;
+  }
+
+  &:focus {
+    color: black;
+    font-size: 2rem;
+    opacity: 1;
   }
 }
+
+// used this library for animation https://animate.style/
 
 .fadeIn {
   animation: 0.5s fadeIn;
