@@ -1,0 +1,16 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  min-width: 64px;
+  padding: 6px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:disabled,
+.btn[disabled] {
+  cursor: not-allowed;
+}
