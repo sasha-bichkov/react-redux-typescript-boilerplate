@@ -15,21 +15,23 @@ const Popup: FunctionComponent<PropTypes> = ({
   children
 }) => {
   return (
-    <div className="Popup Popup-decoration">
-      <FocusLock>
-        <div className={'Popup__content Popup__content-decoration backInDown'}>
-          <div className="Popup__contentHeader">
-            <button className="Popup__closeBtn clearBtn" onClick={close}>
-              <span aria-hidden="true">×</span>
-            </button>
+    <>
+      <div className="Popup Popup-decoration">
+        <FocusLock>
+          <div className="Popup__content Popup__content-decoration backInDown">
+            <div className="Popup__contentHeader">
+              <button className="Popup__closeBtn clearBtn" onClick={close}>
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div className="Popup__contentBody">
+              {children}
+            </div>
           </div>
-          <div className="Popup__contentBody">
-            {children}
-          </div>
-        </div>
-      </FocusLock>
-      {overlay && <div className="overlay"></div>}
-    </div>
+        </FocusLock>
+      </div>
+      {overlay && (<div className="overlay" />)}
+    </>
   )
 }
 

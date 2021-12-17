@@ -29,8 +29,7 @@
   }
 }
 
-@mixin clearBtn($p: 10px) {
-  padding: $p;
+@mixin clearBtn() {
   border: none;
   font: inherit;
   color: inherit;
