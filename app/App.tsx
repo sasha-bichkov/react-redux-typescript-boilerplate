@@ -14,7 +14,7 @@ import ErrorFallback from '@Components/ErrorFallback'
 import configureStore from '@Root/configureStore'
 import reportWebVitals from '@Root/reportWebVitals'
 
-import '@Root/App.scss'
+import '@Scss/App.scss'
 
 declare global {
   interface Window {
