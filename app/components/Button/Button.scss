@@ -1,4 +1,4 @@
-.btn {
+.Button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -7,10 +7,24 @@
   padding: 6px 16px;
   cursor: pointer;
   text-decoration: none;
-  transition: 0.3s;
+  transition: .3s;
+  background-color: #03a9f4;
+
+  &:hover {
+    background-color: lighten(#03a9f4, 10%);
+  }
+
+  &:active {
+    background-color: darken(#03a9f4, 10%);
+  }
+
+  &:focus {
+    outline: #d500f9;
+  }
 }
 
-.btn:disabled,
-.btn[disabled] {
+.Button:disabled {
   cursor: not-allowed;
 }
+
+

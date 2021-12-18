@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Button from '@Components/Button'
-import UnsupportedBrowser from '@Components/UnsupportedBrowser'
 
 import './Home.scss'
 
