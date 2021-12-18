@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Home renders correctly 1`] = `
+<div>
+  <UnsupportedBrowser />
+</div>
+`;
+
 exports[`Home should render correctly in "debug" mode 1`] = `
 <div>
-  Home page
+  <UnsupportedBrowser />
 </div>
 `;
