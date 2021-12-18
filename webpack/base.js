@@ -15,14 +15,38 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
       '@Root': path.resolve('app'),
+      '@Scss': path.resolve('app', 'scss'),
       '@Pages': path.resolve('app', 'pages'),
+      '@Images': path.resolve('public', 'images'),
       '@Modules': path.resolve('app', 'modules'),
       '@Components': path.resolve('app', 'components'),
     }
   },
   module: {
     rules: [
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ]
+      },
       { test: /\.tsx?$/, loader: 'ts-loader' },
+      {
+        test: /\.svg$/,
+        use: [{
+          loader: 'babel-loader'
+        }, {
+          loader: 'react-svg-loader',
+          options: {
+            jsx: true
+          }
+        }]
+      }
     ]
   },
   plugins: [

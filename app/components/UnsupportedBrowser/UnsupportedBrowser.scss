@@ -1,0 +1,67 @@
+.UnsupportedBrowser {
+  text-align: center;
+}
+
+.UnsupportedBrowser__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.UnsupportedBrowser__title {
+  font-size: 2rem;
+  margin: 10px 0;
+
+  @include mq($from: desktop) {
+    font-size: 3rem;
+    margin: 15px 0;
+  }
+}
+
+.UnsupportedBrowser__text {
+  display: inline-block;
+  font-size: 1.5rem;
+  margin: 10px 0;
+  max-width: 540px;
+
+  @include mq($from: desktop) {
+    font-size: 2rem;
+    max-width: 740px;
+  }
+}
+
+.UnsupportedBrowser__icon {
+  @include size(250px);
+
+  @include mq($from: desktop) {
+    @include size(300px);
+  }
+}
+
+.BrowserIcon {
+  display: inline-block;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.BrowserIcon__logo {
+  padding: 10px;
+  @include size(100%, auto);
+  max-width: 100px;
+  max-height: 100px;
+
+  @include mq($from: desktop) {
+    max-width: 150px;
+    max-height: 150px;
+  }
+}
+
+.BrowserIcon__title {
+  font-size: 1rem;
+
+  @include mq($from: desktop) {
+    font-size: 1.5rem;
+  }
+}
