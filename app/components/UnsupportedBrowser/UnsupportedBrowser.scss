@@ -1,21 +1,15 @@
-@import '~sass-mq';
-@import '../../scss/abstracts/mixsins';
-
-.container-center {
-  @include container-center;
-}
-
-.content-center {
-  @include content-center;
-}
-
 .UnsupportedBrowser {
-  min-height: 300px;
+  text-align: center;
+}
+
+.UnsupportedBrowser__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .UnsupportedBrowser__title {
   font-size: 2rem;
-  text-align: center;
   margin: 10px 0;
 
   @include mq($from: desktop) {
@@ -25,8 +19,8 @@
 }
 
 .UnsupportedBrowser__text {
+  display: inline-block;
   font-size: 1.5rem;
-  text-align: center;
   margin: 10px 0;
   max-width: 540px;
 
@@ -36,49 +30,38 @@
   }
 }
 
-.UnsupportedBrowser__browserImage {
-  margin: auto;
-  width: 250px;
+.UnsupportedBrowser__icon {
+  @include size(250px);
 
   @include mq($from: desktop) {
-    width: 350px;
+    @include size(300px);
   }
 }
 
-.UnsupportedBrowser__list {
-  display: block;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-.UnsupportedBrowser__list .item {
+.BrowserIcon {
   display: inline-block;
 
   &:hover {
-    opacity: 0.8;
+    opacity: .8;
   }
 }
 
-.UnsupportedBrowser__itemLink {
-  text-align: center;
-  text-decoration: underline;
-}
-
-.UnsupportedBrowser__logo {
+.BrowserIcon__logo {
   padding: 10px;
-  width: 80px;
-  height: 80px;
+  @include size(100%, auto);
+  max-width: 100px;
+  max-height: 100px;
 
   @include mq($from: desktop) {
-    width: 130px;
-    height: 130px;
+    max-width: 150px;
+    max-height: 150px;
   }
 }
 
-.UnsupportedBrowser__logoName {
-  font-size: 0.6rem;
+.BrowserIcon__title {
+  font-size: 1rem;
 
   @include mq($from: desktop) {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
