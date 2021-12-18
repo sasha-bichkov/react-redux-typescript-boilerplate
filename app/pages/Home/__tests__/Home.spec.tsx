@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import Home from '../Home'
 
 describe('Home', () => {
-  it('should render correctly in "debug" mode', () => {
+  it('renders correctly', () => {
     const component = shallow(<Home />)
 
     expect(component).toMatchSnapshot()

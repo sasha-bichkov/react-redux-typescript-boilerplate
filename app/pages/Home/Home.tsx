@@ -1,10 +1,12 @@
 import React from 'react'
 
-interface HomeProps {} // eslint-disable-line @typescript-eslint/no-empty-interface
-interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interface
+import Button from '@Components/Button'
+import UnsupportedBrowser from '@Components/UnsupportedBrowser'
 
 import './Home.scss'
-import Button from '@Components/Button'
+
+interface HomeProps {} // eslint-disable-line @typescript-eslint/no-empty-interface
+interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interface
 
 class Home extends React.Component<HomeProps, HomeState> {
   render() {
