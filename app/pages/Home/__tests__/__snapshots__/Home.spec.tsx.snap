@@ -5,3 +5,9 @@ exports[`Home renders correctly 1`] = `
   <UnsupportedBrowser />
 </div>
 `;
+
+exports[`Home should render correctly in "debug" mode 1`] = `
+<div>
+  <UnsupportedBrowser />
+</div>
+`;
