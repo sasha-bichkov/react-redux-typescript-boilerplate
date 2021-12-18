@@ -1,5 +1,4 @@
 @import '~sass-mq';
-@import '../../scss/abstracts/mixsins';
 
 .overlay {
   height: 100vh;
@@ -47,7 +46,11 @@
 
 .clearBtn {
   padding: 10px;
-  @include clearBtn;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .Popup__closeBtn {
