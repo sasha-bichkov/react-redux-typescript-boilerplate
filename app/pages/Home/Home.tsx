@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Button from '@Components/Button'
+import CookiesNotifying from '@Components/CookiesNotifying'
 
 import './Home.scss'
 
@@ -12,12 +12,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     return(
       <div>
         <h1>Home page</h1>
-        <Button
-          caption={'click me'}
-          onClick={() => console.log('click')}
-          disabled={false}
-          showSpinner={false}
-        />
+        <CookiesNotifying/>
       </div>
     )
   }
