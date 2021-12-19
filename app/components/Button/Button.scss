@@ -17,10 +17,6 @@
   &:active {
     background-color: darken(#03a9f4, 10%);
   }
-
-  &:focus {
-    outline: #d500f9;
-  }
 }
 
 .Button:disabled {
