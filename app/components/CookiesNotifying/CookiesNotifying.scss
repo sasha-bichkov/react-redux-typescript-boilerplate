@@ -1,28 +1,51 @@
 .CookiesNotifying {
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2),
+  0 6px 10px 0 rgba(0, 0, 0, .14),
+  0 1px 18px 0 rgba(0, 0, 0, .12);
+  background-color: #0288d1;
+}
+
+.CookiesNotifying__content {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
   border-radius: 4px;
   padding: 6px 16px;
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-  0px 6px 10px 0px rgba(0, 0, 0, 0.14),
-  0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-  background-color: #0288d1;
 }
 
 .CookiesNotifying__leftColumn {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+
+  @include mq($from: wide) {
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+.CookiesNotifying__rightColumn {
+  flex-grow: 1;
+  text-align: center;
 }
 
 .CookiesNotifying__icon {
-  margin-right: 15px;
   width: 25px;
   fill: white;
+
+  @include mq($from: desktop) {
+    margin-right: 15px;
+  }
 }
 
 .CookiesNotifying__text {
   color: white;
+  max-width: 980px;
 }
 
 .CookiesNotifying__btn {
