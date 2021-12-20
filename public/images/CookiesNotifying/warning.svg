@@ -1,15 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 24.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve">
-<style type="text/css">
-	.st0{stroke:#fff;stroke-width:1;stroke-miterlimit:10;}
-	.st1{stroke:#fff;stroke-miterlimit:10;}
-</style>
-<g>
-	<path class="st0" d="M15,1.2C7.3,1.2,1.1,7.4,1.1,15S7.3,28.8,15,28.8S28.9,22.6,28.9,15S22.7,1.2,15,1.2z M15,27.8
-		C7.9,27.8,2.2,22,2.2,15S7.9,2.2,15,2.2S27.8,8,27.8,15S22.1,27.8,15,27.8z"/>
-	<path class="st1" d="M15,6.2c-0.3,0-0.6,0.2-0.6,0.5v12.1c0,0.3,0.2,0.5,0.6,0.5s0.6-0.2,0.6-0.5V6.8C15.6,6.5,15.3,6.2,15,6.2z"/>
-	<path class="st1" d="M15,21c-0.3,0-0.6,0.2-0.6,0.5v1.1c0,0.3,0.2,0.5,0.6,0.5s0.6-0.2,0.6-0.5v-1.1C15.6,21.3,15.3,21,15,21z"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+  <path
+    d="M15,1.17A13.83,13.83,0,1,0,28.91,15,13.88,13.88,0,0,0,15,1.17Zm0,26.6A12.77,12.77,0,1,1,27.84,15,12.82,12.82,0,0,1,15,27.77Z"
+    stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+  <path d="M15,6.23a.55.55,0,0,0-.55.55V18.84a.55.55,0,0,0,1.1,0V6.78A.55.55,0,0,0,15,6.23Z" stroke="#fff"
+        stroke-miterlimit="10"/>
+  <path d="M15,21a.55.55,0,0,0-.55.55v1.09a.55.55,0,0,0,1.1,0V21.58A.55.55,0,0,0,15,21Z" stroke="#fff"
+        stroke-miterlimit="10"/>
 </svg>
