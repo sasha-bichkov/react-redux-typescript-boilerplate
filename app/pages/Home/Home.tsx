@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Loader from '@Components/Loader'
 import UnsupportedBrowser from '@Components/UnsupportedBrowser'
 
 import './Home.scss'
@@ -11,7 +12,8 @@ class Home extends React.Component<HomeProps, HomeState> {
   render() {
     return(
       <div>
-        <UnsupportedBrowser />
+        <h1>Home page</h1>
+        <Loader />
       </div>
     )
   }
