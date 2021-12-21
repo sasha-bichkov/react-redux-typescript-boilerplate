@@ -3,55 +3,62 @@ import { shallow } from 'enzyme'
 
 import Button from '../Button'
 
-describe('Button component', () => {
-  describe('check className', () => {
-    it('if className is empty', () => {
+describe('Button', () => {
+  describe('if a class name is not specified', () => {
+    it('does not add it', () => {
       const component = shallow(<Button caption="text" />)
+
       expect(component.find('button').hasClass('Button'))
         .toEqual(true)
     })
-    it('if className not empty', () => {
+    it('is added', () => {
       const component = shallow(<Button caption="text" className="test" />)
-      expect(component.find('button').hasClass('Button test'))
-        .toEqual(true)
 
+      expect(component.find('button').hasClass('Button test'))
+        .toBeTruthy()
     })
   })
 
-  describe('check caption', () => {
+  describe('if a caption is passed', () => {
     const component = shallow(<Button caption="help me" />)
+
     expect(component.text()).toEqual('help me')
   })
 
-  describe('check onClick', () => {
+  describe('if onClick callback is passed', () => {
     const mockCallback = jest.fn()
     const component = shallow(<Button caption="test" onClick={mockCallback} />)
-    expect(mockCallback.mock.calls.length).toBe(0)
+
     component.find('button').simulate('click')
-    expect(mockCallback.mock.calls.length).toBe(1)
+
+    expect(mockCallback).toBeCalled()
   })
 
-  describe('check type', () => {
-    it('type should be submit', () => {
+  describe('if the other type', () => {
+    it('should be a submit', () => {
       const component = shallow(<Button caption="test" type="submit" />)
+
       expect(component.find('button').prop('type'))
         .toBe('submit')
     })
-    it('type should be button', () => {
+    it('should be a button', () => {
       const component = shallow(<Button caption="test" />)
+
       expect(component.find('button').prop('type'))
         .toBe('button')
     })
   })
 
-  describe('check disabled', () => {
-    it('button should be disabled', () => {
+  describe('if disabled', () => {
+    it('was disabled', () => {
       const mockCallback = jest.fn()
       const component = shallow(<Button
         caption="test"
-        disabled={true}
+        disabled
         onClick={mockCallback} />)
-      component.find('.Button').simulate('click')
+
+      component.find('button').simulate('click')
+
       expect(mockCallback).toHaveBeenCalledTimes(0)
     })
   })
