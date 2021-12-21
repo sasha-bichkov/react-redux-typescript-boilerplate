@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount, render, shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 
 import CookiesNotifying from '../CookiesNotifying'
 
@@ -12,9 +12,11 @@ describe('CookiesNotifying', () => {
   describe('if click button', () => {
     it('calls it when a button is clicked', () => {
       const mockCallback = jest.fn()
-      const component = shallow(<CookiesNotifying />)
+      const component = mount(<CookiesNotifying />)
 
-      console.log(component)
+      component.find('button').simulate('click')
+
+      expect(mockCallback).toHaveBeenCalledTimes(0)
     })
   })
 })
