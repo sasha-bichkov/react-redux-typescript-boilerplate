@@ -1,5 +1,8 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 
 import Button from '../Button'
 
@@ -26,22 +29,24 @@ describe('Button', () => {
   })
 
   describe('if onClick callback is passed', () => {
-    const mockCallback = jest.fn()
-    const component = shallow(<Button caption="test" onClick={mockCallback} />)
+    it('it passed callback', () => {
+      const mockCallback = jest.fn()
+      const component = shallow(<Button caption="test" onClick={mockCallback} />)
 
-    component.find('button').simulate('click')
+      component.find('button').simulate('click')
 
-    expect(mockCallback).toBeCalled()
+      expect(mockCallback).toBeCalled()
+    })
   })
 
-  describe('if the other type', () => {
-    it('should be a submit', () => {
+  describe('if a type is passed', () => {
+    it('sets it', () => {
       const component = shallow(<Button caption="test" type="submit" />)
 
       expect(component.find('button').prop('type'))
         .toBe('submit')
     })
-    it('should be a button', () => {
+    it('sets default', () => {
       const component = shallow(<Button caption="test" />)
 
       expect(component.find('button').prop('type'))
@@ -52,11 +57,10 @@ describe('Button', () => {
   describe('if disabled', () => {
     it('was disabled', () => {
       const mockCallback = jest.fn()
-      const component = shallow(<Button
+      const component = mount(<Button
         caption="test"
         disabled
         onClick={mockCallback} />)
-
       component.find('button').simulate('click')
 
       expect(mockCallback).toHaveBeenCalledTimes(0)
