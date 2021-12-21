@@ -21,7 +21,7 @@ const CookiesNotifying = () => {
           </p>
         </div>
         <div className="CookiesNotifying__rightColumn">
-          <Button className="CookiesNotifying__btn" caption="accept and close" />
+          <Button className="CookiesNotifying__button" caption="accept and close" />
         </div>
       </div>
     </div>
