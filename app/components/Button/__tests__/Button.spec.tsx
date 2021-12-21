@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 import React from 'react'
 import { mount, shallow } from 'enzyme'
 
@@ -57,10 +54,13 @@ describe('Button', () => {
   describe('if disabled', () => {
     it('was disabled', () => {
       const mockCallback = jest.fn()
+
       const component = mount(<Button
         caption="test"
+        onClick={mockCallback}
         disabled
-        onClick={mockCallback} />)
+      />)
+
       component.find('button').simulate('click')
 
       expect(mockCallback).toHaveBeenCalledTimes(0)
