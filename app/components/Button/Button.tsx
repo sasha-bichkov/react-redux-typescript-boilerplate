@@ -1,8 +1,9 @@
 import React, { FC, ReactElement } from 'react'
+import classNames from 'classnames'
 
 import './Button.scss'
 
-interface ButtonProps {
+export interface ButtonProps {
   className?: string,
   caption: string,
   onClick?(): void,
@@ -12,17 +13,21 @@ interface ButtonProps {
 }
 
 const Button: FC<ButtonProps> = ({
-  className = '',
+  className,
   caption,
   onClick,
   showSpinner,
   type = 'button',
   disabled
 }: ButtonProps): ReactElement => {
+  const classes = classNames(
+    'Button',
+    className,
+  )
   return (
     <button
       type={type}
-      className={`Button ${className}`}
+      className={classes}
       onClick={onClick}
       disabled={disabled}
     >
