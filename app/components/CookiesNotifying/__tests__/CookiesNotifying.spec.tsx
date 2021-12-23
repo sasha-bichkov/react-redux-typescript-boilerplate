@@ -13,10 +13,7 @@ describe('CookiesNotifying', () => {
     it('calls it when a button is clicked', () => {
       const mockCallback = jest.fn()
       const component = mount(<CookiesNotifying />)
-
-      component.find('button').simulate('click')
-
-      expect(mockCallback).toHaveBeenCalledTimes(0)
+      console.log(component.debug())
     })
   })
 })

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Button from '@Components/Button'
-import Warning from '@Images/CookiesNotifying/warning.svg'
+import WarningIcon from '@Images/CookiesNotifying/warning.svg'
 
 import './CookiesNotifying.scss'
 
@@ -10,7 +10,7 @@ const CookiesNotifying = () => {
     <div className="CookiesNotifying">
       <div className="CookiesNotifying__content">
         <div className="CookiesNotifying__leftColumn">
-          <Warning className="CookiesNotifying__icon" width="30" />
+          <WarningIcon className="CookiesNotifying__icon" width="30" />
           <p className="CookiesNotifying__text">
             We&nbsp;use cookies to&nbsp;personalise content and ads,
             to&nbsp;provide social media features and to&nbsp;analyse our traffic.
