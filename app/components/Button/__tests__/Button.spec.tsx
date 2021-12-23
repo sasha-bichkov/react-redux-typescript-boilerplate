@@ -8,25 +8,32 @@ describe('Button', () => {
     it('does not add it', () => {
       const component = shallow(<Button caption="text" />)
 
-      expect(component.find('button').hasClass('Button'))
-        .toEqual(true)
+      const result = component.find('button').hasClass('Button')
+
+      expect(result).toBeTruthy()
     })
+
     it('is added', () => {
       const component = shallow(<Button caption="text" className="test" />)
 
-      expect(component.find('button').hasClass('Button test'))
-        .toBeTruthy()
+      const result = component.find('button').hasClass('Button test')
+
+      expect(result).toBeTruthy()
     })
   })
 
   describe('if a caption is passed', () => {
-    const component = shallow(<Button caption="help me" />)
+    it('it renders the passed caption', () => {
+      const component = shallow(<Button caption="help me" />)
 
-    expect(component.text()).toEqual('help me')
+      const result = component.text()
+
+      expect(result).toEqual('help me')
+    })
   })
 
   describe('if onClick callback is passed', () => {
-    it('it passed callback', () => {
+    it('calls it once the button has clicked', () => {
       const mockCallback = jest.fn()
       const component = shallow(<Button caption="test" onClick={mockCallback} />)
 
@@ -40,26 +47,31 @@ describe('Button', () => {
     it('sets it', () => {
       const component = shallow(<Button caption="test" type="submit" />)
 
-      expect(component.find('button').prop('type'))
-        .toBe('submit')
+      const result = component.find('button').prop('type')
+
+      expect(result).toBe('submit')
     })
+
     it('sets default', () => {
       const component = shallow(<Button caption="test" />)
 
-      expect(component.find('button').prop('type'))
-        .toBe('button')
+      const result = component.find('button').prop('type')
+
+      expect(result).toBe('button')
     })
   })
 
   describe('if disabled', () => {
-    it('was disabled', () => {
+    it('does not call mockCallback when the button was clicked', () => {
       const mockCallback = jest.fn()
 
-      const component = mount(<Button
-        caption="test"
-        onClick={mockCallback}
-        disabled
-      />)
+      const component = mount(
+        <Button
+          caption="test"
+          onClick={mockCallback}
+          disabled
+        />
+      )
 
       component.find('button').simulate('click')
 
