@@ -51,7 +51,9 @@ describe('Button', () => {
 
       expect(result).toBe('submit')
     })
+  })
 
+  describe('if a type is passed', () => {
     it('sets default', () => {
       const component = shallow(<Button caption="test" />)
 
