@@ -23,7 +23,7 @@ describe('Button', () => {
   })
 
   describe('if a caption is passed', () => {
-    it('renders the passed caption', () => {
+    it('it renders the passed caption', () => {
       const component = shallow(<Button caption="help me" />)
 
       const result = component.text()
@@ -51,9 +51,7 @@ describe('Button', () => {
 
       expect(result).toBe('submit')
     })
-  })
 
-  describe('if a type is not passed', () => {
     it('sets default', () => {
       const component = shallow(<Button caption="test" />)
 
