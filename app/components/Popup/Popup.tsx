@@ -15,12 +15,12 @@ const Popup: FunctionComponent<PropTypes> = ({
   children
 }) => {
   return (
-    <>
+    <React.Fragment>
       <div className="Popup Popup-decoration">
         <FocusLock>
           <div className="Popup__content Popup__content-decoration backInDown">
             <div className="Popup__contentHeader">
-              <button className="Popup__closeBtn clearBtn" onClick={close}>
+              <button className="Popup__closeButton clearButton" onClick={close}>
                 <span aria-hidden="true">×</span>
               </button>
             </div>
@@ -31,7 +31,7 @@ const Popup: FunctionComponent<PropTypes> = ({
         </FocusLock>
       </div>
       {overlay && (<div className="overlay" />)}
-    </>
+    </React.Fragment>
   )
 }
 
