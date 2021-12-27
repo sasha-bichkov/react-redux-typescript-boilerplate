@@ -1,5 +1,6 @@
 module.exports = {
   collectCoverage: true,
+  testEnvironment: 'jsdom',
   coverageReporters: ['html'],
   coverageDirectory: '<rootDir>/jest-coverage/',
   snapshotSerializers: [
