@@ -80,4 +80,14 @@ describe('Button', () => {
       expect(mockCallback).toHaveBeenCalledTimes(0)
     })
   })
+
+  describe('if showSpinner is true', () => {
+    it('renders a spinner', () => {
+      const component = mount(<Button caption="test" showSpinner />)
+
+      const result = component.find('.Button__spinner')
+
+      expect(result).toHaveLength(1)
+    })
+  })
 })

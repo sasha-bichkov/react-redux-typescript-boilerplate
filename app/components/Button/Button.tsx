@@ -6,7 +6,9 @@ import './Button.scss'
 export interface ButtonProps {
   className?: string,
   caption: string,
+
   onClick?(): void,
+
   showSpinner?: boolean,
   type?: 'button' | 'submit' | 'reset',
   disabled?: boolean,
@@ -33,6 +35,10 @@ const Button: FC<ButtonProps> = ({
       disabled={disabled}
     >
       {caption}
+      {
+        showSpinner &&
+        <span className="Button__spinner spinner-slow" />
+      }
     </button>
   )
 }

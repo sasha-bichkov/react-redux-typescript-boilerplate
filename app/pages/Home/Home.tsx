@@ -16,7 +16,7 @@ class Home extends React.Component<HomeProps, HomeState> {
           caption={'click me'}
           onClick={() => console.log('click')}
           disabled={false}
-          showSpinner={false}
+          showSpinner={true}
         />
       </div>
     )
