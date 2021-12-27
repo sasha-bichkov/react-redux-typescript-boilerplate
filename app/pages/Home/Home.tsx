@@ -1,6 +1,9 @@
 import React from 'react'
 
+import Button from '@Components/Button'
+import Loader from '@Components/Loader'
 import CookiesNotifying from '@Components/CookiesNotifying'
+import UnsupportedBrowser from '@Components/UnsupportedBrowser'
 
 import './Home.scss'
 
@@ -13,6 +16,15 @@ class Home extends React.Component<HomeProps, HomeState> {
       <div>
         <h1>Home page</h1>
         <CookiesNotifying />
+
+        <Button
+          caption={'click me'}
+          onClick={() => console.log('click')}
+          disabled={false}
+          showSpinner={true}
+        />
+
+        <Loader />
       </div>
     )
   }

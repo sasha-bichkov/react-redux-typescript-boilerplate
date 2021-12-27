@@ -7,7 +7,8 @@
     "lint": "yarn eslint ./app",
     "csslint": "yarn stylelint ./app/**/*.scss",
     "dev": "NODE_ENV=development yarn webpack serve --config webpack/development.js",
-    "build": "NODE_ENV=production yarn webpack --config webpack/production.js"
+    "build": "NODE_ENV=production yarn webpack --config webpack/production.js",
+    "vendor": "yarn webpack --config webpack/vendor.js"
   },
   "size-limit": [
     {
@@ -50,6 +51,7 @@
     "sass-loader": "^12.3.0",
     "sass-resources-loader": "^2.2.4",
     "size-limit": "^7.0.4",
+    "speed-measure-webpack-plugin": "^1.5.0",
     "style-loader": "^3.3.1",
     "stylelint": "^14.1.0",
     "stylelint-config-standard-scss": "^3.0.0",
@@ -70,6 +72,7 @@
     "axios": "^0.24.0",
     "classnames": "^2.3.1",
     "connected-react-router": "^6.9.2",
+    "fork-ts-checker-webpack-plugin": "^6.5.0",
     "history": "^5.1.0",
     "immer": "^9.0.7",
     "normalize.css": "^8.0.1",
