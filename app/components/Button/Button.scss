@@ -13,16 +13,18 @@
   background-color: #03a9f4;
 
   &:hover {
-    background-color: lighten(#03a9f4, 10%);
+    background-color: lighten(#03a9f4, $lighten_amount);
   }
 
   &:active {
-    background-color: darken(#03a9f4, 10%);
+    background-color: darken(#03a9f4, $darken_amount);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
   }
 }
 
-.Button:disabled {
-  cursor: not-allowed;
-}
+
 
 

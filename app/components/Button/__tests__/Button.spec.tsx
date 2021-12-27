@@ -23,7 +23,7 @@ describe('Button', () => {
   })
 
   describe('if a caption is passed', () => {
-    it('it renders the passed caption', () => {
+    it('renders the passed caption', () => {
       const component = shallow(<Button caption="help me" />)
 
       const result = component.text()

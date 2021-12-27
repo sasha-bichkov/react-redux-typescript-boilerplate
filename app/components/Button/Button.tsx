@@ -24,6 +24,7 @@ const Button: FC<ButtonProps> = ({
     'Button',
     className,
   )
+
   return (
     <button
       type={type}
