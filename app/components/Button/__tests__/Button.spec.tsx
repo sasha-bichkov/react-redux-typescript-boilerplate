@@ -81,6 +81,16 @@ describe('Button', () => {
     })
   })
 
+  describe('if showSpinner is false', () => {
+    it('renders a spinner', () => {
+      const component = mount(<Button caption="test" />)
+
+      const result = component.find('.Button__spinner')
+
+      expect(result).toHaveLength(0)
+    })
+  })
+
   describe('if showSpinner is true', () => {
     it('renders a spinner', () => {
       const component = mount(<Button caption="test" showSpinner />)

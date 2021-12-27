@@ -27,6 +27,12 @@ const Button: FC<ButtonProps> = ({
     className,
   )
 
+  const renderSpinner = () => {
+    return (
+      <span className="Button__spinner spinner-slow" />
+    )
+  }
+
   return (
     <button
       type={type}
@@ -35,10 +41,7 @@ const Button: FC<ButtonProps> = ({
       disabled={disabled}
     >
       {caption}
-      {
-        showSpinner &&
-        <span className="Button__spinner spinner-slow" />
-      }
+      {showSpinner && renderSpinner()}
     </button>
   )
 }
