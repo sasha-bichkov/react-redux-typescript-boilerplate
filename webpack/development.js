@@ -37,6 +37,10 @@ const devConfig = {
     }]
   },
   plugins: [
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: path.resolve('tmp', 'cache', 'vendor-manifest.json')
+    }),
     new HtmlWebpackPlugin({
       inject: false,
       chunks: ['app'],

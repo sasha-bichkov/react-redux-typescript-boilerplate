@@ -5,8 +5,17 @@ const vendorConfig = {
   mode: 'development',
   entry: {
     vendor: [
+      'axios',
+      'immer',
       'react',
-      'redux'
+      'history',
+      'react-dom',
+      'classnames',
+      'redux-saga',
+      'react-redux',
+      'react-router',
+      '@reduxjs/toolkit',
+      'connected-react-router'
     ]
   },
   output: {
