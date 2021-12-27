@@ -14,3 +14,5 @@ yarn-error.log*
 .npm/
 stats.json
 jest-coverage
+
+tmp/cache

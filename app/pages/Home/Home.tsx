@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Popup from '@Components/Popup'
-import UnsupportedBrowser from '@Components/UnsupportedBrowser'
+import Loader from '@Components/Loader'
 
 import './Home.scss'
 
@@ -12,11 +11,8 @@ class Home extends React.Component<HomeProps, HomeState> {
   render() {
     return(
       <div>
-        Home page
-        <Popup overlay={true} close={()=> console.log('click')}>
-          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          </div>
-        </Popup>
+        <h1>Home page</h1>
+        <Loader />
       </div>
     )
   }
