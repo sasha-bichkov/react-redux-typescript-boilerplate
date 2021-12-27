@@ -1,7 +1,6 @@
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-
-const path = require('path')
 
 module.exports = {
   entry: {

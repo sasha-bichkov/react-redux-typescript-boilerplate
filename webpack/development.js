@@ -1,10 +1,16 @@
-const { merge } = require('webpack-merge')
-const baseConfig = require('./base.js')
-
 const path = require('path')
+const webpack = require('webpack')
+const { merge } = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const baseConfig = require('./base.js')
 
 const devConfig = {
   mode: 'development',
+  entry: {
+    app: path.resolve('app', 'App.tsx'),
+    vendor: path.resolve('tmp', 'cache', 'vendor-manifest.json')
+  },
   devServer: {
     open: true,
     compress: true,
@@ -29,6 +35,18 @@ const devConfig = {
       }
     }]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: false,
+      chunks: ['app'],
+      filename: path.resolve('public', 'index.html')
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      chunks: ['vendor'],
+      filename: path.resolve('public', 'index.html'),
+    })
+  ]
 }
 
 module.exports = merge(baseConfig, devConfig)
