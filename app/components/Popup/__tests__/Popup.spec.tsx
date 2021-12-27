@@ -21,14 +21,14 @@ describe('Popup', () => {
     it('renders background', () => {
       const component = mount(
         <Popup
-          overlay={true}
+          overlay
           close={() => console.log('click')}
         />
       )
 
-      const result = component.containsMatchingElement(<div className="overlay" />)
+      const result = component.find('.overlay')
 
-      expect(result).toBeTruthy()
+      expect(result).toHaveLength(1)
     })
   })
 
@@ -36,14 +36,14 @@ describe('Popup', () => {
     it('does not render background', () => {
       const component = mount(
         <Popup
-          overlay={true}
+          overlay={false}
           close={() => console.log('click')}
         />
       )
 
-      const result = component.containsMatchingElement(<div className="overlay" />)
+      const result = component.find('.overlay')
 
-      expect(result).toBeFalsy()
+      expect(result).toHaveLength(0)
     })
   })
 })
