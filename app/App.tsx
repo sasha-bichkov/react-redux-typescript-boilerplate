@@ -6,7 +6,6 @@ import { Route, Switch } from 'react-router'
 import { ConnectedRouter } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
 import { ErrorBoundary } from 'react-error-boundary'
-// import 'normalize.css'
 
 import Home from '@Pages/Home'
 import ErrorFallback from '@Components/ErrorFallback'
