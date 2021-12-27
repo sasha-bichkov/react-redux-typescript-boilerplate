@@ -26,8 +26,7 @@ const prodConfig = {
     }]
   },
   plugins: [
-    new MiniCssExtractPlugin(),
-    new CriticalCssPlugin(),
+    new CriticalCssPlugin()
   ],
   optimization: {
     minimize: true,
@@ -37,4 +36,8 @@ const prodConfig = {
 
 const smp = new SpeedMeasurePlugin()
 
-module.exports = smp.wrap(merge(baseConfig, prodConfig))
+// https://github.com/stephencookdev/speed-measure-webpack-plugin/issues/167
+const configWithTimeMeasures = smp.wrap(merge(baseConfig, prodConfig))
+configWithTimeMeasures.plugins.push(new MiniCssExtractPlugin())
+
+module.exports = configWithTimeMeasures
