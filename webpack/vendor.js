@@ -1,9 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 
-console.log(path.resolve('build'))
-console.log(path.resolve('build', 'vendor-manifest.json'))
-
 const vendorConfig = {
   mode: 'development',
   entry: {

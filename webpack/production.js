@@ -2,8 +2,8 @@ const { merge } = require('webpack-merge')
 const baseConfig = require('./base.js')
 const TerserPlugin = require('terser-webpack-plugin')
 const CriticalCssPlugin = require('critical-css-webpack-plugin')
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
 
 const prodConfig = {
   mode: 'production',
@@ -35,4 +35,6 @@ const prodConfig = {
   },
 }
 
-module.exports = merge(baseConfig, prodConfig)
+const smp = new SpeedMeasurePlugin()
+
+module.exports = smp.wrap(merge(baseConfig, prodConfig))
