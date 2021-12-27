@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 const path = require('path')
 
@@ -35,7 +36,7 @@ module.exports = {
           },
         ]
       },
-      { test: /\.tsx?$/, loader: 'ts-loader' },
+      { test: /\.tsx?$/, loader: 'babel-loader' },
       {
         test: /\.svg$/,
         use: [{
@@ -50,8 +51,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new ForkTsCheckerWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve('public', 'index.html'),
-    }),
+    })
   ]
 }
