@@ -48,9 +48,10 @@
 
 .BrowserIcon__logo {
   padding: 10px;
-  @include size(100%, auto);
   max-width: 100px;
   max-height: 100px;
+
+  @include size(100%, auto);
 
   @include mq($from: desktop) {
     max-width: 150px;

@@ -5,7 +5,7 @@
   "scripts": {
     "test": "yarn jest ./app --verbose --coverage",
     "lint": "yarn eslint ./app",
-    "csslint": "yarn stylelint ./app/**/*.scss",
+    "csslint": "yarn stylelint \"./app/**/*.scss\"",
     "dev": "NODE_ENV=development yarn webpack serve --config webpack/development.js",
     "build": "NODE_ENV=production yarn webpack --config webpack/production.js"
   },
