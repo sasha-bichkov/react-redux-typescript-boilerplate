@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Popup from '@Components/Popup'
 import Button from '@Components/Button'
 import Loader from '@Components/Loader'
 import UnsupportedBrowser from '@Components/UnsupportedBrowser'
@@ -14,14 +15,10 @@ class Home extends React.Component<HomeProps, HomeState> {
     return(
       <div>
         <h1>Home page</h1>
-
-        <Button
-          caption={'click me'}
-          onClick={() => console.log('click')}
-          disabled={false}
-          showSpinner={true}
-        />
-        <Loader />
+        <Popup overlay={true} close={()=> console.log('click')}>
+          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </div>
+        </Popup>
       </div>
     )
   }
