@@ -8,7 +8,9 @@
     "csslint": "yarn stylelint \"./app/**/*.scss\"",
     "dev": "NODE_ENV=development yarn webpack serve --config webpack/development.js",
     "build": "NODE_ENV=production yarn webpack --config webpack/production.js",
-    "vendor": "yarn webpack --config webpack/vendor.js"
+    "vendor": "yarn webpack --config webpack/vendor.js",
+    "prod_stats": "yarn webpack --config webpack/production.js --profile --json=stats.json",
+    "analyze_bundle": "yarn webpack-bundle-analyzer stats.json"
   },
   "size-limit": [
     {
