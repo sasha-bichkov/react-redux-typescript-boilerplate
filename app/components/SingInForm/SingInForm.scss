@@ -1,0 +1,95 @@
+.SingInForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 270px;
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px #ccc;
+
+  @include mq($from: desktop) {
+    min-width: 380px;
+  }
+}
+
+.SingInForm__center {
+  @include centerer;
+}
+
+.SingInForm__title {
+  align-self: center;
+  font-size: 2rem;
+  font-weight: normal;
+
+  @include mq($from: desktop) {
+    font-size: 3rem;
+  }
+}
+
+.SingInForm__group {
+  position: relative;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.SingInForm__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  color: #9e9e9e;
+  transition: .3s;
+
+  @include mq($from: desktop) {
+    font-size: 1.3rem;
+  }
+}
+
+.SingInForm__input {
+  width: 100%;
+  padding: 0 0 10px 0;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: transparent;
+  outline: none;
+  transition: .3s;
+
+  &:focus {
+    border-bottom: 1px solid #03a9f4;
+  }
+
+  &:focus ~ .SingInForm__label,
+  &:not(:placeholder-shown) ~ .SingInForm__label {
+    top: -18px;
+    font-size: 0.75rem;
+    color: #03a9f4;
+
+    @include mq($from: desktop) {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.Button.SingInForm__button {
+  width: 100%;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+
+  @include mq($from: desktop) {
+    font-size: 1.2rem;
+  }
+}
+
+// error
+
+.SingInForm__error {
+  color: #d32f2f;
+  font-size: 0.9rem;
+}
+
+.SingInForm__input[aria-invalid="true"] {
+  border-bottom: 1px solid #d32f2f;
+}
