@@ -13,11 +13,11 @@
   background-color: #03a9f4;
 
   &:hover {
-    background-color: lighten(#03a9f4, $lighten_amount);
+    background-color: adjust-color(#03a9f4, $lightness: $lighten_amount)
   }
 
   &:active {
-    background-color: darken(#03a9f4, $darken_amount);
+    background-color: adjust-color(#03a9f4, $lightness: $darken_amount)
   }
 
   &:disabled {
@@ -49,6 +49,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -57,4 +58,3 @@
 .spinner-slow {
   animation: spinner 1s linear infinite;
 }
-

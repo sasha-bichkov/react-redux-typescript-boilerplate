@@ -15,10 +15,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     return(
       <div>
         <h1>Home page</h1>
-        <Popup overlay={true} close={()=> console.log('click')}>
-          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          </div>
-        </Popup>
+        <Button caption={'clicl me'} />
       </div>
     )
   }
