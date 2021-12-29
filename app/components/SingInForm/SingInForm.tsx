@@ -77,6 +77,7 @@ const SingInForm: FC = () => {
             </p>
           }
         </div>
+
         <Button
           disabled={!isValid}
           className="SingInForm__button"

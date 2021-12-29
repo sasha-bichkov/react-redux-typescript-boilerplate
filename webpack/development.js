@@ -10,7 +10,7 @@ const devConfig = {
   mode: 'development',
   entry: {
     app: path.resolve('app', 'App.tsx'),
-    vendor: path.resolve('tmp', 'cache', 'vendor-manifest.json')
+    // vendor: path.resolve('tmp', 'cache', 'vendor-manifest.json')
   },
   devServer: {
     open: true,
@@ -46,11 +46,11 @@ const devConfig = {
       chunks: ['app'],
       filename: path.resolve('public', 'index.html')
     }),
-    new HtmlWebpackPlugin({
-      inject: false,
-      chunks: ['vendor'],
-      filename: path.resolve('public', 'index.html'),
-    })
+    // new HtmlWebpackPlugin({
+    //   inject: false,
+    //   chunks: ['vendor'],
+    //   filename: path.resolve('public', 'index.html'),
+    // })
   ]
 }
 
