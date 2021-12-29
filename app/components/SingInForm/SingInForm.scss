@@ -8,13 +8,11 @@
   border-radius: 10px;
   box-shadow: 0 4px 16px #ccc;
 
+  @include centerer;
+
   @include mq($from: desktop) {
     min-width: 380px;
   }
-}
-
-.SingInForm__center {
-  @include centerer;
 }
 
 .SingInForm__title {
@@ -28,9 +26,9 @@
 }
 
 .SingInForm__group {
+  width: 100%;
   position: relative;
   margin-bottom: 32px;
-  width: 100%;
 }
 
 .SingInForm__label {

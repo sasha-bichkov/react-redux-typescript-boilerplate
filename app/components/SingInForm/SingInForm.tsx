@@ -5,13 +5,12 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import './SingInForm.scss'
 import Button from '@Components/Button'
 
-interface FormValue {
+export interface FormValue {
   email: string;
   password: string;
 }
 
 const SingInForm: FC = () => {
-
   const {
     register,
     handleSubmit,
@@ -26,13 +25,18 @@ const SingInForm: FC = () => {
 
   return (
     <FocusLock>
-      <form className="SingInForm SingInForm__center" onSubmit={handleSubmit(onSubmit)}>
-        <h1 className="SingInForm__title">Account login</h1>
+      <form
+        className="SingInForm"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <h2 className="SingInForm__title">Account login</h2>
         <div className="SingInForm__group">
           <input
             placeholder=" "
+            value="text text"
             className="SingInForm__input emailInput"
             type="text"
+            id="email"
             aria-invalid={errors.email ? 'true' : 'false'}
             {...register('email', {
               required: 'This is required field',
