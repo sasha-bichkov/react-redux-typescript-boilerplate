@@ -15,7 +15,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     return(
       <div>
         <h1>Home page</h1>
-        <Button caption={'clicl me'} />
+        <Button caption={'clicl me'} disabled />
       </div>
     )
   }

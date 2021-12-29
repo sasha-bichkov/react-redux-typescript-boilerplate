@@ -13,15 +13,17 @@
   background-color: #03a9f4;
 
   &:hover {
-    background-color: adjust-color(#03a9f4, $lightness: $lighten_amount)
+    background-color: adjust-color(#03a9f4, $lightness: $lighten_amount);
   }
 
   &:active {
-    background-color: adjust-color(#03a9f4, $lightness: $darken_amount)
+    background-color: adjust-color(#03a9f4, $lightness: $darken_amount);
   }
 
   &:disabled {
     cursor: not-allowed;
+    color: rgb(0 0 0 / .26);
+    background-color: rgb(0 0 0 / .12);
   }
 }
 
