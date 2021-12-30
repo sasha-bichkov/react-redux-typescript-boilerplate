@@ -10,13 +10,17 @@ export interface FormValue {
   password: string;
 }
 
-const SingInForm: FC = () => {
+interface ISignInForm {
+  onSubmit(): void
+}
+
+const SingInForm: FC<ISignInForm> = props => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
     reset
-  } = useForm<FormValue>({ mode: 'onBlur' })
+  } = useForm<FormValue>({ mode: 'all' })
 
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -32,10 +36,10 @@ const SingInForm: FC = () => {
     return (
       <div className="SingInForm__group">
         <input
+          id="email"
+          type="text"
           placeholder=" "
           className="SingInForm__input emailInput"
-          type="text"
-          id="email"
           aria-invalid={errors.email ? 'true' : 'false'}
           {...register('email', {
             required: 'This is required field',
@@ -45,13 +49,14 @@ const SingInForm: FC = () => {
             }
           })}
         />
+
         <label className="SingInForm__label" htmlFor="email">Email</label>
-        {
-          errors.email &&
+
+        {errors.email && (
           <p className="SingInForm__error">
             {errors.email.message}
           </p>
-        }
+        )}
       </div>
     )
   }
@@ -59,10 +64,10 @@ const SingInForm: FC = () => {
     return (
       <div className="SingInForm__group">
         <input
+          id="password"
+          type="password"
           placeholder=" "
           className="SingInForm__input passwordInput"
-          type="password"
-          id="password"
           aria-invalid={errors.password ? 'true' : 'false'}
           {...register('password', {
             required: 'This is required field',
@@ -76,13 +81,14 @@ const SingInForm: FC = () => {
             }
           })}
         />
+
         <label className="SingInForm__label" htmlFor="password">Password</label>
-        {
-          errors.password &&
+
+        {errors.password && (
           <p role="alert" className="SingInForm__error">
             {errors.password.message}
           </p>
-        }
+        )}
       </div>
     )
   }
@@ -94,13 +100,16 @@ const SingInForm: FC = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <h2 className="SingInForm__title">Account login</h2>
+
         {renderEmail()}
         {renderPassword()}
+
         <Button
+          type="submit"
+          caption="Sing in"
           showSpinner={isSubmitting}
           disabled={!isValid}
           className="SingInForm__button"
-          type="submit" caption="Sing in"
         />
       </form>
     </FocusLock>
