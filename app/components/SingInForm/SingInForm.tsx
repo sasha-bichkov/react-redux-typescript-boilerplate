@@ -26,8 +26,9 @@ const SingInForm: FC<ISignInForm> = props => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
-  const onSubmit: SubmitHandler<FormValue> = async (data, e) => {
+  const onSubmit: SubmitHandler<FormValue> = async (data) => {
     console.log('sent:', data)
+    props.onSubmit()
     await sleep(3000)
     reset()
   }
@@ -108,7 +109,7 @@ const SingInForm: FC<ISignInForm> = props => {
           type="submit"
           caption="Sing in"
           showSpinner={isSubmitting}
-          disabled={!isValid}
+          disabled={!isValid || isSubmitting}
           className="SingInForm__button"
         />
       </form>
