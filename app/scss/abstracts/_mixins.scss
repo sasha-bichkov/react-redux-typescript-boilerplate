@@ -20,7 +20,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  background-color: color.adjust($color, $opacity);
+  background-color: color.adjust($color, $alpha: $opacity);
 
   @include size(100%, 100%)
 }
