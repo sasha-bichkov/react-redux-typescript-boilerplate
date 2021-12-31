@@ -9,8 +9,8 @@
     }
   ],
   "plugins": [
-		"stylelint-order"
-	],
+    "stylelint-order"
+  ],
   "rules": {
     "color-no-invalid-hex": true,
     "alpha-value-notation": "number",
@@ -18,9 +18,9 @@
     "scss/at-import-no-partial-leading-underscore": null,
     "declaration-empty-line-before": null,
     "order/order": [
-			"custom-properties",
-			"declarations"
-		],
+      "custom-properties",
+      "declarations"
+    ],
     "order/properties-order": [
       [{
         "emptyLineBefore": "always",
@@ -280,8 +280,9 @@
           "animation-direction",
           "animation-fill-mode"
         ]
-      }], { 
+      }], {
         "unspecified": "bottom"
-      }]
+      }
+    ]
   }
 }
