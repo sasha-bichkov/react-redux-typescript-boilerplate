@@ -2,3 +2,16 @@
   width: $width;
   height: $height;
 }
+
+// https://codepad.co/snippet/scss-force-hardware-acceleration-mixin
+@mixin forceHardwareAcceleration() { 
+  // 3D rendering on GPU
+  transform: translateZ(0);
+
+  // fix chrome and safari flicker
+  backface-visibility: hidden;
+  perspective: 1000;
+
+  // webkit-powered
+  transform: translate3d(0, 0, 0);
+}
