@@ -1,21 +1,26 @@
 .Loader {
-  display: inline-block;
   position: relative;
+
+  display: inline-block;
+
   width: 80px;
   height: 80px;
 }
 
 .Loader div {
-  box-sizing: border-box;
-  display: block;
   position: absolute;
+
+  display: block;
+
+  box-sizing: border-box;
   width: 64px;
   height: 64px;
   margin: 8px;
   border: 8px solid #000;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(.5, 0, .5, 1) infinite;
   border-color: #000 transparent transparent;
+  border-radius: 50%;
+
+  animation: lds-ring 1.2s cubic-bezier(.5, 0, .5, 1) infinite;
 }
 
 .Loader div:nth-child(1) {
