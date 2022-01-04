@@ -1,106 +1,92 @@
 import React from 'react'
-import { render, } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { act } from 'react-dom/test-utils'
+import { create } from 'react-test-renderer'
 
 import Button from '../Button'
 
-
 describe('Button', () => {
   describe('if a class name is not specified', () => {
-    it('does not add it', () => {
-      const { container } = render(<Button caption="text" />)
+    it('does not add any classes', () => {
+      const root = create(<Button>Test</Button>).root
+      const button = root.findByType('button')
 
-      const button = container.firstChild
-
-      expect(button).toHaveClass('Button')
+      expect(button.props.className).toBe('Button')
     })
+  })
 
-    it('is added', () => {
-      const { container } = render(<Button caption="text" className="test" />)
+  describe('if a class name is specified', () => {
+    it('adds the class', () => {
+      const root = create(<Button className="Button-test">Test</Button>).root
+      const button = root.findByType('button')
 
-      const result = container.firstChild
-
-      expect(result).toHaveClass('Button test')
+      expect(button.props.className).toBe('Button Button-test') 
     })
   })
 
   describe('if a caption is passed', () => {
-    it('renders the passed caption', () => {
-      // const component = render(<Button caption="help me" />)
-      //
-      // const result = component.text()
-      //
-      // expect(result).toEqual('help me')
+    it('renders it', () => {
+      const root = create(<Button>Test</Button>).root
+      const button = root.findByType('button')
+
+      expect(button.children).toEqual(['Test'])
     })
   })
 
   describe('if onClick callback is passed', () => {
     it('calls it once the button has clicked', () => {
-      // const mockCallback = jest.fn()
-      // const component = shallow(<Button caption="test" onClick={mockCallback} />)
-      //
-      // component.find('button').simulate('click')
-      //
-      // expect(mockCallback).toBeCalled()
+      const mockCallback = jest.fn()
+      const root = create(<Button onClick={mockCallback}>Test</Button>).root
+      const button = root.findByType('button')
+
+      button.props.onClick()
+
+      expect(mockCallback).toHaveBeenCalled()
     })
   })
 
   describe('if a type is passed', () => {
     it('sets it', () => {
-      // const component = shallow(<Button caption="test" type="submit" />)
-      //
-      // const result = component.find('button').prop('type')
-      //
-      // expect(result).toBe('submit')
+      const root = create(<Button type="reset">Test</Button>).root
+      const button = root.findByType('button')
+
+      expect(button.props.type).toBe('reset')
     })
   })
 
-  describe('if a type is passed', () => {
+  describe('if a type is not passed', () => {
     it('sets default', () => {
-      // const component = shallow(<Button caption="test" />)
-      //
-      // const result = component.find('button').prop('type')
-      //
-      // expect(result).toBe('button')
+      const root = create(<Button>Test</Button>).root
+      const button = root.findByType('button')
+
+      expect(button.props.type).toBe('button')
     })
   })
 
-  describe('if disabled', () => {
-    it('does not call mockCallback when the button was clicked', () => {
-      // const mockCallback = jest.fn()
-      //
-      // const component = mount(
-      //   <Button
-      //     caption="test"
-      //     onClick={mockCallback}
-      //     disabled
-      //   />
-      // )
-      //
-      // component.find('button').simulate('click')
-      //
-      // expect(mockCallback).toHaveBeenCalledTimes(0)
+  describe('if disabled is passed', () => {
+    it('is disabled', () => {
+      const root = create(<Button type="reset" disabled>Test</Button>).root
+      const button = root.findByType('button')
+
+      expect(button.props.disabled).toBe(true)
     })
   })
 
   describe('if showSpinner is false', () => {
-    it('renders a spinner', () => {
-      // const component = mount(<Button caption="test" />)
-      //
-      // const result = component.find('.Button__spinner')
-      //
-      // expect(result).toHaveLength(0)
+    it('does not render the spinner', () => {
+      const root = create(<Button type="reset">Test</Button>).root
+      const button = root.findByType('button')
+      const buttonSpinner = button.findAllByProps({ className: 'Button__spinner spinner-slow' })
+
+      expect(buttonSpinner).toEqual([])
     })
   })
 
   describe('if showSpinner is true', () => {
-    it('renders a spinner', () => {
-      // const component = mount(<Button caption="test" showSpinner />)
-      //
-      // const result = component.find('.Button__spinner')
-      //
-      // expect(result).toHaveLength(1)
+    it('renders the spinner', () => {
+      const root = create(<Button type="reset" showSpinner>Test</Button>).root
+      const button = root.findByType('button')
+      const buttonSpinner = button.findAllByProps({ className: 'Button__spinner spinner-slow' })
+
+      expect(buttonSpinner.length).toBe(1)
     })
   })
 })

@@ -4,23 +4,21 @@ import classNames from 'classnames'
 import './Button.scss'
 
 export interface ButtonProps {
-  className?: string,
-  caption: string,
-
-  onClick?(): void,
-
-  showSpinner?: boolean,
-  type?: 'button' | 'submit' | 'reset',
-  disabled?: boolean,
+  readonly className?: string,
+  readonly showSpinner?: boolean,
+  readonly type?: 'button' | 'submit' | 'reset',
+  readonly disabled?: boolean,
+  readonly children: React.ReactNode,
+  onClick?(): void
 }
 
 const Button: FC<ButtonProps> = ({
   className,
-  caption,
   onClick,
   showSpinner,
   type = 'button',
-  disabled
+  disabled,
+  children
 }: ButtonProps): ReactElement => {
   const classes = classNames(
     'Button',
@@ -40,7 +38,7 @@ const Button: FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
     >
-      {caption}
+      {children}
       {showSpinner && renderSpinner()}
     </button>
   )
