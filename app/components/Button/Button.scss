@@ -15,11 +15,11 @@
   transition: .3s;
 
   &:hover {
-    background-color: adjust-color(#03a9f4, $lightness: $lighten_amount);
+    background-color: color.adjust(#03a9f4, $lightness: $lighten_amount);
   }
 
   &:active {
-    background-color: adjust-color(#03a9f4, $lightness: $darken_amount);
+    background-color: color.adjust(#03a9f4, $lightness: $darken_amount);
   }
 
   &:disabled {
