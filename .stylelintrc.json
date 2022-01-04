@@ -31,11 +31,7 @@
           "right",
           "bottom",
           "left",
-          "z-index"
-        ]
-      }, {
-        "emptyLineBefore": "always",
-        "properties": [
+          "z-index",
           "display",
           "vertical-align",
           "flex",
@@ -143,11 +139,7 @@
           "border-top-left-image",
           "border-top-right-image",
           "border-bottom-right-image",
-          "border-bottom-left-image"
-        ]
-      }, {
-        "emptyLineBefore": "always",
-        "properties": [
+          "border-bottom-left-image",
           "background",
           "background-color",
           "background-image",
@@ -173,11 +165,7 @@
           "list-style",
           "list-style-position",
           "list-style-type",
-          "list-style-image"
-        ]
-      }, {
-        "emptyLineBefore": "always",
-        "properties": [
+          "list-style-image",
           "font",
           "font-weight",
           "font-style",
@@ -227,11 +215,7 @@
           "resize",
           "cursor",
           "pointer-events",
-          "user-select"
-        ]
-      }, {
-        "emptyLineBefore": "always",
-        "properties": [
+          "user-select",
           "unicode-bidi",
           "direction",
           "columns",
@@ -258,11 +242,7 @@
           "user-zoom",
           "orientation",
           "fill",
-          "stroke"
-        ]
-      }, {
-        "emptyLineBefore": "always",
-        "properties": [
+          "stroke",
           "transition",
           "transition-delay",
           "transition-timing-function",
