@@ -1,9 +1,6 @@
 import React from 'react'
 
-import Popup from '@Components/Popup'
 import Button from '@Components/Button'
-import Loader from '@Components/Loader'
-import UnsupportedBrowser from '@Components/UnsupportedBrowser'
 
 import './Home.scss'
 
@@ -15,7 +12,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     return(
       <div>
         <h1>Home page</h1>
-        <Button caption={'clicl me'} disabled />
+        <Button caption={'clicl me'} showSpinner disabled />
       </div>
     )
   }

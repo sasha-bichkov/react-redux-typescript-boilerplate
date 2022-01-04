@@ -15,11 +15,11 @@
   transition: .3s;
 
   &:hover {
-    background-color: color.adjust(#03a9f4, $lightness: $lighten_amount);
+    background-color: adjust-color(#03a9f4, $lightness: $lighten-amount);
   }
 
   &:active {
-    background-color: color.adjust(#03a9f4, $lightness: $darken_amount);
+    background-color: adjust-color(#03a9f4, $lightness: $darken-amount);
   }
 
   &:disabled {
@@ -40,10 +40,7 @@
   height: 1rem;
   border-width: 2px;
   border-style: solid;
-  border-top-color: #444;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-  border-left-color: #444;
+  border-color: #444 transparent transparent #444;
   border-radius: 50%;
 
   /* Additional spinner styles */
@@ -61,6 +58,6 @@
   }
 }
 
-.spinner-slow {
+.Button__spinner-slow {
   animation: spinner 1s linear infinite;
 }

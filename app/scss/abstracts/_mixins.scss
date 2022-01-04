@@ -4,7 +4,7 @@
 }
 
 // https://codepad.co/snippet/scss-force-hardware-acceleration-mixin
-@mixin forceHardwareAcceleration() { 
+@mixin force-hardware-acceleration() {
   // 3D rendering on GPU
   transform: translateZ(0);
 
@@ -18,11 +18,11 @@
 
 @mixin overlay($color: black, $opacity: 1) {
   position: fixed;
-  left: 0;
   top: 0;
-  background-color: color.adjust($color, $alpha: $opacity);
+  left: 0;
+  background-color: adjust-color($color, $alpha: $opacity);
 
-  @include size(100%, 100%)
+  @include size(100%, 100%);
 }
 
 @mixin cover() {
