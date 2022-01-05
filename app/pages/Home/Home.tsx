@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Button from '@Components/Button'
+import UnsupportedBrowser from '@Components/UnsupportedBrowser'
 
 import './Home.scss'
 
@@ -12,7 +12,8 @@ class Home extends React.Component<HomeProps, HomeState> {
     return(
       <div>
         <h1>Home page</h1>
-        {/* <Button caption={'click me'} showSpinner disabled /> */}
+
+        <UnsupportedBrowser />
       </div>
     )
   }
