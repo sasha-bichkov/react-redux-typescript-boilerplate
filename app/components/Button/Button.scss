@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .Button {
   display: inline-flex;
   vertical-align: middle;
@@ -15,11 +17,11 @@
   transition: .3s;
 
   &:hover {
-    background-color: adjust-color(#03a9f4, $lightness: $lighten-amount);
+    background-color: color.adjust(#03a9f4, $lightness: $lighten-amount);
   }
 
   &:active {
-    background-color: adjust-color(#03a9f4, $lightness: $darken-amount);
+    background-color: color.adjust(#03a9f4, $lightness: $darken-amount);
   }
 
   &:disabled {

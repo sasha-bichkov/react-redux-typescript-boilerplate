@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @mixin size($width, $height: initial) {
   width: $width;
   height: $height;
@@ -8,26 +10,27 @@
   // 3D rendering on GPU
   transform: translateZ(0);
 
+  // webkit-powered
+  transform: translate3d(0, 0, 0);
+
   // fix chrome and safari flicker
   backface-visibility: hidden;
   perspective: 1000;
-
-  // webkit-powered
-  transform: translate3d(0, 0, 0);
 }
 
 @mixin overlay($color: black, $opacity: 1) {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: adjust-color($color, $alpha: $opacity);
+
+  background-color: color.adjust($color, $alpha: $opacity);
 
   @include size(100%, 100%);
 }
 
 @mixin cover() {
-  background-size: cover;
   background-position: center center;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
