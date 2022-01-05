@@ -1,26 +1,33 @@
+@use "sass:color";
+
 .Button {
   display: inline-flex;
+  vertical-align: middle;
   align-items: center;
   justify-content: center;
-  vertical-align: middle;
+
   min-width: 64px;
   padding: 6px 16px;
   border: 0;
   border-radius: 4px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: .3s;
   background-color: #03a9f4;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: .3s;
 
   &:hover {
-    background-color: lighten(#03a9f4, $lighten_amount);
+    background-color: color.adjust(#03a9f4, $lightness: $lighten-amount);
   }
 
   &:active {
-    background-color: darken(#03a9f4, $darken_amount);
+    background-color: color.adjust(#03a9f4, $lightness: $darken-amount);
   }
 
   &:disabled {
+    background-color: rgb(0 0 0 / .12);
+    color: rgb(0 0 0 / .26);
+
     cursor: not-allowed;
     color: rgb(0 0 0 / .26);
     background-color: rgb(0 0 0 / .12);
@@ -30,20 +37,18 @@
 .Button__spinner {
   /* Spinner size and color */
   display: inline-block;
+  vertical-align: middle;
+
+  box-sizing: border-box;
   width: 1rem;
   height: 1rem;
-  border-top-color: #444;
-  border-left-color: #444;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #444 transparent transparent #444;
+  border-radius: 50%;
 
   /* Additional spinner styles */
   animation: spinner 400ms linear infinite;
-  border-bottom-color: transparent;
-  border-right-color: transparent;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 50%;
-  box-sizing: border-box;
-  vertical-align: middle;
 }
 
 /* Animation styles */
@@ -51,12 +56,12 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
 
-.spinner-slow {
+.Button__spinner-slow {
   animation: spinner 1s linear infinite;
 }
-

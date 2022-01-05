@@ -10,19 +10,19 @@ const prodConfig = {
   module: {
     rules: [{
       test: /\.(scss|css)$/,
-      use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'], // it's recommended to extract CSS for production
-    }, {
-      test: /\.(scss|css)$/,
-      loader: 'sass-resources-loader',
-      options: {
-        resources: [
-          'app/scss/abstracts/_breakpoints.scss',
-          'app/scss/abstracts/_functions.scss',
-          'app/scss/abstracts/_mixins.scss',
-          'app/scss/abstracts/_placeholders.scss',
-          'app/scss/abstracts/_variables.scss'
-        ]
-      }
+      use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader', {
+        loader: 'sass-resources-loader',
+        options: {
+          hoistUseStatements: true,
+          resources: [
+            'app/scss/abstracts/_breakpoints.scss',
+            'app/scss/abstracts/_functions.scss',
+            'app/scss/abstracts/_mixins.scss',
+            'app/scss/abstracts/_placeholders.scss',
+            'app/scss/abstracts/_variables.scss'
+          ]
+        }
+      }] // it's recommended to extract CSS for production
     }]
   },
   plugins: [
