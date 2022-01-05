@@ -6,6 +6,7 @@
     "test": "pnpm jest ./app --verbose --coverage",
     "lint": "pnpm eslint ./app",
     "csslint": "pnpm stylelint \"./app/**/*.scss\"",
+    "cssfix": "pnpm stylelint --fix \"./app/**/*.scss\"",
     "dev": "NODE_ENV=development pnpm webpack serve --config webpack/development.js",
     "build": "NODE_ENV=production pnpm webpack --config webpack/production.js",
     "vendor": "pnpm webpack --config webpack/vendor.js",
