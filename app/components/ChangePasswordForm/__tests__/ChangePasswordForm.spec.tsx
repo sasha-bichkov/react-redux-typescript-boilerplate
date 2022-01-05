@@ -2,20 +2,19 @@ import React, { FC, useRef } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-import './SingUpForm.scss'
+import './ChangePasswordForm.scss'
 import Button from '@Components/Button'
 
 export interface FormValue {
-  email: string;
   password: string;
   passwordConfirmation: string;
 }
 
-interface ISignUpForm {
+interface ISChangePasswordForm {
   onSubmit(): void
 }
 
-const SignUpForm: FC<ISignUpForm> = props => {
+const ChangePasswordForm: FC<ISChangePasswordForm> = props => {
   const {
     register,
     handleSubmit,
@@ -36,42 +35,14 @@ const SignUpForm: FC<ISignUpForm> = props => {
     reset()
   }
 
-  const renderEmail = () => {
-    return (
-      <div className="SingUpForm__group">
-        <input
-          id="email"
-          type="text"
-          placeholder=" "
-          className="SingUpForm__input emailInput"
-          aria-invalid={errors.email ? 'true' : 'false'}
-          {...register('email', {
-            required: 'This is required field',
-            pattern: {
-              value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-              message: 'Invalid email address'
-            }
-          })}
-        />
-
-        <label className="SingUpForm__label" htmlFor="email">Email</label>
-
-        {errors.email && (
-          <p className="SingUpForm__error">
-            {errors.email.message}
-          </p>
-        )}
-      </div>
-    )
-  }
   const renderPassword = () => {
     return (
-      <div className="SingUpForm__group">
+      <div className="ChangePasswordForm__group">
         <input
           id="password"
           type="password"
           placeholder=" "
-          className="SingUpForm__input passwordInput"
+          className="ChangePasswordForm__input passwordInput"
           aria-invalid={errors.password ? 'true' : 'false'}
           {...register('password', {
             required: 'This is required field',
@@ -86,10 +57,10 @@ const SignUpForm: FC<ISignUpForm> = props => {
           })}
         />
 
-        <label className="SingUpForm__label" htmlFor="password">Password</label>
+        <label className="ChangePasswordForm__label" htmlFor="password">Password</label>
 
         {errors.password && (
-          <p role="alert" className="SingUpForm__error">
+          <p role="alert" className="ChangePasswordForm__error">
             {errors.password.message}
           </p>
         )}
@@ -98,12 +69,12 @@ const SignUpForm: FC<ISignUpForm> = props => {
   }
   const renderPasswordRepeat = () => {
     return (
-      <div className="SingUpForm__group">
+      <div className="ChangePasswordForm__group">
         <input
           id="passwordConfirmation"
           type="password"
           placeholder=" "
-          className="SingUpForm__input passwordInput"
+          className="ChangePasswordForm__input passwordInput"
           aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
           {...register('passwordConfirmation', {
             validate: value =>
@@ -112,13 +83,13 @@ const SignUpForm: FC<ISignUpForm> = props => {
         />
 
         <label
-          className="SingUpForm__label"
+          className="ChangePasswordForm__label"
           htmlFor="passwordConfirmation">
           Password confirmation
         </label>
 
         {errors.passwordConfirmation && (
-          <p role="alert" className="SingUpForm__error">
+          <p role="alert" className="ChangePasswordForm__error">
             {errors.passwordConfirmation.message}
           </p>
         )}
@@ -129,25 +100,24 @@ const SignUpForm: FC<ISignUpForm> = props => {
   return (
     <FocusLock>
       <form
-        className="SingUpForm"
+        className="ChangePasswordForm"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h2 className="SingUpForm__title">Account login</h2>
+        <h2 className="ChangePasswordForm__title">Change password</h2>
 
-        {renderEmail()}
         {renderPassword()}
         {renderPasswordRepeat()}
 
         <Button
           type="submit"
-          caption="Sing in"
+          caption="Change password"
           showSpinner={isSubmitting}
           disabled={!isValid || isSubmitting}
-          className="SingUpForm__button"
+          className="ChangePasswordForm__button"
         />
       </form>
     </FocusLock>
   )
 }
 
-export default SignUpForm
+export default ChangePasswordForm

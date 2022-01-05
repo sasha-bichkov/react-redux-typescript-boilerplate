@@ -1,6 +1,6 @@
 @use "sass:color";
 
-.SingInForm {
+.ResendConfirmationForm {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -17,7 +17,7 @@
   }
 }
 
-.SingInForm__title {
+.ResendConfirmationForm__title {
   align-self: center;
   text-align: center;
   font-size: 2rem;
@@ -28,13 +28,13 @@
   }
 }
 
-.SingInForm__group {
+.ResendConfirmationForm__group {
   width: 100%;
   position: relative;
   margin-bottom: 32px;
 }
 
-.SingInForm__label {
+.ResendConfirmationForm__label {
   position: absolute;
   top: 0;
   left: 0;
@@ -47,7 +47,7 @@
   }
 }
 
-.SingInForm__input {
+.ResendConfirmationForm__input {
   width: 100%;
   padding: 0 0 10px 0;
   border: none;
@@ -60,8 +60,8 @@
     border-bottom: 1px solid #03a9f4;
   }
 
-  &:focus ~ .SingInForm__label,
-  &:not(:placeholder-shown) ~ .SingInForm__label {
+  &:focus ~ .ResendConfirmationForm__label,
+  &:not(:placeholder-shown) ~ .ResendConfirmationForm__label {
     top: -18px;
     font-size: 0.75rem;
     color: #03a9f4;
@@ -72,7 +72,7 @@
   }
 }
 
-.Button.SingInForm__button {
+.Button.ResendConfirmationForm__button {
   width: 100%;
   padding: 10px 20px;
   color: #fff;
@@ -86,11 +86,11 @@
 
 // error
 
-.SingInForm__error {
+.ResendConfirmationForm__error {
   color: #d32f2f;
   font-size: 0.9rem;
 }
 
-.SingInForm__input[aria-invalid="true"] {
+.ResendConfirmationForm__input[aria-invalid="true"] {
   border-bottom: 1px solid #d32f2f;
 }

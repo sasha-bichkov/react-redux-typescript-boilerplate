@@ -5,6 +5,9 @@ import UnsupportedBrowser from '@Components/UnsupportedBrowser'
 import './Home.scss'
 import SingInForm from '@Components/SingInForm'
 import SignUpForm from "@Components/SingUpForm";
+import ResendConfirmationForm from '@Components/ResendConfirmationForm';
+import ForgotPasswordForm from "@Components/ForgotPasswordForm";
+import ChangePasswordForm from "@Components/ChangePasswordForm";
 
 interface HomeProps {
 } // eslint-disable-line @typescript-eslint/no-empty-interface
@@ -16,7 +19,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     return (
       <div>
         <h1>Home page</h1>
-        <SignUpForm
+        <ChangePasswordForm
           onSubmit={() => {
           console.log('submit from')
         }}
