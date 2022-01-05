@@ -29,7 +29,7 @@ const Button: FC<ButtonProps> = ({
 
   const renderSpinner = () => {
     return (
-      <span className="Button__spinner spinner-slow" />
+      <span className="Button__spinner Button__spinner-slow" />
     )
   }
 

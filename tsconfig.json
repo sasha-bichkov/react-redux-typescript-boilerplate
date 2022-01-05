@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "declaration": false,
-    "noImplicitAny": true,
     "emitDecoratorMetadata": false,
     "experimentalDecorators": false,
     "allowSyntheticDefaultImports": true,

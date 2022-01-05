@@ -1,11 +1,43 @@
+@use "sass:color";
+
 @mixin size($width, $height: initial) {
   width: $width;
   height: $height;
 }
 
-@mixin centerer {
+// https://codepad.co/snippet/scss-force-hardware-acceleration-mixin
+@mixin force-hardware-acceleration() {
+  // 3D rendering on GPU
+  transform: translateZ(0);
+
+  // webkit-powered
+  transform: translate3d(0, 0, 0);
+
+  // fix chrome and safari flicker
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+@mixin overlay($color: black, $opacity: 1) {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background-color: color.adjust($color, $alpha: $opacity);
+
+  @include size(100%, 100%);
+}
+
+@mixin cover() {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin coverer() {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+
+  @include size(100%, 100%);
 }

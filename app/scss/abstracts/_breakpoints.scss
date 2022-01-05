@@ -1,9 +1,9 @@
-@import "~sass-mq";
+@use "~/node_modules/sass-mq/mq.scss" as *;
 
 $mq-breakpoints: (
   mobile: 576px,
   tablet: 768px,
   desktop: 992px,
   wide: 1200px,
-  extraWide: 1400px
+  extrawide: 1400px
 ) !default;
