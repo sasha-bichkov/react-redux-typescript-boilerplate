@@ -12,7 +12,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     return(
       <div>
         <h1>Home page</h1>
-        <Button caption={'clicl me'} showSpinner disabled />
+        {/* <Button caption={'click me'} showSpinner disabled /> */}
       </div>
     )
   }
