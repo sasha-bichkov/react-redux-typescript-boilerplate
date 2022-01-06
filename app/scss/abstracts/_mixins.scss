@@ -5,6 +5,13 @@
   height: $height;
 }
 
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 // https://codepad.co/snippet/scss-force-hardware-acceleration-mixin
 @mixin force-hardware-acceleration() {
   // 3D rendering on GPU

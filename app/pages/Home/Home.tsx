@@ -1,6 +1,6 @@
 import React from 'react'
 
-import UnsupportedBrowser from '@Components/UnsupportedBrowser'
+import SingInForm from '@Components/SingInForm'
 
 import './Home.scss'
 
@@ -12,8 +12,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     return(
       <div>
         <h1>Home page</h1>
-
-        <UnsupportedBrowser />
+        <SingInForm onSubmit={() => console.log('submit form')} />
       </div>
     )
   }
