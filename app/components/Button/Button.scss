@@ -1,6 +1,7 @@
 @use "sass:color";
 
 .Button {
+  position: relative;
   display: inline-flex;
   vertical-align: middle;
   align-items: center;
@@ -29,14 +30,13 @@
     color: rgb(0 0 0 / .26);
 
     cursor: not-allowed;
-    color: rgb(0 0 0 / .26);
-    background-color: rgb(0 0 0 / .12);
   }
 }
 
 .Button__spinner {
   /* Spinner size and color */
-  display: inline-block;
+  position: absolute;
+  display: inline-flex;
   vertical-align: middle;
 
   box-sizing: border-box;

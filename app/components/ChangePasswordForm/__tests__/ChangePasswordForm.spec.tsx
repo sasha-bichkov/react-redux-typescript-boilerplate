@@ -22,7 +22,7 @@ const ChangePasswordForm: FC<ISChangePasswordForm> = props => {
     reset,
     watch
   } = useForm<FormValue>({mode: 'all'})
-  const password = useRef({});
+  const password = useRef({})
   password.current = watch('password')
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -78,7 +78,7 @@ const ChangePasswordForm: FC<ISChangePasswordForm> = props => {
           aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
           {...register('passwordConfirmation', {
             validate: value =>
-              value === password.current || "The passwords do not match"
+              value === password.current || 'The passwords do not match'
           })}
         />
 

@@ -74,7 +74,7 @@ const ResendConfirmationForm: FC<ISResendConfirmationForm> = props => {
 
         <Button
           type="submit"
-          caption="Send me reset password instructions"
+          caption="Send me&nbsp;reset password instructions"
           showSpinner={isSubmitting}
           disabled={!isValid || isSubmitting}
           className="ResendConfirmationForm__button"

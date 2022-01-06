@@ -6,6 +6,7 @@
   align-items: flex-start;
   justify-content: center;
   min-width: 270px;
+  height: 350px;
   padding: 32px;
   border-radius: 10px;
   box-shadow: 0 4px 16px #ccc;
@@ -31,7 +32,7 @@
 .ResendConfirmationForm__group {
   width: 100%;
   position: relative;
-  margin-bottom: 32px;
+  margin-bottom: 45px;
 }
 
 .ResendConfirmationForm__label {
@@ -48,6 +49,7 @@
 }
 
 .ResendConfirmationForm__input {
+  position: relative;
   width: 100%;
   padding: 0 0 10px 0;
   border: none;
@@ -76,7 +78,7 @@
   width: 100%;
   padding: 10px 20px;
   color: #fff;
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
 
   @include mq($from: desktop) {
@@ -87,6 +89,8 @@
 // error
 
 .ResendConfirmationForm__error {
+  position: absolute;
+  top: 20px;
   color: #d32f2f;
   font-size: 0.9rem;
 }
