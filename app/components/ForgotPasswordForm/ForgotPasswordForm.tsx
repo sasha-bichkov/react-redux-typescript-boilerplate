@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react'
+import React, { FC } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
@@ -19,7 +19,6 @@ const ForgotPasswordForm: FC<ISForgotPasswordForm> = props => {
     handleSubmit,
     formState: {errors, isValid, isSubmitting},
     reset,
-    watch
   } = useForm<FormValue>({mode: 'all'})
 
   const sleep = (milliseconds: number) => {
