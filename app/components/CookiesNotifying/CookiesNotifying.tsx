@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Button from '@Components/Button'
-import WarningIcon from '@Images/CookiesNotifying/warning.svg'
+import WarningIcon from '@Images/CookiesNotifying/Warning.svg'
 
 import './CookiesNotifying.scss'
 
