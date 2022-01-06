@@ -1,6 +1,6 @@
 import React from 'react'
 
-import UnsupportedBrowser from '@Components/UnsupportedBrowser'
+import SingInForm from '@Components/SingInForm'
 
 import './Home.scss'
 import SingInForm from '@Components/SingInForm'
