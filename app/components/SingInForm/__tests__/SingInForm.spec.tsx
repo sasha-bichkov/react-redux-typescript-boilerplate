@@ -9,7 +9,7 @@ describe('SingInForm', () => {
   const mockOnSubmit = jest.fn()
 
   describe('if the fields are empty', () => {
-    it('shows an error', async () => {
+    it('shows errors', async () => {
       const { container } = render(<SingInForm onSubmit={mockOnSubmit} />)
 
       const submit = screen.getByRole('button')
@@ -81,21 +81,20 @@ describe('SingInForm', () => {
   })
 
   describe('if values are correct', () => {
-    it('enables the button', async () => {
+    it('sends the form only once after a click', async () => {
       render(<SingInForm onSubmit={mockOnSubmit} />)
 
-      const submit = screen.getByRole('button')
       const email = screen.getByLabelText(/email/i)
       const password = screen.getByLabelText(/password/i)
-
+      
       userEvent.type(email, 'test@example.com')
       userEvent.type(password, 'qwerty')
 
-      await waitFor(() => expect(submit).not.toBeDisabled())
+      const submit = await screen.findByRole('button')
 
-      userEvent.click(submit)
+      userEvent.dblClick(submit)
 
-      await waitFor(() =>  expect(mockOnSubmit).toBeCalled())
+      await waitFor(() => expect(mockOnSubmit).toHaveBeenCalledTimes(1))
     })
   })
 })
