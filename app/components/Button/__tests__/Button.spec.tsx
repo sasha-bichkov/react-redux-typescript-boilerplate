@@ -20,7 +20,7 @@ describe('Button', () => {
       render(<Button className="Button-test">Test</Button>)
       const button = screen.getByRole('button')
 
-      expect(button.className).toBe('Button Button-test')
+      expect(button).toHaveClass('Button Button-test')
     })
   })
 

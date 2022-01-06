@@ -73,8 +73,8 @@ const SingInForm: FC<ISignInForm> = props => {
           {...register('password', {
             required: 'This is required field',
             minLength: {
-              value: 5,
-              message: 'Please enter at least 5 characters'
+              value: 6,
+              message: 'Please enter at least 6 characters'
             },
             maxLength: {
               value: 30,
@@ -107,11 +107,12 @@ const SingInForm: FC<ISignInForm> = props => {
 
         <Button
           type="submit"
-          caption="Sing in"
           showSpinner={isSubmitting}
           disabled={!isValid || isSubmitting}
           className="SingInForm__button"
-        />
+        >
+          Sign in
+        </Button>
       </form>
     </FocusLock>
   )

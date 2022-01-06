@@ -1,61 +1,101 @@
 import React from 'react'
-import { render, } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { act } from 'react-dom/test-utils'
+import '@testing-library/jest-dom'
 
 import SingInForm from '../SingInForm'
 
 describe('SingInForm', () => {
-  const mockLogin = jest.fn()
-  describe('width valid inputs and double click', () => {
-    it('calls the onSubmit function once ', async () => {
-      const { getByLabelText, getByRole } = render(
-        <SingInForm onSubmit={mockLogin} />
-      )
+  const mockOnSubmit = jest.fn()
 
-      await act(async () => {
-        const email = getByLabelText(/email/i)
-        const password = getByLabelText(/password/i)
-        userEvent.type(email, 'test@example.com')
-        userEvent.type(password,'1234455')
-      })
+  describe('if the fields are empty', () => {
+    it('shows an error', async () => {
+      const { container } = render(<SingInForm onSubmit={mockOnSubmit} />)
 
-      await act(async () => {
-        const button = getByRole('button')
-        userEvent.dblClick(button)
-      })
+      const submit = screen.getByRole('button')
+      const email = screen.getByLabelText(/email/i)
+      const password = screen.getByLabelText(/password/i)
 
-      expect(mockLogin).toHaveBeenCalledTimes(1)
+      userEvent.click(email)
+      userEvent.click(container)
+
+      userEvent.click(password)
+      userEvent.click(container)
+
+      const errorTexts = await screen.findAllByText(/This is required field/i)
+
+      expect(email).toHaveAttribute('aria-invalid')
+      expect(password).toHaveAttribute('aria-invalid')
+      expect(errorTexts).toHaveLength(2)
+      expect(submit).toBeDisabled()
     })
   })
 
-  describe('if invalid email', () => {
-    it('renders email validation error', async () => {
-      const { container, getByLabelText } = render(
-        <SingInForm onSubmit={mockLogin} />
-      )
+  describe('if an email is specified incorrectly', () => {
+    it('shows an error', async () => {
+      render(<SingInForm onSubmit={mockOnSubmit} />)
 
-      await act(async () => {
-        const email = getByLabelText(/email/i)
-        userEvent.type(email, 'test()mail.ru')
-      })
+      const submit = screen.getByRole('button')
+      const email = screen.getByLabelText(/email/i)
 
-      expect(container.innerHTML).toMatch(/Invalid email/i)
+      userEvent.type(email, 'fakeEmail')
+
+      const emailErrorText = await screen.findByText(/Invalid email address/i)
+
+      expect(email).toHaveAttribute('aria-invalid')
+      expect(emailErrorText).toBeInTheDocument()
+      expect(submit).toBeDisabled()
     })
   })
 
-  describe('if invalid password', () => {
-    it('renders password validation error', async () => {
-      const { container, getByLabelText } = render(
-        <SingInForm onSubmit={mockLogin} />
-      )
+  describe('if a password is less than 6 characters', () => {
+    it('shows an error', async () => {
+      render(<SingInForm onSubmit={mockOnSubmit} />)
 
-      await act(async () => {
-        const password = getByLabelText(/password/i)
-        userEvent.type(password, '123')
-      })
+      const submit = screen.getByRole('button')
+      const password = screen.getByLabelText(/password/i)
+      userEvent.type(password, '123')
 
-      expect(container.innerHTML).toMatch(/Please enter at least 5 characters/i)
+      const passwordErrorText = await screen.findByText(/Please enter at least 6 characters/i)
+
+      expect(password).toHaveAttribute('aria-invalid')
+      expect(passwordErrorText).toBeInTheDocument()
+      expect(submit).toBeDisabled()
+    })
+  })
+
+  describe('if a password is more than 30 characters', () => {
+    it('shows an error', async () => {
+      render(<SingInForm onSubmit={mockOnSubmit} />)
+
+      const submit = screen.getByRole('button')
+      const password = screen.getByLabelText(/password/i)
+      userEvent.type(password, '123456789123456789123456789123456789')
+
+      const passwordErrorText = await screen.findByText(/Please enter at most 30 characters/i)
+
+      expect(password).toHaveAttribute('aria-invalid')
+      expect(passwordErrorText).toBeInTheDocument()
+      expect(submit).toBeDisabled()
+    })
+  })
+
+  describe('if values are correct', () => {
+    it('enables the button', async () => {
+      render(<SingInForm onSubmit={mockOnSubmit} />)
+
+      const submit = screen.getByRole('button')
+      const email = screen.getByLabelText(/email/i)
+      const password = screen.getByLabelText(/password/i)
+
+      userEvent.type(email, 'test@example.com')
+      userEvent.type(password, 'qwerty')
+
+      await waitFor(() => expect(submit).not.toBeDisabled())
+
+      userEvent.click(submit)
+
+      await waitFor(() =>  expect(mockOnSubmit).toBeCalled())
     })
   })
 })
