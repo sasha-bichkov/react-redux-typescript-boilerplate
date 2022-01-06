@@ -1,43 +1,45 @@
 import React from 'react'
-import { create } from 'react-test-renderer'
+import userEvent from '@testing-library/user-event'
+import { render, screen } from '@testing-library/react'
+import '@testing-library/jest-dom'
 
 import Button from '../Button'
 
 describe('Button', () => {
   describe('if a class name is not specified', () => {
     it('does not add any classes', () => {
-      const root = create(<Button>Test</Button>).root
-      const button = root.findByType('button')
+      render(<Button>Test</Button>)
+      const button = screen.getByRole('button')
 
-      expect(button.props.className).toBe('Button')
+      expect(button).toBeInTheDocument()
     })
   })
 
   describe('if a class name is specified', () => {
     it('adds the class', () => {
-      const root = create(<Button className="Button-test">Test</Button>).root
-      const button = root.findByType('button')
+      render(<Button className="Button-test">Test</Button>)
+      const button = screen.getByRole('button')
 
-      expect(button.props.className).toBe('Button Button-test') 
+      expect(button.className).toBe('Button Button-test')
     })
   })
 
   describe('if a caption is passed', () => {
     it('renders it', () => {
-      const root = create(<Button>Test</Button>).root
-      const button = root.findByType('button')
+      render(<Button>Test 2</Button>)
+      const button = screen.getByText(/Test 2/)
 
-      expect(button.children).toEqual(['Test'])
+      expect(button).toBeInTheDocument()
     })
   })
 
   describe('if onClick callback is passed', () => {
     it('calls it once the button has clicked', () => {
       const mockCallback = jest.fn()
-      const root = create(<Button onClick={mockCallback}>Test</Button>).root
-      const button = root.findByType('button')
+      render(<Button onClick={mockCallback}>Test</Button>)
+      const button = screen.getByRole('button')
 
-      button.props.onClick()
+      userEvent.click(button)
 
       expect(mockCallback).toHaveBeenCalled()
     })
@@ -45,48 +47,46 @@ describe('Button', () => {
 
   describe('if a type is passed', () => {
     it('sets it', () => {
-      const root = create(<Button type="reset">Test</Button>).root
-      const button = root.findByType('button')
+      render(<Button type="reset">Test</Button>)
+      const button = screen.getByRole('button')
 
-      expect(button.props.type).toBe('reset')
+      expect(button.getAttribute('type')).toBe('reset')
     })
   })
 
   describe('if a type is not passed', () => {
     it('sets default', () => {
-      const root = create(<Button>Test</Button>).root
-      const button = root.findByType('button')
+      render(<Button>Test</Button>)
+      const button = screen.getByRole('button')
 
-      expect(button.props.type).toBe('button')
+      expect(button.getAttribute('type')).toBe('button')
     })
   })
 
   describe('if disabled is passed', () => {
     it('is disabled', () => {
-      const root = create(<Button type="reset" disabled>Test</Button>).root
-      const button = root.findByType('button')
+      render(<Button type="reset" disabled>Test</Button>)
+      const button = screen.getByRole('button')
 
-      expect(button.props.disabled).toBe(true)
+      expect(button).toBeDisabled()
     })
   })
 
   describe('if showSpinner is false', () => {
     it('does not render the spinner', () => {
-      const root = create(<Button type="reset">Test</Button>).root
-      const button = root.findByType('button')
-      const buttonSpinner = button.findAllByProps({ className: 'Button__spinner spinner-slow' })
+      const { container } = render(<Button type="reset">Test</Button>)
+      const buttonSpinner = container.querySelector('.Button__spinner')
 
-      expect(buttonSpinner).toEqual([])
+      expect(buttonSpinner).not.toBeInTheDocument()
     })
   })
 
   describe('if showSpinner is true', () => {
     it('renders the spinner', () => {
-      const root = create(<Button type="reset" showSpinner>Test</Button>).root
-      const button = root.findByType('button')
-      const buttonSpinner = button.findAllByProps({ className: 'Button__spinner spinner-slow' })
+      const { container } = render(<Button type="reset" showSpinner>Test</Button>)
+      const buttonSpinner = container.querySelector('.Button__spinner')
 
-      expect(buttonSpinner.length).toBe(1)
+      expect(buttonSpinner).toBeInTheDocument()
     })
   })
 })
