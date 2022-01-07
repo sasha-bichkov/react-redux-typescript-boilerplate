@@ -7,12 +7,6 @@ module.exports = {
   },
   coverageReporters: ['html'],
   coverageDirectory: '<rootDir>/jest-coverage/',
-  snapshotSerializers: [
-    'enzyme-to-json/serializer'
-  ],
-  setupFiles: [
-    '<rootDir>/app/setupTests.ts'
-  ],
   moduleNameMapper: {
     '^@Root/(.*)$': '<rootDir>/app/$1',
     '^@Pages/(.*)$': '<rootDir>/app/pages/$1',
