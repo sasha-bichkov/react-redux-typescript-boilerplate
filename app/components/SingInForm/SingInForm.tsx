@@ -2,10 +2,10 @@ import React, { FC } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-import './SingInForm.scss'
 import Button from '@Components/Button'
+import './SingInForm.scss'
 
-export interface FormValue {
+interface FormValue {
   email: string;
   password: string;
 }

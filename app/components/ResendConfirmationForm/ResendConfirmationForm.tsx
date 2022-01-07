@@ -2,10 +2,10 @@ import React, { FC } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-import './ResendConfirmationForm.scss'
 import Button from '@Components/Button'
+import './ResendConfirmationForm.scss'
 
-export interface FormValue {
+interface FormValue {
   email: string;
 }
 

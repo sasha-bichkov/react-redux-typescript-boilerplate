@@ -2,10 +2,10 @@ import React, { FC, useRef } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-import './SingUpForm.scss'
 import Button from '@Components/Button'
+import './SingUpForm.scss'
 
-export interface FormValue {
+interface FormValue {
   email: string;
   password: string;
   passwordConfirmation: string;
@@ -76,7 +76,7 @@ const SignUpForm: FC<ISignUpForm> = props => {
           {...register('password', {
             required: 'This is required field',
             minLength: {
-              value: 5,
+              value: 6,
               message: 'Please enter at least 5 characters'
             },
             maxLength: {
@@ -106,8 +106,7 @@ const SignUpForm: FC<ISignUpForm> = props => {
           className="SingUpForm__input passwordInput"
           aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
           {...register('passwordConfirmation', {
-            validate: value =>
-              value === password.current || 'The passwords do not match'
+            validate: value => value === password.current || 'The passwords do not match'
           })}
         />
 
