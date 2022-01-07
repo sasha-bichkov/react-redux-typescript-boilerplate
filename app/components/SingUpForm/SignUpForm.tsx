@@ -77,7 +77,7 @@ const SignUpForm: FC<ISignUpForm> = props => {
             required: 'This is required field',
             minLength: {
               value: 6,
-              message: 'Please enter at least 5 characters'
+              message: 'Please enter at least 6 characters'
             },
             maxLength: {
               value: 30,
