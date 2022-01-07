@@ -69,7 +69,7 @@ const SingInForm: FC<ISignInForm> = props => {
           type="password"
           placeholder=" "
           className="SingInForm__input passwordInput"
-          aria-invalid={errors.password ? ~'true' : 'false'}
+          aria-invalid={errors.password ? 'true' : 'false'}
           {...register('password', {
             required: 'This is required field',
             minLength: {
@@ -111,6 +111,7 @@ const SingInForm: FC<ISignInForm> = props => {
           disabled={!isValid || isSubmitting}
           className="SingInForm__button"
         >
+          Sign in
         </Button>
       </form>
     </FocusLock>
