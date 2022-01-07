@@ -8,6 +8,7 @@ my-app*
 template/src/__tests__/__snapshots__/
 lerna-debug.log
 npm-debug.log*
+.pnpm-debug.log
 yarn-debug.log*
 yarn-error.log*
 /.changelog
