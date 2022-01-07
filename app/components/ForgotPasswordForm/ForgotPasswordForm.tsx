@@ -75,11 +75,12 @@ const ForgotPasswordForm: FC<ISForgotPasswordForm> = props => {
 
         <Button
           type="submit"
-          caption="Send me reset password instructions"
           showSpinner={isSubmitting}
           disabled={!isValid || isSubmitting}
           className="ForgotPasswordForm__button"
-        />
+        >
+          Send me&nbsp;reset password instructions
+        </Button>
       </form>
     </FocusLock>
   )

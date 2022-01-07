@@ -110,11 +110,12 @@ const ChangePasswordForm: FC<ISignUpForm> = props => {
 
         <Button
           type="submit"
-          caption="Change password"
           showSpinner={isSubmitting}
           disabled={!isValid || isSubmitting}
           className="ChangePasswordForm__button"
-        />
+        >
+          Change password
+        </Button>
       </form>
     </FocusLock>
   )

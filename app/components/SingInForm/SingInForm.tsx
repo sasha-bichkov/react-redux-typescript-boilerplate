@@ -111,6 +111,7 @@ const SingInForm: FC<ISignInForm> = props => {
           disabled={!isValid || isSubmitting}
           className="SingInForm__button"
         >
+          Sing in
         </Button>
       </form>
     </FocusLock>

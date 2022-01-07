@@ -140,11 +140,12 @@ const SignUpForm: FC<ISignUpForm> = props => {
 
         <Button
           type="submit"
-          caption="Sing in"
           showSpinner={isSubmitting}
           disabled={!isValid || isSubmitting}
           className="SingUpForm__button"
-        />
+        >
+          Sing up
+        </Button>
       </form>
     </FocusLock>
   )
