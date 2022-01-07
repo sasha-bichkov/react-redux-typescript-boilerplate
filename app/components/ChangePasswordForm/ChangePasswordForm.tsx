@@ -77,8 +77,7 @@ const ChangePasswordForm: FC<ISignUpForm> = props => {
           className="ChangePasswordForm__input passwordInput"
           aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
           {...register('passwordConfirmation', {
-            validate: value =>
-              value === password.current || 'The passwords do not match'
+            validate: value => value === password.current || 'The passwords do not match'
           })}
         />
 
@@ -110,11 +109,12 @@ const ChangePasswordForm: FC<ISignUpForm> = props => {
 
         <Button
           type="submit"
-          caption="Change password"
           showSpinner={isSubmitting}
           disabled={!isValid || isSubmitting}
           className="ChangePasswordForm__button"
-        />
+        >
+          Change password
+        </Button>
       </form>
     </FocusLock>
   )
