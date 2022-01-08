@@ -20,7 +20,6 @@ const OmniAuthButton: FC<ButtonProps> = ({
     'Button',
     className,
   )
-  console.log(Icon)
   return (
     <button
       type='button'
