@@ -6,7 +6,3 @@ export interface IAction<T = Record<string, unknown>> {
 export interface IPayload<T> {
   payload: T,
 }
-
-type a = number;
-
-const num: a = 123
