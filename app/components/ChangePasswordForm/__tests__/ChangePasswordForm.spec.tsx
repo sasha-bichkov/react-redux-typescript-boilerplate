@@ -10,7 +10,7 @@ describe('ChangePasswordForm', () => {
 
   describe('if the fields are empty', () => {
     it('shows errors', async () => {
-      const {container} = render(<ChangePasswordForm onSubmit={mockOnSubmit}/>)
+      const {container} = render(<ChangePasswordForm onSubmit={mockOnSubmit} />)
 
       const submit = screen.getByRole(/button/i)
       const password = screen.getByLabelText(/password\s?$/i)
@@ -29,7 +29,7 @@ describe('ChangePasswordForm', () => {
 
   describe('if a password is less than 6 characters', () => {
     it('show an error', async () => {
-      render(<ChangePasswordForm onSubmit={mockOnSubmit}/>)
+      render(<ChangePasswordForm onSubmit={mockOnSubmit} />)
 
       const submit = screen.getByRole('button')
       const password = screen.getByLabelText(/password\s?$/i)
@@ -46,7 +46,7 @@ describe('ChangePasswordForm', () => {
 
   describe('if a password is more than 30 characters', () => {
     it('shows on error', async () => {
-      render(<ChangePasswordForm onSubmit={mockOnSubmit}/>)
+      render(<ChangePasswordForm onSubmit={mockOnSubmit} />)
 
       const submit = screen.getByRole('button')
       const password = screen.getByLabelText(/password\s?$/i)
@@ -61,9 +61,9 @@ describe('ChangePasswordForm', () => {
     })
   })
 
-  describe('if password confirmation is incorrectly', () => {
+  describe('if the password confirmation filed is incorrect', () => {
     it('shows on error', async () => {
-      render(<ChangePasswordForm onSubmit={mockOnSubmit}/>)
+      render(<ChangePasswordForm onSubmit={mockOnSubmit} />)
 
       const submit = screen.getByRole('button')
       const password = screen.getByLabelText(/password\s?$/i)
@@ -82,7 +82,7 @@ describe('ChangePasswordForm', () => {
 
   describe('if values are correct', () => {
     it('sends the form only once after a click', async () => {
-      render(<ChangePasswordForm onSubmit={mockOnSubmit}/>)
+      render(<ChangePasswordForm onSubmit={mockOnSubmit} />)
 
       const password = screen.getByLabelText(/password\s?$/i)
       const passwordConfirmation = screen.getByLabelText(/Password confirmation/i)

@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import Button from '@Components/Button'
 import './SingInForm.scss'
 
-interface FormValue {
+interface IFormValue {
   email: string;
   password: string;
 }
@@ -20,13 +20,13 @@ const SingInForm: FC<ISignInForm> = props => {
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
     reset
-  } = useForm<FormValue>({ mode: 'all' })
+  } = useForm<IFormValue>({ mode: 'all' })
 
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
-  const onSubmit: SubmitHandler<FormValue> = async (data) => {
+  const onSubmit: SubmitHandler<IFormValue> = async (data) => {
     console.log('sent:', data)
     props.onSubmit()
     await sleep(3000)
