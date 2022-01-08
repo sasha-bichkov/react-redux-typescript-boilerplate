@@ -3,24 +3,24 @@ import classNames from 'classnames'
 
 import './OmniAuthButton.scss'
 
-interface ButtonProps {
-  readonly className?: string,
-  readonly children: string,
+interface IButtonProps {
+  readonly className?: string
+  readonly children: string
   readonly Icon: FC<React.SVGAttributes<SVGElement>>
   onClick?(): void
 }
 
-const OmniAuthButton: FC<ButtonProps> = ({
+const OmniAuthButton: FC<IButtonProps> = ({
   className,
   onClick,
   Icon,
   children
-}: ButtonProps): ReactElement => {
+}: IButtonProps): ReactElement => {
   const classes = classNames(
     'Button',
     className,
   )
-  console.log(Icon)
+
   return (
     <button
       type='button'

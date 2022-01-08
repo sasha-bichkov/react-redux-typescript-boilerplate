@@ -2,7 +2,7 @@ import React from 'react'
 
 import './Home.scss'
 import OmniAuthButton from '@Components/OmniAuthButton'
-import  GoogleIcon from '@Images/OmniAuthButton/Google__Logo.svg'
+import  GoogleIcon from '@Images/OmniAuthButton/GoogleLogo.svg'
 
 interface HomeProps {} // eslint-disable-line @typescript-eslint/no-empty-interface
 interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interface
