@@ -27,15 +27,17 @@ const history = createBrowserHistory()
 const store = configureStore(history)
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Switch>
-          <Route path="/" component={Home} />
-        </Switch>
-      </ErrorBoundary>
-    </ConnectedRouter>
-  </Provider>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <Switch>
+            <Route path="/" component={Home} />
+          </Switch>
+        </ErrorBoundary>
+      </ConnectedRouter>
+    </Provider>
+  </React.StrictMode>,
   rootElement
 )
 
