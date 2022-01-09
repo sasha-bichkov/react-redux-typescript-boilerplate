@@ -1,0 +1,64 @@
+@use "sass:color";
+
+.SideBar {
+  position: sticky;
+
+  margin-right: 15px;
+
+  @include size(80px, 100vh);
+  background-color: #f7f9fa;
+
+  transition: .3s;
+}
+
+.SideBar__navList {
+  
+}
+
+.SideBar.active {
+  transition: .3s;
+
+  @include size(250px, 100vh);
+}
+
+.SideBar__arrowButton {
+  position: absolute;
+  right: 15%;
+  bottom: 20%;
+
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover,
+  &:focus {
+    color: #03a9f4;
+
+    opacity: 1;
+  }
+}
+
+.Sidebar__arrowIcon {
+  width: 25px;
+
+  opacity: .5;
+
+  & path {
+    fill: currentColor;
+  }
+}
+
+.SideBar.active .Sidebar__arrowIcon {
+  transform: rotate(180deg);
+}
+
+.Sidebar__divider {
+  width: 100%;
+  height: 1px;
+  border-radius: 1px;
+  background-color: #333;
+}
