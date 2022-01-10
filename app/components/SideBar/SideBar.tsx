@@ -1,27 +1,37 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { FC, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import cn from 'classnames'
 
-import { SideBarData } from '@Components/SideBar/SideBarData'
 import ArrowIcon from '@Images/SideBar/chevronDoubleRight.svg'
 import './SideBar.scss'
+import { ISideBarItem } from '@Components/SideBar/SideBarData'
 
-const SideBar = () => {
+interface ISideBarList {
+  SideBarData: Array<ISideBarItem>
+}
+
+const SideBar: FC<ISideBarList> = ({SideBarData}) => {
   const [active, setActive] = useState(false)
   const SideBarClass = cn('SideBar', {
-    'active': active
+    'SideBar-active': active
   })
 
   return (
     <div className={SideBarClass}>
       <ul className="SideBar__navList">
         {SideBarData.map(item => {
+          if(item.class === 'Sidebar__divider') return <div className='Sidebar__divider' />
           return <li key={item.title} className="SideBar__navItem">
-            {item.icon ? item.icon : ''}
-            <Link to={item.path} className={item.class}>{item.title}</Link>
+            <NavLink
+              to={item.path || '/'}
+              className={item.class}>
+              {item.icon ? <item.icon /> : ''}
+              <span className="SideBar__text">
+                {item.title}
+              </span>
+            </NavLink>
           </li>
         })}
-        <div className="Sidebar__divider" />
         <button
           className="SideBar__arrowButton"
           type="button"

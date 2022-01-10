@@ -16,6 +16,7 @@ import reportWebVitals from '@Root/reportWebVitals'
 
 import '@Scss/App.scss'
 import SideBar from '@Components/SideBar/SideBar'
+import { ISideBarData, SideBarData } from '@Components/SideBar/SideBarData'
 
 declare global {
   interface Window {
@@ -38,7 +39,7 @@ ReactDOM.render(
       <ConnectedRouter history={history}>
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           <div className="App">
-            <SideBar />
+            <SideBar SideBarData={SideBarData} />
             <React.Suspense fallback={<div className="SuspenseComponent"><Loader /></div>}>
               <Routes>
                 <Route path="/" element={<Home />} />
