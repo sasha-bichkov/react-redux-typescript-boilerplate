@@ -13,6 +13,8 @@ import ErrorFallback from '@Components/ErrorFallback'
 import configureStore from '@Root/configureStore'
 import reportWebVitals from '@Root/reportWebVitals'
 
+import '@Root/i18n'
+
 import '@Scss/App.scss'
 
 declare global {
