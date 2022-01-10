@@ -2,10 +2,10 @@ import React, { FC, useRef } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-import './ChangePasswordForm.scss'
 import Button from '@Components/Button'
+import './ChangePasswordForm.scss'
 
-export interface FormValue {
+interface IFormValue {
   password: string;
   passwordConfirmation: string;
 }
@@ -21,14 +21,14 @@ const ChangePasswordForm: FC<ISignUpForm> = props => {
     formState: {errors, isValid, isSubmitting},
     reset,
     watch
-  } = useForm<FormValue>({mode: 'all'})
+  } = useForm<IFormValue>({mode: 'all'})
   const password = useRef({})
   password.current = watch('password')
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
-  const onSubmit: SubmitHandler<FormValue> = async (data) => {
+  const onSubmit: SubmitHandler<IFormValue> = async (data) => {
     console.log('sent:', data)
     props.onSubmit()
     await sleep(3000)
@@ -47,8 +47,8 @@ const ChangePasswordForm: FC<ISignUpForm> = props => {
           {...register('password', {
             required: 'This is required field',
             minLength: {
-              value: 5,
-              message: 'Please enter at least 5 characters'
+              value: 6,
+              message: 'Please enter at least 6 characters'
             },
             maxLength: {
               value: 30,
@@ -67,6 +67,7 @@ const ChangePasswordForm: FC<ISignUpForm> = props => {
       </div>
     )
   }
+
   const renderPasswordRepeat = () => {
     return (
       <div className="ChangePasswordForm__group">

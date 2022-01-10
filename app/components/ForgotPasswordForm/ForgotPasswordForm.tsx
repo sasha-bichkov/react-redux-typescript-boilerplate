@@ -2,10 +2,10 @@ import React, { FC } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-import './ForgotPasswordForm.scss'
 import Button from '@Components/Button'
+import './ForgotPasswordForm.scss'
 
-export interface FormValue {
+interface IFormValue {
   email: string;
 }
 
@@ -19,13 +19,13 @@ const ForgotPasswordForm: FC<ISForgotPasswordForm> = props => {
     handleSubmit,
     formState: {errors, isValid, isSubmitting},
     reset,
-  } = useForm<FormValue>({mode: 'all'})
+  } = useForm<IFormValue>({mode: 'all'})
 
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
-  const onSubmit: SubmitHandler<FormValue> = async (data) => {
+  const onSubmit: SubmitHandler<IFormValue> = async (data) => {
     console.log('sent:', data)
     props.onSubmit()
     await sleep(3000)
@@ -79,7 +79,7 @@ const ForgotPasswordForm: FC<ISForgotPasswordForm> = props => {
           disabled={!isValid || isSubmitting}
           className="ForgotPasswordForm__button"
         >
-          Send me reset password instructions
+          Send me&nbsp;reset password instructions
         </Button>
       </form>
     </FocusLock>

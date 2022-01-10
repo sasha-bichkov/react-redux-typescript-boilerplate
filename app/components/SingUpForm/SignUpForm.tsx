@@ -2,10 +2,10 @@ import React, { FC, useRef } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-import './SingUpForm.scss'
 import Button from '@Components/Button'
+import './SingUpForm.scss'
 
-export interface FormValue {
+interface IFormValue {
   email: string;
   password: string;
   passwordConfirmation: string;
@@ -22,14 +22,14 @@ const SignUpForm: FC<ISignUpForm> = props => {
     formState: {errors, isValid, isSubmitting},
     reset,
     watch
-  } = useForm<FormValue>({mode: 'all'})
+  } = useForm<IFormValue>({mode: 'all'})
   const password = useRef({})
   password.current = watch('password')
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
-  const onSubmit: SubmitHandler<FormValue> = async (data) => {
+  const onSubmit: SubmitHandler<IFormValue> = async (data) => {
     console.log('sent:', data)
     props.onSubmit()
     await sleep(3000)
@@ -106,8 +106,7 @@ const SignUpForm: FC<ISignUpForm> = props => {
           className="SingUpForm__input passwordInput"
           aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
           {...register('passwordConfirmation', {
-            validate: value =>
-              value === password.current || 'The passwords do not match'
+            validate: value => value === password.current || 'The passwords do not match'
           })}
         />
 
@@ -143,7 +142,9 @@ const SignUpForm: FC<ISignUpForm> = props => {
           showSpinner={isSubmitting}
           disabled={!isValid || isSubmitting}
           className="SingUpForm__button"
-        >Sing Up</Button>
+        >
+          Sing Up
+        </Button>
       </form>
     </FocusLock>
   )

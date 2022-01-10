@@ -12,7 +12,7 @@
 }
 
 .SideBar__navList {
-  margin: 20px 0 0 0;
+  margin: 20px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -25,9 +25,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
+
   padding: 5px;
-  text-decoration: none;
   color: #919699;
+  text-decoration: none;
 
   &.active {
     color: #000;
@@ -39,8 +40,8 @@
   }
 
   & path {
-    transition: .3s;
     fill: currentColor;
+    transition: .3s;
   }
 }
 
@@ -96,13 +97,15 @@
 .Sidebar__divider {
   position: relative;
 
-  &:after {
+  &::after {
+    content: "";
     position: absolute;
-    transform: translateX(30%);
-    content: '';
+
     width: 60%;
     height: 1px;
     border-radius: 1px;
     background-color: #919699;
+
+    transform: translateX(30%);
   }
 }

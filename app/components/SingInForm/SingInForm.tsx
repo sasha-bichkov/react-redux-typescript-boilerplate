@@ -2,10 +2,10 @@ import React, { FC } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-import './SingInForm.scss'
 import Button from '@Components/Button'
+import './SingInForm.scss'
 
-export interface FormValue {
+interface IFormValue {
   email: string;
   password: string;
 }
@@ -20,13 +20,13 @@ const SingInForm: FC<ISignInForm> = props => {
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
     reset
-  } = useForm<FormValue>({ mode: 'all' })
+  } = useForm<IFormValue>({ mode: 'all' })
 
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
-  const onSubmit: SubmitHandler<FormValue> = async (data) => {
+  const onSubmit: SubmitHandler<IFormValue> = async (data) => {
     console.log('sent:', data)
     props.onSubmit()
     await sleep(3000)
@@ -111,7 +111,7 @@ const SingInForm: FC<ISignInForm> = props => {
           disabled={!isValid || isSubmitting}
           className="SingInForm__button"
         >
-          Sign in
+          Sing in
         </Button>
       </form>
     </FocusLock>
