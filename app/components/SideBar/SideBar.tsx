@@ -17,11 +17,14 @@ const SideBar: FC<ISideBarList> = ({SideBarData}) => {
   })
 
   return (
-    <div className={SideBarClass}>
-      <ul className="SideBar__navList">
-        {SideBarData.map(item => {
-          if(item.class === 'Sidebar__divider') return <div className='Sidebar__divider' />
-          return <li key={item.title} className="SideBar__navItem">
+    <nav className={SideBarClass}>
+      <div className="SideBar__navList">
+        {SideBarData.map((item, index) => {
+          if (item.class === 'Sidebar__divider') return <div
+            key={index}
+            className='Sidebar__divider'
+          />
+          return <div key={item.title} className="SideBar__navItem">
             <NavLink
               to={item.path || '/'}
               className={item.class}>
@@ -30,7 +33,7 @@ const SideBar: FC<ISideBarList> = ({SideBarData}) => {
                 {item.title}
               </span>
             </NavLink>
-          </li>
+          </div>
         })}
         <button
           className="SideBar__arrowButton"
@@ -39,9 +42,8 @@ const SideBar: FC<ISideBarList> = ({SideBarData}) => {
         >
           <ArrowIcon className="Sidebar__arrowIcon" />
         </button>
-      </ul>
-    </div>
-
+      </div>
+    </nav>
   )
 }
 
