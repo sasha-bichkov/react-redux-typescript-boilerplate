@@ -1,0 +1,39 @@
+@use "sass:color";
+
+.Button {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 64px;
+  padding: 6px 16px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #03a9f4;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover {
+    background-color: color.adjust(#03a9f4, $lightness: $lighten-amount);
+  }
+
+  &:active {
+    background-color: color.adjust(#03a9f4, $lightness: $darken-amount);
+  }
+
+  &:disabled {
+    background-color: rgb(0 0 0 / .12);
+    color: rgb(0 0 0 / .26);
+
+    cursor: not-allowed;
+  }
+}
+
+.Button__icon {
+  margin-right: 5px;
+}

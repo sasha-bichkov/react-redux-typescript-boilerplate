@@ -1,22 +1,21 @@
-import React, { FC, ReactElement } from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
 
-import './Button.scss'
+import './OmniAuthButton.scss'
 
-// TODO: what is that?
-type SvgInHtml = HTMLElement & SVGElement
-
-export interface ButtonProps {
+interface IButtonProps {
   readonly className?: string
-  readonly children?: FC<SvgInHtml>
+  readonly children: string
+  readonly Icon: FC<React.SVGAttributes<SVGElement>>
   onClick?(): void
 }
 
-const OmniAuthButton: FC<ButtonProps> = ({
+const OmniAuthButton: FC<IButtonProps> = ({
+  Icon,
   className,
+  children,
   onClick,
-  children
-}: ButtonProps): ReactElement => {
+}: IButtonProps) => {
   const classes = classNames(
     'Button',
     className,
@@ -28,6 +27,7 @@ const OmniAuthButton: FC<ButtonProps> = ({
       className={classes}
       onClick={onClick}
     >
+      <Icon className='Button__icon' />
       {children}
     </button>
   )
