@@ -1,123 +1,102 @@
-import React, { FC, useRef } from 'react'
-import FocusLock from 'react-focus-lock'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import React from 'react'
+import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import '@testing-library/jest-dom'
 
-import './ChangePasswordForm.scss'
-import Button from '@Components/Button'
+import ChangePasswordForm from '../ChangePasswordForm'
 
-export interface FormValue {
-  password: string;
-  passwordConfirmation: string;
-}
+describe('ChangePasswordForm', () => {
+  const mockOnSubmit = jest.fn()
 
-interface ISChangePasswordForm {
-  onSubmit(): void
-}
+  describe('if the fields are empty', () => {
+    it('shows errors', async () => {
+      const {container} = render(<ChangePasswordForm onSubmit={mockOnSubmit} />)
 
-const ChangePasswordForm: FC<ISChangePasswordForm> = props => {
-  const {
-    register,
-    handleSubmit,
-    formState: {errors, isValid, isSubmitting},
-    reset,
-    watch
-  } = useForm<FormValue>({mode: 'all'})
-  const password = useRef({})
-  password.current = watch('password')
-  const sleep = (milliseconds: number) => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds))
-  }
+      const submit = screen.getByRole(/button/i)
+      const password = screen.getByLabelText(/password\s?$/i)
 
-  const onSubmit: SubmitHandler<FormValue> = async (data) => {
-    console.log('sent:', data)
-    props.onSubmit()
-    await sleep(3000)
-    reset()
-  }
+      userEvent.click(password)
+      userEvent.click(container)
 
-  const renderPassword = () => {
-    return (
-      <div className="ChangePasswordForm__group">
-        <input
-          id="password"
-          type="password"
-          placeholder=" "
-          className="ChangePasswordForm__input passwordInput"
-          aria-invalid={errors.password ? 'true' : 'false'}
-          {...register('password', {
-            required: 'This is required field',
-            minLength: {
-              value: 5,
-              message: 'Please enter at least 5 characters'
-            },
-            maxLength: {
-              value: 30,
-              message: 'Please enter at most 30 characters'
-            }
-          })}
-        />
+      const passwordErrorTexts = await screen.findByText(/This is required field/i)
 
-        <label className="ChangePasswordForm__label" htmlFor="password">Password</label>
+      expect(password).toHaveAttribute('aria-invalid')
+      expect(passwordErrorTexts).toBeInTheDocument()
+      expect(submit).toBeDisabled()
+    })
+  })
 
-        {errors.password && (
-          <p role="alert" className="ChangePasswordForm__error">
-            {errors.password.message}
-          </p>
-        )}
-      </div>
-    )
-  }
-  const renderPasswordRepeat = () => {
-    return (
-      <div className="ChangePasswordForm__group">
-        <input
-          id="passwordConfirmation"
-          type="password"
-          placeholder=" "
-          className="ChangePasswordForm__input passwordInput"
-          aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
-          {...register('passwordConfirmation', {
-            validate: value =>
-              value === password.current || 'The passwords do not match'
-          })}
-        />
 
-        <label
-          className="ChangePasswordForm__label"
-          htmlFor="passwordConfirmation">
-          Password confirmation
-        </label>
+  describe('if a password is less than 6 characters', () => {
+    it('show an error', async () => {
+      render(<ChangePasswordForm onSubmit={mockOnSubmit} />)
 
-        {errors.passwordConfirmation && (
-          <p role="alert" className="ChangePasswordForm__error">
-            {errors.passwordConfirmation.message}
-          </p>
-        )}
-      </div>
-    )
-  }
+      const submit = screen.getByRole('button')
+      const password = screen.getByLabelText(/password\s?$/i)
 
-  return (
-    <FocusLock>
-      <form
-        className="ChangePasswordForm"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <h2 className="ChangePasswordForm__title">Change password</h2>
+      userEvent.type(password, '12345')
 
-        {renderPassword()}
-        {renderPasswordRepeat()}
+      const passwordErrorText = await screen.findByText(/Please enter at least 6 characters/i)
 
-        <Button
-          type="submit"
-          caption="Change password"
-          showSpinner={isSubmitting}
-          disabled={!isValid || isSubmitting}
-          className="ChangePasswordForm__button"
-        />
-      </form>
-    </FocusLock>
-  )
-}
+      expect(password).toHaveAttribute('aria-invalid')
+      expect(passwordErrorText).toBeInTheDocument()
+      expect(submit).toBeDisabled()
+    })
+  })
 
-export default ChangePasswordForm
+  describe('if a password is more than 30 characters', () => {
+    it('shows on error', async () => {
+      render(<ChangePasswordForm onSubmit={mockOnSubmit} />)
+
+      const submit = screen.getByRole('button')
+      const password = screen.getByLabelText(/password\s?$/i)
+
+      userEvent.type(password, '123456789123456789123456789123456789')
+
+      const passwordErrorText = await screen.findByText(/Please enter at most 30 characters/i)
+
+      expect(password).toHaveAttribute('aria-invalid')
+      expect(passwordErrorText).toBeInTheDocument()
+      expect(submit).toBeDisabled()
+    })
+  })
+
+  describe('if the password confirmation filed is incorrect', () => {
+    it('shows on error', async () => {
+      render(<ChangePasswordForm onSubmit={mockOnSubmit} />)
+
+      const submit = screen.getByRole('button')
+      const password = screen.getByLabelText(/password\s?$/i)
+      const passwordConfirmation = screen.getByLabelText(/Password confirmation/i)
+
+      userEvent.type(password, '123456')
+      userEvent.type(passwordConfirmation, '123457')
+
+      const passwordErrorText = await screen.findByText(/The passwords do not match/i)
+
+      expect(passwordConfirmation).toHaveAttribute('aria-invalid')
+      expect(passwordErrorText).toBeInTheDocument()
+      expect(submit).toBeDisabled()
+    })
+  })
+
+  describe('if values are correct', () => {
+    it('sends the form only once after a click', async () => {
+      render(<ChangePasswordForm onSubmit={mockOnSubmit} />)
+
+      const password = screen.getByLabelText(/password\s?$/i)
+      const passwordConfirmation = screen.getByLabelText(/Password confirmation/i)
+
+      userEvent.type(password, 'qwerty')
+      userEvent.type(passwordConfirmation, 'qwerty')
+
+      const submit = await screen.findByRole('button')
+
+      userEvent.dblClick(submit)
+
+      await waitFor(() => expect(mockOnSubmit).toHaveBeenCalledTimes(1))
+    })
+  })
+})
+
+

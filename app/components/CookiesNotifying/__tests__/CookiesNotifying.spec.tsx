@@ -5,8 +5,8 @@ import CookiesNotifying from '../CookiesNotifying'
 
 describe('CookiesNotifying', () => {
   it('should render correctly', () => {
-    // const component = render(<CookiesNotifying />)
+    const component = render(<CookiesNotifying />)
 
-    // expect(component).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 })
