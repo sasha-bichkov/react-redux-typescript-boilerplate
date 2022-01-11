@@ -5,8 +5,8 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import Button from '@Components/Button'
 import './ResendConfirmationForm.scss'
 
-interface IFormValue {
-  email: string;
+interface IForm {
+  readonly email: string
 }
 
 interface ISResendConfirmationForm {
@@ -19,12 +19,12 @@ const ResendConfirmationForm: FC<ISResendConfirmationForm> = props => {
     handleSubmit,
     formState: {errors, isValid, isSubmitting},
     reset,
-  } = useForm<IFormValue>({mode: 'all'})
+  } = useForm<IForm>({mode: 'all'})
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
-  const onSubmit: SubmitHandler<IFormValue> = async (data) => {
+  const onSubmit: SubmitHandler<IForm> = async (data) => {
     console.log('sent:', data)
     props.onSubmit()
     await sleep(3000)

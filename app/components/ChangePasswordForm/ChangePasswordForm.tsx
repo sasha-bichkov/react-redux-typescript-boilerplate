@@ -6,8 +6,8 @@ import Button from '@Components/Button'
 import './ChangePasswordForm.scss'
 
 interface IForm {
-  password: string;
-  passwordConfirmation: string;
+  password: string
+  passwordConfirmation: string
 }
 
 interface ISignUpForm {

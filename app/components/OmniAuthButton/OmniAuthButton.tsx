@@ -3,10 +3,12 @@ import classNames from 'classnames'
 
 import './Button.scss'
 
-type SvgInHtml = HTMLElement & SVGElement;
+// TODO: what is that?
+type SvgInHtml = HTMLElement & SVGElement
+
 export interface ButtonProps {
-  readonly className?: string,
-  readonly children?: FC<SvgInHtml>,
+  readonly className?: string
+  readonly children?: FC<SvgInHtml>
   onClick?(): void
 }
 

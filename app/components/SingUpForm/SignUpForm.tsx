@@ -6,9 +6,9 @@ import Button from '@Components/Button'
 import './SingUpForm.scss'
 
 interface IForm {
-  email: string;
-  password: string;
-  passwordConfirmation: string;
+  readonly email: string
+  readonly password: string
+  readonly passwordConfirmation: string
 }
 
 interface ISignUpForm {
