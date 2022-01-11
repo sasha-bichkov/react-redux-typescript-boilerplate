@@ -1,10 +1,11 @@
 import React, { FC, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import cn from 'classnames'
+import classnames from 'classnames'
 
-import ArrowIcon from '@Images/SideBar/chevronDoubleRight.svg'
-import './SideBar.scss'
 import { ISideBarItem } from '@Components/SideBar/SideBarData'
+import ArrowIcon from '@Images/SideBar/ChevronDoubleRight.svg'
+
+import './SideBar.scss'
 
 interface ISideBarList {
   SideBarData: Array<ISideBarItem>
@@ -12,7 +13,7 @@ interface ISideBarList {
 
 const SideBar: FC<ISideBarList> = ({SideBarData}) => {
   const [active, setActive] = useState(false)
-  const SideBarClass = cn('SideBar', {
+  const SideBarClass = classnames('SideBar', {
     'SideBar-active': active
   })
 
@@ -20,15 +21,19 @@ const SideBar: FC<ISideBarList> = ({SideBarData}) => {
     <nav className={SideBarClass}>
       <div className="SideBar__navList">
         {SideBarData.map((item, index) => {
-          if (item.class === 'Sidebar__divider') return <div
-            key={index}
-            className='Sidebar__divider'
-          />
+          if (item.class === 'Sidebar__divider') {
+            return (
+              <hr
+                key={index}
+                className='Sidebar__divider'
+              />
+            )
+          }
           return <div key={item.title} className="SideBar__navItem">
             <NavLink
               to={item.path || '/'}
               className={item.class}>
-              {item.icon ? <item.icon /> : ''}
+              {item.Icon ? <item.Icon /> : ''}
               <span className="SideBar__text">
                 {item.title}
               </span>

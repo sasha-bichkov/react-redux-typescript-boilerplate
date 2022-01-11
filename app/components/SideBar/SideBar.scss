@@ -56,6 +56,18 @@
     display: inline;
   }
 
+  & .SideBar__navList {
+    padding-left: 45px;
+  }
+
+  & .SideBar__navItem {
+    text-align: left;
+  }
+
+  & .Sidebar__divider {
+    margin-left: 0;
+  }
+
   @include size(250px, 100vh);
 }
 
@@ -95,17 +107,9 @@
 }
 
 .Sidebar__divider {
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-
-    width: 60%;
-    height: 1px;
-    border-radius: 1px;
-    background-color: #919699;
-
-    transform: translateX(30%);
-  }
+  width: 60%;
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }

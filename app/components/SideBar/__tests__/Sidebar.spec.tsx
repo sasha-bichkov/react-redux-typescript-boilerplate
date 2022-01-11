@@ -8,7 +8,6 @@ import '@testing-library/jest-dom'
 import SideBar from '../SideBar'
 import { SideBarData } from '../SideBarData'
 
-
 describe('SideBar', () => {
 
   describe('if SideBar render', () => {
