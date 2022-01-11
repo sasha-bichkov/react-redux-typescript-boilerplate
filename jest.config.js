@@ -9,6 +9,7 @@ module.exports = {
   coverageDirectory: '<rootDir>/jest-coverage/',
   moduleNameMapper: {
     '^@Root/(.*)$': '<rootDir>/app/$1',
+    "^@Utils/(.*)$": '<rootDir>/app/utils/$1',
     '^@Pages/(.*)$': '<rootDir>/app/pages/$1',
     '^@Modules/(.*)$': '<rootDir>/app/modules/$1',
     '^@Images/(.*)$': '<rootDir>/public/images/$1',

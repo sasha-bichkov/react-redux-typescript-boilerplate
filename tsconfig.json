@@ -26,6 +26,7 @@
     "paths": {
       "*": ["./@types/*"],
       "@Root/*": ["./*"],
+      "@Utils/*": ["./utils/*"],
       "@Pages/*": ["./pages/*"],
       "@Modules/*": ["./modules/*"],
       "@Containers/*": ["./containers/*"],
