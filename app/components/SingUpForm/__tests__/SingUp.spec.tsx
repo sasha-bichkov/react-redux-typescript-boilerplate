@@ -3,18 +3,18 @@ import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 
-import SingInForm from '../SingInForm'
+import SingUpForm from '../SignUpForm'
 
-describe('SingInForm', () => {
+describe('SingUpForm', () => {
   const mockOnSubmit = jest.fn()
 
   describe('if the fields are empty', () => {
     it('shows errors', async () => {
-      const {container} = render(<SingInForm onSubmit={mockOnSubmit}/>)
+      const {container} = render(<SingUpForm onSubmit={mockOnSubmit}/>)
 
-      const submit = screen.getByRole('button')
+      const submit = screen.getByRole(/button/i)
       const email = screen.getByLabelText(/email/i)
-      const password = screen.getByLabelText(/password/i)
+      const password = screen.getByLabelText(/password\s?$/i)
 
       userEvent.click(email)
       userEvent.click(container)
@@ -33,7 +33,7 @@ describe('SingInForm', () => {
 
   describe('if an email is specified incorrectly', () => {
     it('shows an error', async () => {
-      render(<SingInForm onSubmit={mockOnSubmit}/>)
+      render(<SingUpForm onSubmit={mockOnSubmit}/>)
 
       const submit = screen.getByRole('button')
       const email = screen.getByLabelText(/email/i)
@@ -49,12 +49,13 @@ describe('SingInForm', () => {
   })
 
   describe('if a password is less than 6 characters', () => {
-    it('shows an error', async () => {
-      render(<SingInForm onSubmit={mockOnSubmit}/>)
+    it('show an error', async () => {
+      render(<SingUpForm onSubmit={mockOnSubmit}/>)
 
       const submit = screen.getByRole('button')
-      const password = screen.getByLabelText(/password/i)
-      userEvent.type(password, '123')
+      const password = screen.getByLabelText(/password\s?$/i)
+
+      userEvent.type(password,'12345')
 
       const passwordErrorText = await screen.findByText(/Please enter at least 6 characters/i)
 
@@ -65,11 +66,12 @@ describe('SingInForm', () => {
   })
 
   describe('if a password is more than 30 characters', () => {
-    it('shows an error', async () => {
-      render(<SingInForm onSubmit={mockOnSubmit}/>)
+    it('shows on error', async () => {
+      render(<SingUpForm onSubmit={mockOnSubmit} />)
 
       const submit = screen.getByRole('button')
-      const password = screen.getByLabelText(/password/i)
+      const password = screen.getByLabelText(/password\s?$/i)
+
       userEvent.type(password, '123456789123456789123456789123456789')
 
       const passwordErrorText = await screen.findByText(/Please enter at most 30 characters/i)
@@ -80,21 +82,24 @@ describe('SingInForm', () => {
     })
   })
 
-  describe('if values are correct', () => {
-    it('sends the form only once after a click', async () => {
-      render(<SingInForm onSubmit={mockOnSubmit}/>)
+  describe('if password confirmation is incorrectly', () => {
+    it('shows on error', async () => {
+      render(<SingUpForm onSubmit={mockOnSubmit} />)
 
-      const email = screen.getByLabelText(/email/i)
-      const password = screen.getByLabelText(/password/i)
+      const submit = screen.getByRole('button')
+      const password = screen.getByLabelText(/password\s?$/i)
+      const passwordConfirmation = screen.getByLabelText(/Password confirmation/i)
 
-      userEvent.type(email, 'test@example.com')
-      userEvent.type(password, 'qwerty')
+      userEvent.type(password, '123456')
+      userEvent.type(passwordConfirmation, '123457')
 
-      const submit = await screen.findByRole('button')
+      const passwordErrorText = await screen.findByText(/The passwords do not match/i)
 
-      userEvent.dblClick(submit)
-
-      await waitFor(() => expect(mockOnSubmit).toHaveBeenCalledTimes(1))
+      expect(passwordConfirmation).toHaveAttribute('aria-invalid')
+      expect(passwordErrorText).toBeInTheDocument()
+      expect(submit).toBeDisabled()
     })
   })
 })
+
+

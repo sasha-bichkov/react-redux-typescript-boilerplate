@@ -1,32 +1,35 @@
-import React, { FC } from 'react'
+import React, { FC, useRef } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
 import Button from '@Components/Button'
-import './SingInForm.scss'
+import './SingUpForm.scss'
 
-interface IFormValue {
+interface IForm {
   email: string;
   password: string;
+  passwordConfirmation: string;
 }
 
-interface ISignInForm {
+interface ISignUpForm {
   onSubmit(): void
 }
 
-const SingInForm: FC<ISignInForm> = props => {
+const SignUpForm: FC<ISignUpForm> = props => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid, isSubmitting },
-    reset
-  } = useForm<IFormValue>({ mode: 'all' })
-
+    formState: {errors, isValid, isSubmitting},
+    reset,
+    watch
+  } = useForm<IForm>({mode: 'all'})
+  const password = useRef({})
+  password.current = watch('password')
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
-  const onSubmit: SubmitHandler<IFormValue> = async (data) => {
+  const onSubmit: SubmitHandler<IForm> = async (data) => {
     console.log('sent:', data)
     props.onSubmit()
     await sleep(3000)
@@ -35,12 +38,12 @@ const SingInForm: FC<ISignInForm> = props => {
 
   const renderEmail = () => {
     return (
-      <div className="SingInForm__group">
+      <div className="SingUpForm__group">
         <input
           id="email"
           type="text"
           placeholder=" "
-          className="SingInForm__input emailInput"
+          className="SingUpForm__input emailInput"
           aria-invalid={errors.email ? 'true' : 'false'}
           {...register('email', {
             required: 'This is required field',
@@ -51,10 +54,10 @@ const SingInForm: FC<ISignInForm> = props => {
           })}
         />
 
-        <label className="SingInForm__label" htmlFor="email">Email</label>
+        <label className="SingUpForm__label" htmlFor="email">Email</label>
 
         {errors.email && (
-          <p className="SingInForm__error">
+          <p className="SingUpForm__error">
             {errors.email.message}
           </p>
         )}
@@ -63,12 +66,12 @@ const SingInForm: FC<ISignInForm> = props => {
   }
   const renderPassword = () => {
     return (
-      <div className="SingInForm__group">
+      <div className="SingUpForm__group">
         <input
           id="password"
           type="password"
           placeholder=" "
-          className="SingInForm__input passwordInput"
+          className="SingUpForm__input passwordInput"
           aria-invalid={errors.password ? 'true' : 'false'}
           {...register('password', {
             required: 'This is required field',
@@ -83,11 +86,39 @@ const SingInForm: FC<ISignInForm> = props => {
           })}
         />
 
-        <label className="SingInForm__label" htmlFor="password">Password</label>
+        <label className="SingUpForm__label" htmlFor="password">Password</label>
 
         {errors.password && (
-          <p role="alert" className="SingInForm__error">
+          <p role="alert" className="SingUpForm__error">
             {errors.password.message}
+          </p>
+        )}
+      </div>
+    )
+  }
+  const renderPasswordRepeat = () => {
+    return (
+      <div className="SingUpForm__group">
+        <input
+          id="passwordConfirmation"
+          type="password"
+          placeholder=" "
+          className="SingUpForm__input passwordInput"
+          aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
+          {...register('passwordConfirmation', {
+            validate: value => value === password.current || 'The passwords do not match'
+          })}
+        />
+
+        <label
+          className="SingUpForm__label"
+          htmlFor="passwordConfirmation">
+          Password confirmation
+        </label>
+
+        {errors.passwordConfirmation && (
+          <p role="alert" className="SingUpForm__error">
+            {errors.passwordConfirmation.message}
           </p>
         )}
       </div>
@@ -97,25 +128,26 @@ const SingInForm: FC<ISignInForm> = props => {
   return (
     <FocusLock>
       <form
-        className="SingInForm"
+        className="SingUpForm"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h2 className="SingInForm__title">Account login</h2>
+        <h2 className="SingUpForm__title">Account login</h2>
 
         {renderEmail()}
         {renderPassword()}
+        {renderPasswordRepeat()}
 
         <Button
           type="submit"
           showSpinner={isSubmitting}
           disabled={!isValid || isSubmitting}
-          className="SingInForm__button"
+          className="SingUpForm__button"
         >
-          Sing in
+          Sing up
         </Button>
       </form>
     </FocusLock>
   )
 }
 
-export default SingInForm
+export default SignUpForm

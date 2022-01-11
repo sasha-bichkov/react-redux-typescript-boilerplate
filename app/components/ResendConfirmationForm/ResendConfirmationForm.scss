@@ -1,12 +1,13 @@
 @use "sass:color";
 
-.SingInForm {
+.ResendConfirmationForm {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 
   min-width: 270px;
+  height: 350px;
   padding: 32px;
   border-radius: 10px;
   box-shadow: 0 4px 16px #ccc;
@@ -18,7 +19,7 @@
   }
 }
 
-.SingInForm__title {
+.ResendConfirmationForm__title {
   align-self: center;
 
   font-weight: normal;
@@ -30,14 +31,14 @@
   }
 }
 
-.SingInForm__group {
+.ResendConfirmationForm__group {
   position: relative;
 
   width: 100%;
   margin-bottom: 45px;
 }
 
-.SingInForm__label {
+.ResendConfirmationForm__label {
   position: absolute;
   top: 0;
   left: 0;
@@ -52,7 +53,9 @@
   }
 }
 
-.SingInForm__input {
+.ResendConfirmationForm__input {
+  position: relative;
+
   width: 100%;
   padding: 0 0 10px;
   border: none;
@@ -66,8 +69,8 @@
     border-bottom: 1px solid #03a9f4;
   }
 
-  &:focus ~ .SingInForm__label,
-  &:not(:placeholder-shown) ~ .SingInForm__label {
+  &:focus ~ .ResendConfirmationForm__label,
+  &:not(:placeholder-shown) ~ .ResendConfirmationForm__label {
     top: -18px;
 
     color: #03a9f4;
@@ -79,11 +82,11 @@
   }
 }
 
-.Button.SingInForm__button {
+.Button.ResendConfirmationForm__button {
   width: 100%;
   padding: 10px 20px;
   color: #fff;
-  font-size: 1rem;
+  font-size: .9rem;
   text-transform: uppercase;
 
   @include mq($from: desktop) {
@@ -92,7 +95,8 @@
 }
 
 // error
-.SingInForm__error {
+
+.ResendConfirmationForm__error {
   position: absolute;
   top: 20px;
 
@@ -100,6 +104,6 @@
   font-size: .9rem;
 }
 
-.SingInForm__input[aria-invalid="true"] {
+.ResendConfirmationForm__input[aria-invalid="true"] {
   border-bottom: 1px solid #d32f2f;
 }
