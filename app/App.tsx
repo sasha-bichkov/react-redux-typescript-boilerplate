@@ -15,7 +15,7 @@ const Home = React.lazy(() => import('@Pages/Home'))
 const NotFound = React.lazy(() => import('@Pages/NotFound'))
 const Issues = React.lazy(() => import('@Pages/Issues'))
 const Backlog = React.lazy(() => import('@Pages/Backlog'))
-import SideBar from '@Components/SideBar/SideBar'
+import SideBar from '@Components/SideBar'
 import { SideBarData } from '@Components/SideBar/SideBarData'
 
 import '@Scss/App.scss'
