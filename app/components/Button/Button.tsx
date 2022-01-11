@@ -4,11 +4,11 @@ import classNames from 'classnames'
 import './Button.scss'
 
 export interface ButtonProps {
-  readonly className?: string,
-  readonly showSpinner?: boolean,
-  readonly type?: 'button' | 'submit' | 'reset',
-  readonly disabled?: boolean,
-  readonly children: React.ReactNode,
+  readonly className?: string
+  readonly showSpinner?: boolean
+  readonly type?: 'button' | 'submit' | 'reset'
+  readonly disabled?: boolean
+  readonly children: React.ReactNode
   onClick?(): void
 }
 

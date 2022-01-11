@@ -5,10 +5,10 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import Button from '@Components/Button'
 import './SingUpForm.scss'
 
-interface IFormValue {
-  email: string;
-  password: string;
-  passwordConfirmation: string;
+interface IForm {
+  readonly email: string
+  readonly password: string
+  readonly passwordConfirmation: string
 }
 
 interface ISignUpForm {
@@ -22,14 +22,14 @@ const SignUpForm: FC<ISignUpForm> = props => {
     formState: {errors, isValid, isSubmitting},
     reset,
     watch
-  } = useForm<IFormValue>({mode: 'all'})
+  } = useForm<IForm>({mode: 'all'})
   const password = useRef({})
   password.current = watch('password')
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
-  const onSubmit: SubmitHandler<IFormValue> = async (data) => {
+  const onSubmit: SubmitHandler<IForm> = async (data) => {
     console.log('sent:', data)
     props.onSubmit()
     await sleep(3000)
