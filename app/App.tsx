@@ -7,12 +7,13 @@ import { ConnectedRouter } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
 import { ErrorBoundary } from 'react-error-boundary'
 
-import ErrorFallback from '@Components/ErrorFallback'
 import configureStore from '@Root/configureStore'
 import reportWebVitals from '@Root/reportWebVitals'
 
-const Home = React.lazy(() => import('@Pages/Home'))
 import Suspense from '@Components/Suspense'
+import ErrorFallback from '@Components/ErrorFallback'
+
+const Home = React.lazy(() => import('@Pages/Home'))
 
 import '@Scss/App.scss'
 
@@ -32,9 +33,9 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Switch>
-          <Suspense>
+          <React.Suspense fallback={Suspense}>
             <Route path="/" component={Home} />
-          </Suspense>
+          </React.Suspense>
         </Switch>
       </ErrorBoundary>
     </ConnectedRouter>

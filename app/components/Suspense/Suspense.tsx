@@ -4,15 +4,13 @@ import Loader from '@Components/Loader'
 
 import './Suspense.scss'
 
-interface IPropTypes {
-  children: ReactNode
-}
+interface ISuspenseProps {}
 
-const Suspense: FC<IPropTypes> = ({children}) => {
+const Suspense: FC<ISuspenseProps> = () => {
   return (
-    <React.Suspense fallback={<div className="SuspenseComponent"><Loader /></div>}>
-      {children}
-    </React.Suspense>
+    <div className="Suspense">
+      <Loader />
+    </div>
   )
 }
 
