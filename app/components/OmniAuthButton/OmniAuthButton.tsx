@@ -12,8 +12,8 @@ interface IButtonProps {
 
 const OmniAuthButton: FC<IButtonProps> = ({
   Icon,
-  className,
   children,
+  className,
   onClick,
 }: IButtonProps) => {
   const classes = classNames(

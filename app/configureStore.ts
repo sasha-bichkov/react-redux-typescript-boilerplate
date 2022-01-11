@@ -1,13 +1,14 @@
 import { BrowserHistory } from 'history'
 import createSagaMiddleware from 'redux-saga'
-import { routerMiddleware } from 'connected-react-router'
-import { Store, compose, createStore, applyMiddleware } from 'redux'
+import { Store, compose, createStore, applyMiddleware, Middleware } from 'redux'
 
 import sagas from '@Root/rootSagas'
 import rootReducer, { IApplicationState } from '@Root/rootReducer'
+import { createBrowserHistory } from 'history'
 
-export default function configureStore(history: BrowserHistory): Store<IApplicationState> {
-  const middlewares = [routerMiddleware(history)]
+const configureStore = (): Store<IApplicationState> => {
+  const history = createBrowserHistory()
+  const middlewares: Middleware[] = []
   const sagaMiddleware = createSagaMiddleware()
 
   if (process.env.NODE_ENV === 'development') {
@@ -22,7 +23,7 @@ export default function configureStore(history: BrowserHistory): Store<IApplicat
   const composeEnhancer: typeof compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
   const store = createStore(
-    rootReducer(history),
+    rootReducer(),
     composeEnhancer(applyMiddleware(...middlewares))
   )
 
@@ -30,3 +31,7 @@ export default function configureStore(history: BrowserHistory): Store<IApplicat
 
   return store
 }
+
+const store = configureStore()
+
+export default store
