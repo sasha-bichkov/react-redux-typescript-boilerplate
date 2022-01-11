@@ -1,4 +1,4 @@
-@use "~/node_modules/sass-mq/mq.scss" as *;
+@import "~sass-mq";
 
 $mq-breakpoints: (
   mobile: 576px,

@@ -1,11 +1,9 @@
-@use "sass:color";
-
 // ############ VENDORS ############
-@use "node_modules/normalize.css/normalize.css";
+@import "normalize.css";
 
 // ############ BASE ############
-@use "base/_resets";
-@use "base/_typography";
+@import "base/_resets";
+@import "base/_typography";
 
 // ############ THEMES ############
 // @import "themes/..";

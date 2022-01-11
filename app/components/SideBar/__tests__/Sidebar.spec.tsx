@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createMemoryHistory } from 'history'
-import { BrowserRouter, Router, useParams } from 'react-router-dom'
+import { BrowserRouter, Router } from 'react-router-dom'
 import '@testing-library/jest-dom'
 
 import SideBar from '../SideBar'

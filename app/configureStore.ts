@@ -1,13 +1,10 @@
-import { BrowserHistory } from 'history'
 import createSagaMiddleware from 'redux-saga'
 import { Store, compose, createStore, applyMiddleware, Middleware } from 'redux'
 
 import sagas from '@Root/rootSagas'
 import rootReducer, { IApplicationState } from '@Root/rootReducer'
-import { createBrowserHistory } from 'history'
 
 const configureStore = (): Store<IApplicationState> => {
-  const history = createBrowserHistory()
   const middlewares: Middleware[] = []
   const sagaMiddleware = createSagaMiddleware()
 
