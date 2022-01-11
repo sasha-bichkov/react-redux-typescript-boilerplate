@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import Button from '@Components/Button'
 import './ForgotPasswordForm.scss'
 
-interface IFormValue {
+interface IForm {
   email: string;
 }
 
