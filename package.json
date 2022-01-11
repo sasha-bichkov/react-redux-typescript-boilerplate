@@ -79,7 +79,6 @@
     "@types/react-router": "^5.1.17",
     "axios": "^0.24.0",
     "classnames": "^2.3.1",
-    "connected-react-router": "^6.9.2",
     "focus-lock": "^0.10.1",
     "fork-ts-checker-webpack-plugin": "^6.5.0",
     "history": "^5.1.0",

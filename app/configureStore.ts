@@ -5,8 +5,10 @@ import { Store, compose, createStore, applyMiddleware } from 'redux'
 
 import sagas from '@Root/rootSagas'
 import rootReducer, { IApplicationState } from '@Root/rootReducer'
+import { createBrowserHistory } from 'history'
 
-export default function configureStore(history: BrowserHistory): Store<IApplicationState> {
+const configureStore = (): Store<IApplicationState> => {
+  const history = createBrowserHistory()
   const middlewares = [routerMiddleware(history)]
   const sagaMiddleware = createSagaMiddleware()
 
@@ -30,3 +32,7 @@ export default function configureStore(history: BrowserHistory): Store<IApplicat
 
   return store
 }
+
+const store = configureStore()
+
+export default store
