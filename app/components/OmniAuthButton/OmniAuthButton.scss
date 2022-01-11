@@ -1,7 +1,6 @@
 @use "sass:color";
 
 .Button {
-  position: relative;
   display: inline-flex;
   vertical-align: middle;
   align-items: center;
@@ -12,7 +11,9 @@
   border: 0;
   border-radius: 4px;
   background-color: #03a9f4;
+  color: #fff;
   text-decoration: none;
+  text-transform: uppercase;
 
   cursor: pointer;
   transition: .3s;
@@ -33,35 +34,6 @@
   }
 }
 
-.Button__spinner {
-  /* Spinner size and color */
-  position: absolute;
-  display: inline-flex;
-  vertical-align: middle;
-
-  box-sizing: border-box;
-  width: 1rem;
-  height: 1rem;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #444 transparent transparent #444;
-  border-radius: 50%;
-
-  /* Additional spinner styles */
-  animation: spinner 400ms linear infinite;
-}
-
-/* Animation styles */
-@keyframes spinner {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.Button__spinner-slow {
-  animation: spinner 1s linear infinite;
+.Button__icon {
+  margin-right: 5px;
 }

@@ -147,7 +147,7 @@ const SignUpForm: FC<ISignUpForm> = props => {
           disabled={!isValid || isSubmitting}
           className="SingUpForm__button"
         >
-          Sing up
+          Sing Up
         </Button>
       </form>
     </FocusLock>
