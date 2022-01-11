@@ -2,11 +2,11 @@ import React, { FC } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-import './ResendConfirmationForm.scss'
 import Button from '@Components/Button'
+import './ResendConfirmationForm.scss'
 
-export interface FormValue {
-  email: string;
+interface IForm {
+  readonly email: string
 }
 
 interface ISResendConfirmationForm {
@@ -19,12 +19,12 @@ const ResendConfirmationForm: FC<ISResendConfirmationForm> = props => {
     handleSubmit,
     formState: {errors, isValid, isSubmitting},
     reset,
-  } = useForm<FormValue>({mode: 'all'})
+  } = useForm<IForm>({mode: 'all'})
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
-  const onSubmit: SubmitHandler<FormValue> = async (data) => {
+  const onSubmit: SubmitHandler<IForm> = async (data) => {
     console.log('sent:', data)
     props.onSubmit()
     await sleep(3000)
@@ -74,11 +74,12 @@ const ResendConfirmationForm: FC<ISResendConfirmationForm> = props => {
 
         <Button
           type="submit"
-          caption="Send me&nbsp;reset password instructions"
           showSpinner={isSubmitting}
           disabled={!isValid || isSubmitting}
           className="ResendConfirmationForm__button"
-        />
+        >
+          Send me&nbsp;reset password instructions
+        </Button>
       </form>
     </FocusLock>
   )

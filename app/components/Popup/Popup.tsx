@@ -4,9 +4,9 @@ import FocusLock from 'react-focus-lock'
 import './Popup.scss'
 
 export interface PropTypes  {
-  overlay: boolean
+  readonly overlay: boolean
+  readonly children?: ReactNode
   close(): void
-  children?: ReactNode
 }
 
 const Popup: FunctionComponent<PropTypes> = ({

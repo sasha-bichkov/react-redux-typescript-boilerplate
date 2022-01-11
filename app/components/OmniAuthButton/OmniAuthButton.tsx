@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
 
 import './OmniAuthButton.scss'
@@ -11,11 +11,11 @@ interface IButtonProps {
 }
 
 const OmniAuthButton: FC<IButtonProps> = ({
-  className,
-  onClick,
   Icon,
-  children
-}: IButtonProps): ReactElement => {
+  className,
+  children,
+  onClick,
+}: IButtonProps) => {
   const classes = classNames(
     'Button',
     className,

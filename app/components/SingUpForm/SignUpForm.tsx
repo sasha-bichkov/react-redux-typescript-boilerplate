@@ -2,13 +2,13 @@ import React, { FC, useRef } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-import './SingUpForm.scss'
 import Button from '@Components/Button'
+import './SingUpForm.scss'
 
-export interface FormValue {
-  email: string;
-  password: string;
-  passwordConfirmation: string;
+interface IForm {
+  readonly email: string
+  readonly password: string
+  readonly passwordConfirmation: string
 }
 
 interface ISignUpForm {
@@ -22,14 +22,14 @@ const SignUpForm: FC<ISignUpForm> = props => {
     formState: {errors, isValid, isSubmitting},
     reset,
     watch
-  } = useForm<FormValue>({mode: 'all'})
+  } = useForm<IForm>({mode: 'all'})
   const password = useRef({})
   password.current = watch('password')
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
-  const onSubmit: SubmitHandler<FormValue> = async (data) => {
+  const onSubmit: SubmitHandler<IForm> = async (data) => {
     console.log('sent:', data)
     props.onSubmit()
     await sleep(3000)
@@ -76,8 +76,8 @@ const SignUpForm: FC<ISignUpForm> = props => {
           {...register('password', {
             required: 'This is required field',
             minLength: {
-              value: 5,
-              message: 'Please enter at least 5 characters'
+              value: 6,
+              message: 'Please enter at least 6 characters'
             },
             maxLength: {
               value: 30,
@@ -106,8 +106,7 @@ const SignUpForm: FC<ISignUpForm> = props => {
           className="SingUpForm__input passwordInput"
           aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
           {...register('passwordConfirmation', {
-            validate: value =>
-              value === password.current || 'The passwords do not match'
+            validate: value => value === password.current || 'The passwords do not match'
           })}
         />
 
@@ -140,11 +139,12 @@ const SignUpForm: FC<ISignUpForm> = props => {
 
         <Button
           type="submit"
-          caption="Sing in"
           showSpinner={isSubmitting}
           disabled={!isValid || isSubmitting}
           className="SingUpForm__button"
-        />
+        >
+          Sing up
+        </Button>
       </form>
     </FocusLock>
   )
