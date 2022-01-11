@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { withTranslation, useTranslation } from 'react-i18next'
 
 import Button from '@Components/Button'
 
@@ -21,7 +22,7 @@ const ForgotPasswordForm: FC<ISForgotPasswordForm> = props => {
     formState: {errors, isValid, isSubmitting},
     reset,
   } = useForm<IForm>({mode: 'all'})
-
+  const {t} = useTranslation()
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
@@ -43,15 +44,17 @@ const ForgotPasswordForm: FC<ISForgotPasswordForm> = props => {
           className="ForgotPasswordForm__input emailInput"
           aria-invalid={errors.email ? 'true' : 'false'}
           {...register('email', {
-            required: 'This is required field',
+            required: t('ForgotPasswordForm.required'),
             pattern: {
               value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-              message: 'Invalid email address'
+              message: t('ForgotPasswordForm.emailErr')
             }
           })}
         />
 
-        <label className="ForgotPasswordForm__label" htmlFor="email">Email</label>
+        <label className="ForgotPasswordForm__label" htmlFor="email">
+          {t('ForgotPasswordForm.email')}
+        </label>
 
         {errors.email && (
           <p className="ForgotPasswordForm__error">
@@ -69,7 +72,7 @@ const ForgotPasswordForm: FC<ISForgotPasswordForm> = props => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <h2 className="ForgotPasswordForm__title">
-          Forgot your password
+          {t('ForgotPasswordForm.title')}
         </h2>
 
         {renderEmail()}
@@ -80,11 +83,11 @@ const ForgotPasswordForm: FC<ISForgotPasswordForm> = props => {
           disabled={!isValid || isSubmitting}
           className="ForgotPasswordForm__button"
         >
-          Send me&nbsp;reset password instructions
+          {t('ForgotPasswordForm.submit')}
         </Button>
       </form>
     </FocusLock>
   )
 }
 
-export default ForgotPasswordForm
+export default withTranslation()(ForgotPasswordForm)

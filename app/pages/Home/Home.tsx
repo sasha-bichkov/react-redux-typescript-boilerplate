@@ -2,9 +2,14 @@ import React from 'react'
 import { withTranslation, TFunction } from 'react-i18next'
 
 import OmniAuthButton from '@Components/OmniAuthButton'
-import  GoogleIcon from '@Images/OmniAuthButton/GoogleLogo.svg'
+import ChangePasswordForm from '@Components/ChangePasswordForm'
+import ForgotPasswordForm from '@Components/ForgotPasswordForm'
+import ResendConfirmationForm from '@Components/ResendConfirmationForm'
+import SingInForm from '@Components/SingInForm'
+import SignUpForm from '@Components/SingUpForm'
 
 import './Home.scss'
+
 
 interface HomeProps {
   t: TFunction<('translation' | 'common')[], undefined>
@@ -20,9 +25,7 @@ class Home extends React.Component<HomeProps, HomeState> {
       <div>
         <h1>{t('home.title')}</h1>
 
-        <OmniAuthButton Icon={GoogleIcon} onClick={() => console.log('click')}>
-          Sign in with Google
-        </OmniAuthButton>
+        <SingInForm onSubmit={() => '1'} />
       </div>
     )
   }
