@@ -13,6 +13,8 @@ import ErrorFallback from '@Components/ErrorFallback'
 import configureStore from '@Root/configureStore'
 import reportWebVitals from '@Root/reportWebVitals'
 
+import '@Root/i18n'
+
 import '@Scss/App.scss'
 
 declare global {
@@ -27,15 +29,17 @@ const history = createBrowserHistory()
 const store = configureStore(history)
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Switch>
-          <Route path="/" component={Home} />
-        </Switch>
-      </ErrorBoundary>
-    </ConnectedRouter>
-  </Provider>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <Switch>
+            <Route path="/" component={Home} />
+          </Switch>
+        </ErrorBoundary>
+      </ConnectedRouter>
+    </Provider>
+  </React.StrictMode>,
   rootElement
 )
 
