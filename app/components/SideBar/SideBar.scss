@@ -1,0 +1,115 @@
+@use "sass:color";
+
+.SideBar {
+  position: sticky;
+
+  margin-right: 15px;
+
+  @include size(80px, 100vh);
+  background-color: #f7f9fa;
+
+  transition: .3s;
+}
+
+.SideBar__navList {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.SideBar__navItem {
+  text-align: center;
+}
+
+.SideBar__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding: 5px;
+  color: #919699;
+  text-decoration: none;
+
+  &.active {
+    color: #000;
+  }
+
+  &:hover,
+  &:focus {
+    color: #000;
+  }
+
+  & path {
+    fill: currentColor;
+    transition: .3s;
+  }
+}
+
+.SideBar__text {
+  display: none;
+}
+
+.SideBar.SideBar-active {
+  transition: .3s;
+
+  & .SideBar__text {
+    display: inline;
+  }
+
+  & .SideBar__navList {
+    padding-left: 45px;
+  }
+
+  & .SideBar__navItem {
+    text-align: left;
+  }
+
+  & .Sidebar__divider {
+    margin-left: 0;
+  }
+
+  @include size(250px, 100vh);
+}
+
+.SideBar__arrowButton {
+  position: absolute;
+  right: 15%;
+  bottom: 20%;
+
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover,
+  &:focus {
+    color: #03a9f4;
+
+    opacity: 1;
+  }
+}
+
+.Sidebar__arrowIcon {
+  width: 25px;
+
+  opacity: .5;
+
+  & path {
+    fill: currentColor;
+  }
+}
+
+.SideBar.SideBar-active .Sidebar__arrowIcon {
+  transform: rotate(180deg);
+}
+
+.Sidebar__divider {
+  width: 60%;
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}

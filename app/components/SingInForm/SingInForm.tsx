@@ -3,6 +3,7 @@ import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
 import Button from '@Components/Button'
+
 import './SingInForm.scss'
 
 interface IForm {
@@ -16,11 +17,11 @@ interface ISignInForm {
 
 const SingInForm: FC<ISignInForm> = props => {
   const {
+    reset,
     register,
     handleSubmit,
-    formState: {errors, isValid, isSubmitting},
-    reset
-  } = useForm<IForm>({mode: 'all'})
+    formState: { errors, isValid, isSubmitting },
+  } = useForm<IForm>({ mode: 'all' })
 
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -111,7 +112,7 @@ const SingInForm: FC<ISignInForm> = props => {
           disabled={!isValid || isSubmitting}
           className="SingInForm__button"
         >
-          Sing in
+          Sign in
         </Button>
       </form>
     </FocusLock>

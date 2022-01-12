@@ -5,7 +5,7 @@
     "experimentalDecorators": false,
     "allowSyntheticDefaultImports": true,
     "target": "es6",
-    "module": "es6",
+    "module": "esnext",
     "moduleResolution": "node",
     "baseUrl": "./app",
     "lib": [
