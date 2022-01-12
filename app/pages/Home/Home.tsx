@@ -22,7 +22,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     return (
       <div>
         <h1>{t('home.title')}</h1>
-        <ChangePasswordForm
+        <SingInForm
           onSubmit={() => {
             console.log('submit from')
           }}

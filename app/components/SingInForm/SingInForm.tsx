@@ -18,9 +18,9 @@ const SingInForm: FC<ISignInForm> = props => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid, isSubmitting },
+    formState: {errors, isValid, isSubmitting},
     reset
-  } = useForm<IForm>({ mode: 'all' })
+  } = useForm<IForm>({mode: 'all'})
 
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
