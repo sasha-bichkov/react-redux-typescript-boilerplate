@@ -1,11 +1,5 @@
 import { combineReducers } from 'redux'
-import { History } from 'history'
-import { connectRouter, RouterState } from 'connected-react-router'
 
-export interface IApplicationState {
-  router: RouterState,
-}
+export interface IApplicationState {} // eslint-disable-line @typescript-eslint/no-empty-interface
 
-export default (history: History) => combineReducers<IApplicationState>({
-  router: connectRouter(history),
-})
+export default () => combineReducers<IApplicationState>({})

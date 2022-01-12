@@ -17,7 +17,6 @@ const CookiesNotifying = () => {
             {t('CookiesNotifying.text')}
           </p>
         </div>
-
         <div className="CookiesNotifying__rightColumn">
           <Button className="CookiesNotifying__button" caption="accept and close" />
         </div>
