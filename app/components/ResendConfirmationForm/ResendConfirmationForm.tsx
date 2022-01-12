@@ -89,4 +89,4 @@ const ResendConfirmationForm: FC<ISResendConfirmationForm> = props => {
   )
 }
 
-export default ResendConfirmationForm
+export default withTranslation()(ResendConfirmationForm)

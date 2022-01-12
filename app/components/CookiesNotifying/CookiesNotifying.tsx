@@ -1,4 +1,5 @@
 import React from 'react'
+import { withTranslation, useTranslation } from 'react-i18next'
 
 import Button from '@Components/Button'
 import WarningIcon from '@Images/CookiesNotifying/Warning.svg'
@@ -6,18 +7,14 @@ import WarningIcon from '@Images/CookiesNotifying/Warning.svg'
 import './CookiesNotifying.scss'
 
 const CookiesNotifying = () => {
+  const {t} = useTranslation()
   return (
     <div className="CookiesNotifying">
       <div className="CookiesNotifying__content">
         <div className="CookiesNotifying__leftColumn">
           <WarningIcon className="CookiesNotifying__icon" width="30" />
           <p className="CookiesNotifying__text">
-            We&nbsp;use cookies to&nbsp;personalise content and ads,
-            to&nbsp;provide social media features and to&nbsp;analyse our traffic.
-            We&nbsp;also share information about your use of&nbsp;our site with our social media,
-            advertising and analytics partners who may combine it&nbsp;with other information
-            that you&rsquo;ve provided to&nbsp;them or&nbsp;that
-            they&rsquo;ve collected from your use of&nbsp;their services.
+            {t('CookiesNotifying.text')}
           </p>
         </div>
 
@@ -29,4 +26,4 @@ const CookiesNotifying = () => {
   )
 }
 
-export default CookiesNotifying
+export default withTranslation()(CookiesNotifying)

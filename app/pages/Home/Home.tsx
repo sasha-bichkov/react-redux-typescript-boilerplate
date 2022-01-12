@@ -7,9 +7,9 @@ import ForgotPasswordForm from '@Components/ForgotPasswordForm'
 import ResendConfirmationForm from '@Components/ResendConfirmationForm'
 import SingInForm from '@Components/SingInForm'
 import SignUpForm from '@Components/SingUpForm'
+import CookiesNotifying from '@Components/CookiesNotifying'
 
 import './Home.scss'
-
 
 interface HomeProps {
   t: TFunction<('translation' | 'common')[], undefined>
@@ -25,7 +25,7 @@ class Home extends React.Component<HomeProps, HomeState> {
       <div>
         <h1>{t('home.title')}</h1>
 
-        <SingInForm onSubmit={() => '1'} />
+        <SignUpForm onSubmit={() => '1'} />
       </div>
     )
   }
