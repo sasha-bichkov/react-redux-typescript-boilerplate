@@ -2,6 +2,8 @@ import React, { FC, useRef } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
+import { IUserRegister } from '@Modules/User/types'
+
 import Button from '@Components/Button'
 
 import './SingUpForm.scss'
@@ -13,7 +15,7 @@ interface IForm {
 }
 
 interface ISignUpForm {
-  onSubmit(): void
+  onSubmit(payload: IUserRegister): void
 }
 
 const SignUpForm: FC<ISignUpForm> = props => {
@@ -31,10 +33,7 @@ const SignUpForm: FC<ISignUpForm> = props => {
   }
 
   const onSubmit: SubmitHandler<IForm> = async (data) => {
-    console.log('sent:', data)
-    // ...
-    props.onSubmit()
-    await sleep(3000)
+    props.onSubmit(data)
     reset()
   }
 
