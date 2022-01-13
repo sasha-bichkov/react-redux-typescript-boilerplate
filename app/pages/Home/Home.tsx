@@ -19,13 +19,13 @@ interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interf
 
 class Home extends React.Component<HomeProps, HomeState> {
   render() {
-    const { t } = this.props
+    const {t} = this.props
 
     return (
       <div>
         <h1>{t('home.title')}</h1>
-
-        <SignUpForm onSubmit={() => '1'} />
+        {/*<SingInForm onSubmit={() => '1'} />*/}
+        <CookiesNotifying />
       </div>
     )
   }
