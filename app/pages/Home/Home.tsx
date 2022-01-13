@@ -12,12 +12,14 @@ import {
   registerNewUser
 } from '@Modules/User/actions'
 
-import { IUserRegister } from '@Modules/User/types'
+import {
+  IUserRegister
+} from '@Modules/User/types'
 
 import './Home.scss'
 
 interface HomeProps {
-  t: TFunction<('translation' | 'common')[], undefined>,
+  t: TFunction<('translation' | 'common')[], undefined>
   registerNewUser(payload: IUserRegister): void
 }
 
@@ -42,7 +44,6 @@ class Home extends React.Component<HomeProps, HomeState> {
     )
   }
 }
-
 
 function mapStateToProps(state: IApplicationState) {
   return {}

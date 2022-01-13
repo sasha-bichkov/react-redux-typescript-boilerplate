@@ -32,7 +32,7 @@ const SignUpForm: FC<ISignUpForm> = props => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
-  const onSubmit: SubmitHandler<IForm> = async (data) => {
+  const onSubmit: SubmitHandler<IForm> = (data) => {
     props.onSubmit(data)
     reset()
   }

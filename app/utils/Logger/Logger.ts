@@ -12,6 +12,13 @@ export default class Logger {
       // e.response либо есть, либо его нет.
       // ответа от сервера нет, например тогда. когда у пользователя внезапно отключился интернет
       // до того как клиент получил ответ. Надо обработать оба сценария.
+
+      if (e.response) {
+        // мы можем достать сообщение
+        // e.response.message
+      } else {
+
+      }
     } else {
       // если ошибка не axios, тогда нам надо обработать её здесь, но она тоже может быть двух видов:
       // e instanceof Error или же нет. например
@@ -28,7 +35,7 @@ export default class Logger {
       // try {
       //   throw 3
       // } catch(e) {
-      //   console.log(typeof e)
+      //   console.log(typeof e) // => number
       //   console.log(e instanceof Error)
       // }
     }

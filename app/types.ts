@@ -1,8 +1,8 @@
-export interface IAction<T = Record<string, unknown>> {
-  type: string,
-  payload?: T,
+export interface IAction<T = {}> {
+  readonly type: string
+  readonly payload?: T
 }
 
 export interface IPayload<T> {
-  payload: T,
+  readonly payload: T
 }

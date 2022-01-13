@@ -1,15 +1,13 @@
 import { IApplicationState } from '@Root/rootReducer'
 import { put, takeLatest } from 'redux-saga/effects'
-import * as Eff from 'redux-saga/effects' // tslint:disable-line:no-duplicate-imports
 import { IAction } from '@Root/types'
 import { UserActionTypes, IUserRegister } from './types'
 import isEmailDisposable from '@Utils/isEmailDisposable'
 
+import * as Eff from 'redux-saga/effects' // tslint:disable-line:no-duplicate-imports
+
 // import Logger from '@Utils/Logger'
-
-import {} from './types'
-
-import * as API from './api'
+// import * as API from './api'
 
 const call: any = Eff.call
 
@@ -26,9 +24,9 @@ function* registerUser(action: Required<IAction<IUserRegister>>): Generator<any,
 
       yield put({ type: UserActionTypes.REGISTER_SUCCESS, payload })
     }
-  } catch(error) {
-    console.error(error)
-    // Logger.error(error)
+  } catch(e) {
+    console.error(e)
+    // Logger.error(e)
   }
 }
 
