@@ -1,32 +1,14 @@
-import React from 'react'
-import '@testing-library/jest-dom'
 import axios from 'axios'
+import '@testing-library/jest-dom'
 
-import isEmailDisposable, { DISPOSABLE_EMAIL_CHECKER_URL } from '../isEmailDisposable'
+import isEmailDisposable from '../isEmailDisposable'
 
 jest.mock('axios')
 const mockedAxios = axios as jest.Mocked<typeof axios>
 
 describe('isEmailDisposable', () => {
-  const URL = DISPOSABLE_EMAIL_CHECKER_URL
 
-  describe('if url path correct', () => {
-    it('sends a request to the correct url', async () => {
-      const response = {
-        data: {
-          disposable: false
-        }
-      }
-
-      mockedAxios.get.mockResolvedValueOnce(response)
-
-      await isEmailDisposable('test@test.com')
-
-      expect(mockedAxios.get).toHaveBeenCalledWith(`${URL}test@test.com`)
-    })
-  })
-
-  describe('if it is real email', () => {
+  describe('if the email is not disposable', () => {
     it('returns false', async () => {
       const response = {
         data: {
@@ -41,7 +23,7 @@ describe('isEmailDisposable', () => {
     })
   })
 
-  describe('if it is disposable email', () => {
+  describe('if the email is disposable', () => {
     it('returns true', async () => {
       const response = {
         data: {
