@@ -12,12 +12,12 @@ export const userReducer = (
 ): IUser => {
   return produce(state, draft => {
     switch (action.type) {
-      case UserActionTypes.REGISTER_SUCCESS:
-        updateEmail(draft, action)
-        break
+    case UserActionTypes.REGISTER_SUCCESS:
+      updateEmail(draft, action)
+      break
 
-      default:
-        break
+    default:
+      break
     }
   })
 }
@@ -28,7 +28,9 @@ function isRegisterUserAction(arg: any): arg is Required<IAction<IUserRegister>>
 }
 
 const updateEmail = (draft: Draft<IUser>, action: IAction) => {
-  if (!isRegisterUserAction(action)) { return }
+  if (!isRegisterUserAction(action)) {
+    return
+  }
 
   draft.email = action.payload.email
 }

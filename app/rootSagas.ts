@@ -1,8 +1,11 @@
+import { SagaIterator } from 'redux-saga'
 import { all, fork } from 'redux-saga/effects'
 import userSagas from '@Modules/User/sagas'
+import tasksSagas from '@Modules/Tasks/sagas'
 
-export default function* sagas() {
+export default function* sagas(): SagaIterator {
   yield all([
-    fork(userSagas)
+    fork(userSagas),
+    fork(tasksSagas)
   ])
 }

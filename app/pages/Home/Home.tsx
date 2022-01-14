@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators, Dispatch, Action } from 'redux'
+import { bindActionCreators, Dispatch, Action, compose } from 'redux'
 import { withTranslation, TFunction } from 'react-i18next'
 import { IApplicationState } from '@Root/rootReducer'
 
@@ -16,10 +16,12 @@ import {
   IUserRegister
 } from '@Modules/User/types'
 
+import CreatingTasksForm from '@Containers/TasksFormContainer'
 import './Home.scss'
 
 interface HomeProps {
   t: TFunction<('translation' | 'common')[], undefined>
+
   registerNewUser(payload: IUserRegister): void
 }
 
@@ -27,19 +29,19 @@ interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interf
 
 class Home extends React.Component<HomeProps, HomeState> {
   render() {
-    const { t, registerNewUser } = this.props
+    const {t, registerNewUser} = this.props
 
     return (
       <div>
         <h1>{t('home.title')}</h1>
+        {/*<SignUpForm*/}
+        {/*  onSubmit={registerNewUser}*/}
+        {/*/>*/}
+        <CreatingTasksForm />
 
-        <SignUpForm
-          onSubmit={registerNewUser}
-        />
-
-        <OmniAuthButton Icon={GoogleIcon} onClick={() => console.log('click')}>
-          Sign in with Google
-        </OmniAuthButton>
+        {/*<OmniAuthButton Icon={GoogleIcon} onClick={() => console.log('click')}>*/}
+        {/*  Sign in with Google*/}
+        {/*</OmniAuthButton>*/}
       </div>
     )
   }
