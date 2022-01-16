@@ -1,5 +1,5 @@
 import { IApplicationState } from '@Root/rootReducer'
-import { put, takeLatest } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import { IAction } from '@Root/types'
 import { UserActionTypes, IUserRegister } from './types'
 import isEmailDisposable from '@Utils/isEmailDisposable'
@@ -9,7 +9,7 @@ import * as Eff from 'redux-saga/effects' // tslint:disable-line:no-duplicate-im
 // import Logger from '@Utils/Logger'
 // import * as API from './api'
 
-const call: any = Eff.call
+// const call: any = Eff.call
 
 // TODO: добавить типы для Generator
 function* registerUser(action: Required<IAction<IUserRegister>>): Generator<any, any, any> {

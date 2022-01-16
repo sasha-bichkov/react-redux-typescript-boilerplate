@@ -1,12 +1,10 @@
 import { ITask, TasksActionTypes } from '@Modules/Tasks/types'
+import { SagaIterator } from 'redux-saga'
 import { put, takeLatest } from 'redux-saga/effects'
+
 import { IAction } from '@Root/types'
 
-import * as Eff from 'redux-saga/effects'
-
-const call: any = Eff.call
-
-function* registerTask(action: Required<IAction<ITask>>):Generator<any, any, any> {
+function* registerTask(action: Required<IAction<ITask>>): SagaIterator {
   try {
     const {taskTitle, taskText} = action.payload
     const payload = {taskTitle, taskText}
@@ -20,7 +18,7 @@ function* registerTask(action: Required<IAction<ITask>>):Generator<any, any, any
   }
 }
 
-function* tasksSagas() {
+function* tasksSagas(): SagaIterator {
   yield takeLatest(TasksActionTypes.ADD_TASK, registerTask)
 }
 

@@ -8,6 +8,7 @@ import Button from '@Components/Button'
 
 import './CreatingTasksForm.scss'
 import { addNewTask } from '@Modules/Tasks/actions'
+import { useDispatch } from 'react-redux'
 
 interface IForm {
   readonly taskTitle: string
@@ -15,7 +16,7 @@ interface IForm {
 }
 
 interface CreatingTasksForm {
-  addNewTask(payload): void
+  addNewTask(payload: IForm): void
 }
 
 const CreatingTasksForm: FC<CreatingTasksForm> = props => {
@@ -25,6 +26,8 @@ const CreatingTasksForm: FC<CreatingTasksForm> = props => {
     formState: {errors, isValid, isSubmitting},
     reset,
   } = useForm<IForm>({mode: 'all'})
+
+  const dispatch = useDispatch()
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
