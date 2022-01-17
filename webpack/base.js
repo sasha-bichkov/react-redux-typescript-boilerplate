@@ -16,6 +16,7 @@ module.exports = {
     alias: {
       '@Root': path.resolve('app'),
       '@Scss': path.resolve('app', 'scss'),
+      '@Utils': path.resolve('app', 'utils'),
       '@Pages': path.resolve('app', 'pages'),
       '@Images': path.resolve('public', 'images'),
       '@Modules': path.resolve('app', 'modules'),
