@@ -1,24 +1,18 @@
 {
   "compilerOptions": {
+    "strict": true,
     "declaration": false,
     "emitDecoratorMetadata": false,
     "experimentalDecorators": false,
     "allowSyntheticDefaultImports": true,
-    "target": "es6",
+    "target": "es2021",
     "module": "esnext",
     "moduleResolution": "node",
     "baseUrl": "./app",
-    "lib": [
-      "dom",
-      "es6",
-      "dom.iterable",
-      "scripthost"
-    ],
     "jsx": "react",
     "sourceMap": true,
     "removeComments": true,
     "noEmitOnError": true,
-    "strict": true,
     "typeRoots": [
       "./node_modules/@types/",
       "./@types/"
