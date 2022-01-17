@@ -21,6 +21,7 @@ module.exports = {
       '@Images': path.resolve('public', 'images'),
       '@Modules': path.resolve('app', 'modules'),
       '@Components': path.resolve('app', 'components'),
+      '@Containers': path.resolve('app', 'containers'),
     }
   },
   module: {

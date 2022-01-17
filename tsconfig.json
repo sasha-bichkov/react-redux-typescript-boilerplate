@@ -23,8 +23,8 @@
       "@Utils/*": ["./utils/*"],
       "@Pages/*": ["./pages/*"],
       "@Modules/*": ["./modules/*"],
-      "@Containers/*": ["./containers/*"],
       "@Components/*": ["./components/*"],
+      "@Containers/*": ["./containers/*"],
     },
   },
   "include": [

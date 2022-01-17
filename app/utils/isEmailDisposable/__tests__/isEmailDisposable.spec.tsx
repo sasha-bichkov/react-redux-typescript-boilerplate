@@ -3,6 +3,7 @@ import '@testing-library/jest-dom'
 
 import isEmailDisposable from '../isEmailDisposable'
 
+// https://stackoverflow.com/a/55351900/4378582
 jest.mock('axios')
 const mockedAxios = axios as jest.Mocked<typeof axios>
 

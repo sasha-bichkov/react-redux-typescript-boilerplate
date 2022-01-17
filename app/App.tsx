@@ -37,7 +37,7 @@ ReactDOM.render(
           <div className="App">
             <SideBar SideBarData={SideBarData} />
 
-            <React.Suspense fallback={Suspense}>
+            <React.Suspense fallback={<Suspense />}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/issues" element={<Issues />} />
