@@ -28,9 +28,7 @@ function isRegisterUserAction(arg: any): arg is Required<IAction<IUserRegister>>
 }
 
 const updateEmail = (draft: Draft<IUser>, action: IAction) => {
-  if (!isRegisterUserAction(action)) {
-    return
-  }
+  if (!isRegisterUserAction(action)) { return }
 
   draft.email = action.payload.email
 }

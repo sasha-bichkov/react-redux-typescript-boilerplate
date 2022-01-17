@@ -1,19 +1,20 @@
-import { ITasks, TasksActionTypes } from '@Modules/Tasks/types'
 import produce from 'immer'
+
 import { IAction } from '@Root/types'
+import { ITask, ITasks, TasksActionTypes } from '@Modules/Tasks/types'
 
 const initialState: ITasks = {
-  tasks: [],
+  tasks: []
 }
 
 export const tasksReducer = (
   state = initialState,
-  action: IAction
+  action: IAction<ITask>
 ): ITasks => {
   return produce(state, draft => {
     switch (action.type) {
     case TasksActionTypes.ADD_TASK_SUCCESS:
-      draft.tasks.push(action.payload)
+      draft.tasks.push(action.payload as ITask)
       break
 
     default:

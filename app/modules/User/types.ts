@@ -1,6 +1,6 @@
 export const UserActionTypes = {
   REGISTER: '@@user/REGISTER',
-  REGISTER_SUCCESS: '@user/REGISTER_SUCCESS'
+  REGISTER_SUCCESS: '@@user/REGISTER_SUCCESS'
 }
 
 export interface IUser {

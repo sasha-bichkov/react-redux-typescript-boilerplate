@@ -1,6 +1,6 @@
 import {
-  TasksActionTypes,
-  ITask
+  ITask,
+  TasksActionTypes
 } from './types'
 
 export const addNewTask = (payload: ITask) => {
