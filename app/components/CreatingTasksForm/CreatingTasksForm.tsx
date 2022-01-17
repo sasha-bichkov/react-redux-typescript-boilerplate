@@ -1,22 +1,14 @@
-import React, { FC, useRef } from 'react'
+import React, { FC } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-// import { IUserRegister } from '@Modules/User/types'
-
 import Button from '@Components/Button'
+import { ITask } from '@Modules/Tasks/types'
 
 import './CreatingTasksForm.scss'
-import { addNewTask } from '@Modules/Tasks/actions'
-import { useDispatch } from 'react-redux'
-
-interface IForm {
-  readonly taskTitle: string
-  readonly taskText: string
-}
 
 interface CreatingTasksForm {
-  addNewTask(payload: IForm): void
+  addNewTask(payload: ITask): void
 }
 
 const CreatingTasksForm: FC<CreatingTasksForm> = props => {
@@ -25,14 +17,9 @@ const CreatingTasksForm: FC<CreatingTasksForm> = props => {
     handleSubmit,
     formState: {errors, isValid, isSubmitting},
     reset,
-  } = useForm<IForm>({mode: 'all'})
+  } = useForm<ITask>({mode: 'all'})
 
-  const dispatch = useDispatch()
-  const sleep = (milliseconds: number) => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds))
-  }
-
-  const onSubmit: SubmitHandler<IForm> = (data) => {
+  const onSubmit: SubmitHandler<ITask> = (data) => {
     console.log(data)
     props.addNewTask(data)
     reset()
@@ -42,12 +29,12 @@ const CreatingTasksForm: FC<CreatingTasksForm> = props => {
     return (
       <div className="CreatingTasksForm__group">
         <input
-          id="taskTitle"
+          id="title"
           type="text"
           placeholder=" "
           className="CreatingTaskInput__input TaskTitle"
-          aria-invalid={errors.taskTitle ? 'true' : 'false'}
-          {...register('taskTitle', {
+          aria-invalid={errors.title ? 'true' : 'false'}
+          {...register('title', {
             required: true,
           })}
         />
@@ -58,9 +45,9 @@ const CreatingTasksForm: FC<CreatingTasksForm> = props => {
           Task title
         </label>
 
-        {errors.taskTitle && (
+        {errors.title && (
           <p role="alert" className="CreatingTasksForm__error">
-            {errors.taskTitle.message}
+            {errors.title.message}
           </p>
         )}
       </div>
@@ -73,8 +60,8 @@ const CreatingTasksForm: FC<CreatingTasksForm> = props => {
           id="taskText"
           placeholder=" "
           className="CreatingTaskInput__input TaskText"
-          aria-invalid={errors.taskText ? 'true' : 'false'}
-          {...register('taskText', {
+          aria-invalid={errors.text ? 'true' : 'false'}
+          {...register('text', {
             required: true,
           })}
         />
@@ -85,9 +72,9 @@ const CreatingTasksForm: FC<CreatingTasksForm> = props => {
           Add description...
         </label>
 
-        {errors.taskText && (
+        {errors.text && (
           <p role="alert" className="CreatingTasksForm__error">
-            {errors.taskText.message}
+            {errors.text.message}
           </p>
         )}
       </div>
