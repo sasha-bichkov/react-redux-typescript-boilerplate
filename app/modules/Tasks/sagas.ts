@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects'
 
 import { IAction } from '@Root/types'
 
-function* addNewTask(action: Required<IAction<ITask>>) {
+export function* addNewTask(action: Required<IAction<ITask>>) {
   try {
     yield put({
       type: TasksActionTypes.ADD_TASK_SUCCESS,

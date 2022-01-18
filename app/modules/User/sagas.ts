@@ -20,7 +20,7 @@ function* registerUser(action: Required<IAction<IUserRegister>>): SagaIterator {
 
       yield put({ type: UserActionTypes.REGISTER_SUCCESS, payload })
     }
-  } catch(e) {
+  } catch (e) {
     console.error(e)
     // Logger.error(e)
   }

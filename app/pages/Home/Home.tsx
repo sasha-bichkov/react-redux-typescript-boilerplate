@@ -38,7 +38,6 @@ class Home extends React.Component<HomeProps, HomeState> {
         {/*  onSubmit={registerNewUser}*/}
         {/*/>*/}
         <CreatingTasksForm />
-
         {/*<OmniAuthButton Icon={GoogleIcon} onClick={() => console.log('click')}>*/}
         {/*  Sign in with Google*/}
         {/*</OmniAuthButton>*/}
