@@ -10,8 +10,7 @@ export function* addNewTask(action: Required<IAction<ITask>>) {
       payload: action.payload
     })
   } catch (e) {
-    console.error('task sagas error')
-    console.error(e)
+    throw new Error('error adding task')
   }
 }
 
