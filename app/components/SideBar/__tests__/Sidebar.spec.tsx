@@ -38,13 +38,13 @@ describe('SideBar', () => {
   })
 
   // не разобрался пока с роутингом и как его тестировать
-  describe('if click Inbox', () => {
-    it('redirects and update history', () => {
-      const history = createMemoryHistory()
-      render(<Router history={history}>
-        <SideBar SideBarData={SideBarData} />
-      </Router>)
-    })
-  })
-
+//   describe('if click Inbox', () => {
+//     it('redirects and update history', () => {
+//       const history = createMemoryHistory()
+//       render(<Router history={history}>
+//         <SideBar SideBarData={SideBarData} />
+//       </Router>)
+//     })
+//   })
+//
 })
