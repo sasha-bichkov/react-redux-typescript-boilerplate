@@ -1,0 +1,37 @@
+.Settings {
+  background-color: #fff;
+}
+
+.Settings__content {
+  max-width: 992px;
+  margin: 0 auto;
+}
+
+.Settings__section {
+  margin-bottom: 25px;
+}
+
+.Settings__input {
+  width: 280px;
+}
+
+.Settings__estimates {
+  padding: 10px;
+  background-color: #f1ede8;
+}
+
+.Settings__estimationSelect {
+
+}
+
+.Settings__text {
+  font-size: 1rem;
+
+  @include mq($from: desktop) {
+    font-size: 1.3rem;
+  }
+}
+
+.Settings__estimatesTitle {
+  font-size: 1.3rem;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { withTranslation, TFunction } from 'react-i18next'
+import { Button } from 'antd'
 
 import OmniAuthButton from '@Components/OmniAuthButton'
 import ChangePasswordForm from '@Components/ChangePasswordForm'
@@ -10,6 +11,7 @@ import SignUpForm from '@Components/SingUpForm'
 import CookiesNotifying from '@Components/CookiesNotifying'
 
 import './Home.scss'
+import Settings from '@Components/Settings'
 
 interface HomeProps {
   t: TFunction<('translation' | 'common')[], undefined>
@@ -22,11 +24,13 @@ class Home extends React.Component<HomeProps, HomeState> {
     const {t} = this.props
 
     return (
-      <div>
-        <h1>{t('home.title')}</h1>
-        {/*<SingInForm onSubmit={() => '1'} />*/}
-        <CookiesNotifying />
-      </div>
+      <Settings />
+      // <div>
+      //   <h1>{t('home.title')}</h1>
+      //   {/*<SingInForm onSubmit={() => '1'} />*/}
+      //   {/*<CookiesNotifying />*/}
+      //
+      // </div>
     )
   }
 }

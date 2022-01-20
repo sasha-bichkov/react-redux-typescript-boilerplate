@@ -4,12 +4,16 @@
 // ############ BASE ############
 @import "base/_resets";
 @import "base/_typography";
+@import "antd/dist/antd.css";
 
 // ############ THEMES ############
 // @import "themes/..";
 
 .App {
   display: flex;
+
+  width: 100vw;
+  min-height: 100vh;
 }
 
 .App__content {

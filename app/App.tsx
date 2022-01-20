@@ -17,6 +17,7 @@ const Home = React.lazy(() => import('@Pages/Home'))
 const NotFound = React.lazy(() => import('@Pages/NotFound'))
 const Issues = React.lazy(() => import('@Pages/Issues'))
 const Backlog = React.lazy(() => import('@Pages/Backlog'))
+const Settings = React.lazy(() => import('@Pages/SettingsPage'))
 
 import '@Root/i18n'
 import '@Scss/App.scss'
@@ -42,6 +43,7 @@ ReactDOM.render(
                   <Route path="/" element={<Home />} />
                   <Route path="/issues" element={<Issues />} />
                   <Route path="/backlog" element={<Backlog />} />
+                  <Route path="/settingsPage" element={<Settings />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </div>

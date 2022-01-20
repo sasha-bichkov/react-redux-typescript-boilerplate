@@ -51,7 +51,7 @@ export const SideBarData: Array<ISideBarItem> = [
   },
   {
     title: 'Settings',
-    path: '/Settings',
+    path: '/settingsPage',
     class: 'SideBar__link',
     Icon: SettingsIcon
   },
