@@ -1,6 +1,6 @@
 module.exports = {
   collectCoverage: true,
-  coverageReporters: ['test', 'html'],
+  coverageReporters: ['text', 'html'],
   testEnvironment: 'jsdom',
   transform: {
     '\\.[jt]sx?$': 'babel-jest',

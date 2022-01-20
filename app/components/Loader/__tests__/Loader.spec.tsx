@@ -1,11 +1,13 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
+import '@testing-library/jest-dom'
+
 import Loader from '../Loader'
 
 describe('Loader', () => {
-  it('should render correctly', () => {
-    const component = shallow(<Loader />)
+  it('matches snapshot', () => {
+    const { asFragment } = render(<Loader />)
 
-    expect(component).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

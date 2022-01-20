@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loader should render correctly 1`] = `
-<div
-  className="Loader"
->
-  <div />
-  <div />
-  <div />
-  <div />
-</div>
+exports[`Loader matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Loader"
+  >
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+</DocumentFragment>
 `;
