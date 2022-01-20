@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { withTranslation, useTranslation } from 'react-i18next'
 
 import Button from '@Components/Button'
 import './ResendConfirmationForm.scss'
@@ -20,6 +21,7 @@ const ResendConfirmationForm: FC<ISResendConfirmationForm> = props => {
     formState: {errors, isValid, isSubmitting},
     reset,
   } = useForm<IForm>({mode: 'all'})
+  const {t} = useTranslation()
   const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
@@ -41,15 +43,17 @@ const ResendConfirmationForm: FC<ISResendConfirmationForm> = props => {
           className="ResendConfirmationForm__input emailInput"
           aria-invalid={errors.email ? 'true' : 'false'}
           {...register('email', {
-            required: 'This is required field',
+            required: t('ResendConfirmationForm.required'),
             pattern: {
               value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-              message: 'Invalid email address'
+              message: t('ResendConfirmationForm.emailErr')
             }
           })}
         />
 
-        <label className="ResendConfirmationForm__label" htmlFor="email">Email</label>
+        <label className="ResendConfirmationForm__label" htmlFor="email">
+          {t('ResendConfirmationForm.email')}
+        </label>
 
         {errors.email && (
           <p className="ResendConfirmationForm__error">
@@ -67,7 +71,7 @@ const ResendConfirmationForm: FC<ISResendConfirmationForm> = props => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <h2 className="ResendConfirmationForm__title">
-          Send me reset password instructions
+          {t('ResendConfirmationForm.title')}
         </h2>
 
         {renderEmail()}
@@ -78,11 +82,11 @@ const ResendConfirmationForm: FC<ISResendConfirmationForm> = props => {
           disabled={!isValid || isSubmitting}
           className="ResendConfirmationForm__button"
         >
-          Send me&nbsp;reset password instructions
+          {t('ResendConfirmationForm.submit')}
         </Button>
       </form>
     </FocusLock>
   )
 }
 
-export default ResendConfirmationForm
+export default withTranslation()(ResendConfirmationForm)

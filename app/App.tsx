@@ -36,7 +36,6 @@ ReactDOM.render(
         <BrowserRouter>
           <div className="App">
             <SideBar SideBarData={SideBarData} />
-
             <React.Suspense fallback={<Suspense />}>
               <Routes>
                 <Route path="/" element={<Home />} />

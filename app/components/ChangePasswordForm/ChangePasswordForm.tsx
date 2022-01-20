@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import Button from '@Components/Button'
 
 import './ChangePasswordForm.scss'
+import { withTranslation, useTranslation } from 'react-i18next'
 
 interface IForm {
   password: string
@@ -23,6 +24,7 @@ const ChangePasswordForm: FC<ISignUpForm> = props => {
     reset,
     watch
   } = useForm<IForm>({mode: 'all'})
+  const {t} = useTranslation()
   const password = useRef({})
   password.current = watch('password')
   const sleep = (milliseconds: number) => {
@@ -46,19 +48,21 @@ const ChangePasswordForm: FC<ISignUpForm> = props => {
           className="ChangePasswordForm__input passwordInput"
           aria-invalid={errors.password ? 'true' : 'false'}
           {...register('password', {
-            required: 'This is required field',
+            required: t('changePasswordForm.required'),
             minLength: {
               value: 6,
-              message: 'Please enter at least 6 characters'
+              message: t('changePasswordForm.minLength')
             },
             maxLength: {
               value: 30,
-              message: 'Please enter at most 30 characters'
+              message: t('changePasswordForm.maxLength')
             }
           })}
         />
 
-        <label className="ChangePasswordForm__label" htmlFor="password">Password</label>
+        <label className="ChangePasswordForm__label" htmlFor="password">
+          {t('changePasswordForm.password')}
+        </label>
 
         {errors.password && (
           <p role="alert" className="ChangePasswordForm__error">
@@ -79,14 +83,14 @@ const ChangePasswordForm: FC<ISignUpForm> = props => {
           className="ChangePasswordForm__input passwordInput"
           aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
           {...register('passwordConfirmation', {
-            validate: value => value === password.current || 'The passwords do not match'
+            validate: value => value === password.current || t('changePasswordForm.confirmationErr')
           })}
         />
 
         <label
           className="ChangePasswordForm__label"
           htmlFor="passwordConfirmation">
-          Password confirmation
+          {t('changePasswordForm.passwordConfirmation')}
         </label>
 
         {errors.passwordConfirmation && (
@@ -104,7 +108,9 @@ const ChangePasswordForm: FC<ISignUpForm> = props => {
         className="ChangePasswordForm"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h2 className="ChangePasswordForm__title">Change password</h2>
+        <h2 className="ChangePasswordForm__title">
+          {t('changePasswordForm.title')}
+        </h2>
 
         {renderPassword()}
         {renderPasswordRepeat()}
@@ -115,11 +121,11 @@ const ChangePasswordForm: FC<ISignUpForm> = props => {
           disabled={!isValid || isSubmitting}
           className="ChangePasswordForm__button"
         >
-          Change password
+          {t('changePasswordForm.submit')}
         </Button>
       </form>
     </FocusLock>
   )
 }
 
-export default ChangePasswordForm
+export default withTranslation()(ChangePasswordForm)

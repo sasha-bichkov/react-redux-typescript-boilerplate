@@ -6,7 +6,11 @@ import { IApplicationState } from '@Root/rootReducer'
 
 import OmniAuthButton from '@Components/OmniAuthButton'
 import GoogleIcon from '@Images/OmniAuthButton/GoogleLogo.svg'
-import SignUpForm from '@Components/SignUpForm'
+import ChangePasswordForm from '@Components/ChangePasswordForm'
+import ForgotPasswordForm from '@Components/ForgotPasswordForm'
+import ResendConfirmationForm from '@Components/ResendConfirmationForm'
+import SingInForm from '@Components/SingInForm'
+import CookiesNotifying from '@Components/CookiesNotifying'
 
 import {
   registerNewUser
@@ -30,7 +34,6 @@ interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interf
 class Home extends React.Component<HomeProps, HomeState> {
   render() {
     const {t, registerNewUser} = this.props
-
     return (
       <div>
         <h1>{t('home.title')}</h1>
@@ -41,6 +44,8 @@ class Home extends React.Component<HomeProps, HomeState> {
         {/*<OmniAuthButton Icon={GoogleIcon} onClick={() => console.log('click')}>*/}
         {/*  Sign in with Google*/}
         {/*</OmniAuthButton>*/}
+        {/*<SingInForm onSubmit={() => '1'} />*/}
+        <CookiesNotifying />
       </div>
     )
   }
