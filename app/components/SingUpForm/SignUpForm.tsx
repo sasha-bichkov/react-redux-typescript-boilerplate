@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { withTranslation, useTranslation } from 'react-i18next'
 
 import Button from '@Components/Button'
+
 import './SingUpForm.scss'
 
 interface IForm {
@@ -33,6 +34,7 @@ const SignUpForm: FC<ISignUpForm> = props => {
 
   const onSubmit: SubmitHandler<IForm> = async (data) => {
     console.log('sent:', data)
+    // ...
     props.onSubmit()
     await sleep(3000)
     reset()
@@ -68,6 +70,7 @@ const SignUpForm: FC<ISignUpForm> = props => {
       </div>
     )
   }
+
   const renderPassword = () => {
     return (
       <div className="SingUpForm__group">
@@ -102,6 +105,7 @@ const SignUpForm: FC<ISignUpForm> = props => {
       </div>
     )
   }
+
   const renderPasswordRepeat = () => {
     return (
       <div className="SingUpForm__group">

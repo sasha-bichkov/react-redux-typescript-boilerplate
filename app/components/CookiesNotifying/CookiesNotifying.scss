@@ -1,5 +1,3 @@
-@use "sass:color";
-
 .CookiesNotifying {
   background-color: #0288d1;
   box-shadow:
@@ -59,10 +57,10 @@
   color: white;
 
   &:hover {
-    background-color: color.adjust(#2e7d32, $lightness: 10%);
+    background-color: adjust-color(#2e7d32, $lightness: 10%);
   }
 
   &:active {
-    background-color: color.adjust(#2e7d32, $lightness: -10%);
+    background-color: adjust-color(#2e7d32, $lightness: -10%);
   }
 }
