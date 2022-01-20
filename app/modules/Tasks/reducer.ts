@@ -3,7 +3,7 @@ import produce from 'immer'
 import { IAction } from '@Root/types'
 import { ITask, ITasks, TasksActionTypes } from '@Modules/Tasks/types'
 
-const initialState: ITasks = {
+export const initialState: ITasks = {
   tasks: []
 }
 

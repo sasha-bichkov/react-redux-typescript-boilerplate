@@ -29,7 +29,7 @@ const CreatingTasksForm: FC<CreatingTasksForm> = props => {
     return (
       <div className="CreatingTasksForm__group">
         <input
-          id="title"
+          id="creatingTasksTitle"
           type="text"
           placeholder=" "
           className="CreatingTaskInput__input TaskTitle"
@@ -68,7 +68,7 @@ const CreatingTasksForm: FC<CreatingTasksForm> = props => {
 
         <label
           className="CreatingTasksForm__label"
-          htmlFor="creatingTasksTitle">
+          htmlFor="taskText">
           Add description...
         </label>
 

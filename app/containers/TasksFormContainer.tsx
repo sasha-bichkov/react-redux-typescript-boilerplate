@@ -12,9 +12,9 @@ interface ITasksFromContainerProps {
   addNewTask(payload: ITask): void
 }
 
-const TasksFromContainer: FC<ITasksFromContainerProps> = ({addNewTask}) => {
+const TasksFromContainer: FC<ITasksFromContainerProps> = props => {
   return (
-    <CreatingTasksForm addNewTask={addNewTask} />
+    <CreatingTasksForm addNewTask={props.addNewTask} />
   )
 }
 
