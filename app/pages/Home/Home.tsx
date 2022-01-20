@@ -2,7 +2,12 @@ import React from 'react'
 import { withTranslation, TFunction } from 'react-i18next'
 
 import OmniAuthButton from '@Components/OmniAuthButton'
-import GoogleIcon from '@Images/OmniAuthButton/GoogleLogo.svg'
+import ChangePasswordForm from '@Components/ChangePasswordForm'
+import ForgotPasswordForm from '@Components/ForgotPasswordForm'
+import ResendConfirmationForm from '@Components/ResendConfirmationForm'
+import SingInForm from '@Components/SingInForm'
+import SignUpForm from '@Components/SingUpForm'
+import CookiesNotifying from '@Components/CookiesNotifying'
 
 import './Home.scss'
 
@@ -14,15 +19,13 @@ interface HomeState {} // eslint-disable-line @typescript-eslint/no-empty-interf
 
 class Home extends React.Component<HomeProps, HomeState> {
   render() {
-    const { t } = this.props
+    const {t} = this.props
 
     return (
       <div>
         <h1>{t('home.title')}</h1>
-
-        <OmniAuthButton Icon={GoogleIcon} onClick={() => console.log('click')}>
-          Sign in with Google
-        </OmniAuthButton>
+        {/*<SingInForm onSubmit={() => '1'} />*/}
+        <CookiesNotifying />
       </div>
     )
   }
