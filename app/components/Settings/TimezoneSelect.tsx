@@ -5,11 +5,16 @@ import { Row, Col, Select } from 'antd'
 
 const { Option, OptGroup } = Select
 
+const defautlTimezone = momentTimezone.tz.guess()
+const convertToGMT = (timezone: string) => {
+  return `GMT ${moment.tz(timezone).format('Z')} - ${timezone}`
+}
+
 const TimezoneSelect: FC = () => {
   const renderOptions = () => {
     const timezones = moment.tz.names()
     const mappedValues = {}
-    const regions = []
+    const regions:string[] = []
 
     timezones.map(timezone => {
       const splitTimezone = timezone.split('/')
@@ -18,7 +23,7 @@ const TimezoneSelect: FC = () => {
         mappedValues[region] = []
         regions.push(region)
       }
-      mappedValues[region].push(timezone)
+      mappedValues[region].push(convertToGMT(timezone))
     })
     return regions.map(region => {
       const options = mappedValues[region].map(timezone => {
@@ -34,12 +39,13 @@ const TimezoneSelect: FC = () => {
       )
     })
   }
+
   return (
     <div className="TimezoneSelect">
       <Row>
         <Col>
           <Select
-            defaultValue={momentTimezone.tz.guess()}
+            defaultValue={convertToGMT(defautlTimezone)}
           >
             {renderOptions()}
           </Select>

@@ -1,9 +1,10 @@
-import React, { FC } from 'react'
+import React from 'react'
 import {
   Form, Input, Button, Select,
   Row, Col, Divider, Layout,
   Switch, Typography
 } from 'antd'
+
 import TimezoneSelect from '@Components/Settings/TimezoneSelect'
 
 import './Settings.scss'
@@ -20,13 +21,15 @@ const Settings = () => {
 
   const { Option } = Select
   const { Content } = Layout
-  const { Title, Paragraph } = Typography
+  const { Paragraph } = Typography
 
   const SettingEstimationSelect = () => {
     return (
       <Row className='Settings__estimationSelect' align={'middle'}>
-        <Col xs={24} md={12}>
-          <span>Issue estimation</span>
+        <Col xs={{ span: 24 }} md={12} className="Settings__estimationSelectText Settings__text">
+          <span>
+            Issue estimation
+          </span>
         </Col>
         <Col xs={24} md={12}>
           <Select
@@ -110,7 +113,7 @@ const Settings = () => {
             </Form.Item>
           </Form>
         </section>
-        <section>
+        <section className="Settings__section">
           <h3>
             Timezone
           </h3>
@@ -122,7 +125,7 @@ const Settings = () => {
           </Paragraph>
           <TimezoneSelect />
         </section>
-        <section>
+        <section className="Settings__section">
           <h3>
             Estimates
           </h3>

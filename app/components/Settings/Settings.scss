@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 .Settings {
   background-color: #fff;
 }
@@ -9,6 +13,10 @@
 
 .Settings__section {
   margin-bottom: 25px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .Settings__input {
@@ -22,6 +30,14 @@
 
 .Settings__estimationSelect {
 
+}
+
+.Settings__estimationSelectText {
+  margin-bottom: 15px;
+
+  @include mq($from: desktop) {
+    margin-bottom: 0;
+  }
 }
 
 .Settings__text {
