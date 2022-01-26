@@ -1,11 +1,11 @@
-import { converToSnakeCase } from '../convertSnakeCase'
+import { convertToSnakeCase } from '../convertSnakeCase'
 
 describe('converToSnakeCase', () => {
 
   it('works [1]', () => {
     const testObject = {}
 
-    const result = converToSnakeCase(testObject)
+    const result = convertToSnakeCase(testObject)
 
     expect(result).toEqual({})
   })
@@ -15,7 +15,7 @@ describe('converToSnakeCase', () => {
       my_param: 'value'
     }
 
-    const result = converToSnakeCase(testObject)
+    const result = convertToSnakeCase(testObject)
 
     expect(result).toEqual(testObject)
   })
@@ -25,7 +25,7 @@ describe('converToSnakeCase', () => {
       myParam: 'value'
     }
 
-    const result = converToSnakeCase(testObject)
+    const result = convertToSnakeCase(testObject)
 
     expect(result).toEqual({
       my_param: 'value'
@@ -40,7 +40,7 @@ describe('converToSnakeCase', () => {
       my_param4: 'value',
     }
 
-    const result = converToSnakeCase(testObject)
+    const result = convertToSnakeCase(testObject)
 
     expect(result).toEqual({
       my_param: 'value',
@@ -57,7 +57,7 @@ describe('converToSnakeCase', () => {
       }
     }
 
-    const result = converToSnakeCase(testObject)
+    const result = convertToSnakeCase(testObject)
 
     expect(result).toEqual({
       my_param: {
@@ -74,7 +74,7 @@ describe('converToSnakeCase', () => {
       myParam2: 'value2'
     }
 
-    const result = converToSnakeCase(testObject)
+    const result = convertToSnakeCase(testObject)
 
     expect(result).toEqual({
       my_param: {
@@ -93,7 +93,7 @@ describe('converToSnakeCase', () => {
       }
     }
 
-    const result = converToSnakeCase(testObject)
+    const result = convertToSnakeCase(testObject)
 
     expect(result).toEqual({
       my_param: {
@@ -129,7 +129,7 @@ describe('converToSnakeCase', () => {
       }
     }
 
-    const result = converToSnakeCase(testObject)
+    const result = convertToSnakeCase(testObject)
 
     expect(result).toEqual({
       my_param: {
@@ -166,7 +166,7 @@ describe('converToSnakeCase', () => {
       myArray: [1, 2, 3, 4, 5]
     }
 
-    const result = converToSnakeCase(testObject)
+    const result = convertToSnakeCase(testObject)
 
     expect(result).toEqual({
       test: 'value',
