@@ -8,14 +8,18 @@ import ArrowIcon from '@Images/SideBar/ChevronDoubleRight.svg'
 import './SideBar.scss'
 
 interface ISideBarList {
-  SideBarData: Array<ISideBarItem>
+  SideBarData: ISideBarItem[]
 }
 
 const SideBar: FC<ISideBarList> = ({SideBarData}) => {
-  const [active, setActive] = useState(false)
+  const [isOpened, toggleIsOpened] = useState(false)
   const SideBarClass = classnames('SideBar', {
-    'SideBar-active': active
+    'SideBar-active': isOpened
   })
+
+  const onClick = () => {
+    toggleIsOpened(!isOpened)
+  }
 
   return (
     <nav className={SideBarClass}>
@@ -28,22 +32,28 @@ const SideBar: FC<ISideBarList> = ({SideBarData}) => {
                 className='Sidebar__divider'
               />
             )
+          } else {
+            return (
+              <div key={item.title} className="SideBar__navItem">
+                <NavLink
+                  to={item.path}
+                  className={item.class}
+                >
+                  {item.Icon ? <item.Icon /> : ''}
+
+                  <span className="SideBar__text">
+                    {item.title}
+                  </span>
+                </NavLink>
+              </div>
+            )
           }
-          return <div key={item.title} className="SideBar__navItem">
-            <NavLink
-              to={item.path || '/'}
-              className={item.class}>
-              {item.Icon ? <item.Icon /> : ''}
-              <span className="SideBar__text">
-                {item.title}
-              </span>
-            </NavLink>
-          </div>
         })}
+
         <button
           className="SideBar__arrowButton"
           type="button"
-          onClick={() => setActive(!active)}
+          onClick={onClick}
         >
           <ArrowIcon className="Sidebar__arrowIcon" />
         </button>

@@ -5,7 +5,6 @@ import '@testing-library/jest-dom'
 import NotFound from '../NotFound'
 
 describe('Issues', () => {
-
   it('renders correctly', () => {
     render(<NotFound />)
     const text = screen.getByText(/Page not found/i)
