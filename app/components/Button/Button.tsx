@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
 
 import './Button.scss'
@@ -19,7 +19,7 @@ const Button: FC<ButtonProps> = ({
   type = 'button',
   disabled,
   children
-}: ButtonProps): ReactElement => {
+}: ButtonProps) => {
   const classes = classNames(
     'Button',
     className,

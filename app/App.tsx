@@ -36,15 +36,13 @@ ReactDOM.render(
         <BrowserRouter>
           <div className="App">
             <SideBar SideBarData={SideBarData} />
-            <React.Suspense fallback={Suspense}>
-              <div className='App__content'>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/issues" element={<Issues />} />
-                  <Route path="/backlog" element={<Backlog />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </div>
+            <React.Suspense fallback={<Suspense />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/issues" element={<Issues />} />
+                <Route path="/backlog" element={<Backlog />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
             </React.Suspense>
           </div>
         </BrowserRouter>

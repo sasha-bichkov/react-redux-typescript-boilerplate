@@ -3,6 +3,7 @@ import FocusLock from 'react-focus-lock'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
 import Button from '@Components/Button'
+
 import './ChangePasswordForm.scss'
 import { withTranslation, useTranslation } from 'react-i18next'
 
