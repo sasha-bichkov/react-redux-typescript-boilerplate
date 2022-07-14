@@ -1,32 +1,36 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import userEvent from '@testing-library/user-event'
+import { render, screen } from '@testing-library/react'
+import '@testing-library/jest-dom'
+
 import Popup from '../Popup'
 
 describe('Popup', () => {
   it('calls button onclick callback at once if click button', () => {
     const mockCallback = jest.fn()
-    const component = mount(
+    render(
       <Popup
-        overlay={true}
-        close={() => console.log('click')}
+        overlay
+        close={mockCallback}
       />
     )
+    const button = screen.getByRole('button')
 
-    component.find('.Popup__closeButton').simulate('click')
+    userEvent.click(button)
 
-    expect(mockCallback).toHaveBeenCalledTimes(0)
+    expect(mockCallback).toHaveBeenCalled()
   })
 
   describe('if overlay is true', () => {
     it('renders background', () => {
-      const component = mount(
+      const { container } = render(
         <Popup
           overlay
-          close={() => console.log('click')}
+          close={() => ''}
         />
       )
 
-      const result = component.find('.overlay')
+      const result = container.getElementsByClassName('Popup__overlay')
 
       expect(result).toHaveLength(1)
     })
@@ -34,14 +38,14 @@ describe('Popup', () => {
 
   describe('if overlay is false', () => {
     it('does not render background', () => {
-      const component = mount(
+      const { container } = render(
         <Popup
           overlay={false}
-          close={() => console.log('click')}
+          close={() => ''}
         />
       )
 
-      const result = component.find('.overlay')
+      const result = container.getElementsByClassName('Popup__overlay')
 
       expect(result).toHaveLength(0)
     })

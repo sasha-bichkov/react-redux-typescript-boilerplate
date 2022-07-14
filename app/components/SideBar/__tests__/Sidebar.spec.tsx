@@ -22,7 +22,7 @@ describe('SideBar', () => {
     })
   })
 
-  describe('if click expands button', () => {
+  describe('if the expand button is clicked', () => {
     it('has add to SideBar SideBar-active class', () => {
       render(<BrowserRouter>
         <SideBar SideBarData={SideBarData} />
@@ -37,14 +37,13 @@ describe('SideBar', () => {
     })
   })
 
-  // не разобрался пока с роутингом и как его тестировать
-  describe('if click Inbox', () => {
-    it('redirects and update history', () => {
+  describe('if a link is clicked', () => {
+    it('redirects and updates the history', () => {
       const history = createMemoryHistory()
+
       render(<Router history={history}>
         <SideBar SideBarData={SideBarData} />
       </Router>)
     })
   })
-
 })

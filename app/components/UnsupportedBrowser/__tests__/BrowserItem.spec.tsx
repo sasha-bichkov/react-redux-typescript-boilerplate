@@ -2,11 +2,11 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import Loader from '../Loader'
+import UnsupportedBrowser from '../UnsupportedBrowser'
 
-describe('Loader', () => {
+describe('UnsupportedBrowser', () => {
   it('matches snapshot', () => {
-    const { asFragment } = render(<Loader />)
+    const { asFragment } = render(<UnsupportedBrowser />)
 
     expect(asFragment()).toMatchSnapshot()
   })

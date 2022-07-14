@@ -2,11 +2,11 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import Loader from '../Loader'
+import Suspense from '../Suspense'
 
-describe('Loader', () => {
+describe('Suspense', () => {
   it('matches snapshot', () => {
-    const { asFragment } = render(<Loader />)
+    const { asFragment } = render(<Suspense />)
 
     expect(asFragment()).toMatchSnapshot()
   })

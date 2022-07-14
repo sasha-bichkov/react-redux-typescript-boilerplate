@@ -1,11 +1,19 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import i18n from '@Root/i18n'
+
 import Home from '../Home'
+
+beforeEach(() => {
+  i18n.init()
+})
 
 describe('Home', () => {
   it('renders correctly', () => {
-    const component = shallow(<Home />)
+    render(<Home />)
+    const text = screen.getByText(/home/i)
 
-    expect(component).toMatchSnapshot()
+    expect(text).toBeInTheDocument()
   })
 })
